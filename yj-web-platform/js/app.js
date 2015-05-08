@@ -21,6 +21,9 @@ angular.module("ljaWebPlatform",[
 		}).when("/entering",{
 			templateUrl:"template/entering.html",
 			controller:"Entering"
+		}).when("/login",{
+			templateUrl:"template/login.html",
+			controller:"Login"
 		})
 	 $locationProvider.html5Mode(true);
 }) 

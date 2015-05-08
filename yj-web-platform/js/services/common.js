@@ -24,22 +24,37 @@ angular.module("services.common",[])
 				userName:userName,
 				password:password
 			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
 		}
 	}
 })
 
-
 //检测系统是否已初始化管理员
 
-.service("$init",function($http,$location){
-    var promise=$http({
-    	method:'GET',
-    	url:BASE_URL+'/platform/checklint'
-    });
-    promise.success(function($location){
-    	$location.path=BASE_URL + '/platform/login' ;
-    });
-    promise.error(function($location){
-    	$location.path=BASE_URL + '/platform/initAdmin' ;
-    });
+.service("$init",function(
+	$http,
+	$location
+){
+	return {
+		init:function(callback){
+			var promise=$http({
+		    	method:'GET',
+		    	url:BASE_URL+'/platform/checkInit'
+		    });
+
+		    promise.success(function(data){//{success:false/true}
+		    	if(callback)callback(null,data);
+		    });
+
+		    promise.error(function(err){
+		    	if(callback)callback(err);
+		    });
+		}
+	}
+   
 })

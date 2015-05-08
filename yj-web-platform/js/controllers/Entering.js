@@ -1,8 +1,7 @@
 angular.module("controllers.entering",[])
 .controller("Entering",function(
 	$scope,
-	$driveSchool,
-	$login
+	$driveSchool
 ){
 	console.log("$scope %o",$scope)
 	$scope.opt = [];

@@ -1,5 +1,23 @@
-<section class="Login_detile">
-	<div class="Login">
-		
+<section class="login">
+	<div class="Login_detiles">
+		<form  name="signin_form" novalidate ng-submit="signinForm()" ng-controller="signinController">
+			<label>Your Name</label>
+			<input type="text" placeholder="Name"  name="name" ng-module="signin.name" ng-minlength=3 ng-maxlength=20 required />
+			<div class="error" ng-messages="signin_form.name.$error" ng-messages-multiple>
+				<div ng-message="required">sure you enter your name</div>
+				<div ng-message="minlengtrh"> your name must be at least 3 characters</div>
+				<div ng-message="maxlength">your name can not be longer than 20 characters</div>
+			</div>
+			<br>
+			<label>spassword</label>
+			<input type="text" placeholder="Password"  name="password" ng-module="signin.password" ng-minlength=6 ng-maxlength=10 required />
+			<div class="error" ng-messages="signin_form.name.$error" ng-messages-multiple>
+				<div ng-message="required">sure you enter your password</div>
+				<div ng-message="minlengtrh"> your password must be at least 6 characters</div>
+				<div ng-message="maxlength">your password can not be longer than 10 characters</div>
+			</div>
+
+			<button type="submit">Submit</button>
+		</form>
 	</div>
 </section>

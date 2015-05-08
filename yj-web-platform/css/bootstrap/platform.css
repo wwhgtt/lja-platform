@@ -98,10 +98,17 @@ from{transform:rotate(0deg)}
 	left: 20.4643172%;
     top: 0.4%; 
 }
-.Login_detile{
-	background-image: url(./img/282396.jpg);
+.login{
+	background-image: url(../../img/282396.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	width: 100%;
 	height:100%;
+}
+.Login_detiles{
+	width:auto;
+	height:auto;
+	position: absolute;
+	top:45%;
+	left:15%;
 }
