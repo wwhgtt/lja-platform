@@ -11,10 +11,9 @@ angular.module("controllers.systemInit",[])
 		}else{
 			if(result && result.success){//系统已经初始化
 				console.log("result go login")
-				//跳到登录界面
-				$location.path = "/login";
+				$location.path("/login");
 			}else{//系统未初始化
-				//跳到初始化界面
+				$location.path("/initAdmin");
 			}
 		}
 	})

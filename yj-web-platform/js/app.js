@@ -8,6 +8,7 @@ angular.module("ljaWebPlatform",[
 	"directives.basicItem",
 	"directives.systemInit",
 	"directives.login",
+	"directives.pwCheck",
 	"services.common"
 ])
 .config(function(
@@ -24,6 +25,9 @@ angular.module("ljaWebPlatform",[
 		}).when("/login",{
 			templateUrl:"template/login.html",
 			controller:"Login"
+		}).when("/initAdmin",{
+			templateUrl:"template/initAdmin.html",
+			controller:"initAdmin"
 		})
 	 $locationProvider.html5Mode(true);
 }) 
