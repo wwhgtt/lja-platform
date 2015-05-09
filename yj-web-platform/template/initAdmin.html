@@ -1,6 +1,6 @@
 <div class="initAdmin">
-	<div class="admin_init"> <!-- 系统初始化界面 -->
-		<form name="init_form" novalidate ng-submit="initForm()" class="init_form">
+	<!-- 系统初始化界面 -->
+		<form name="init_form" novalidate ng-submit="initForm()" >
 			<label>Your Name</label>
 			<input type="text" placeholder="Name"  name="name" ng-model="init.name" ng-minlength=1 ng-maxlength=20 required />
 			<div class="error" ng-messages="init_form.name.$error" ng-messages-multiple>
@@ -10,7 +10,7 @@
 			</div>
 			<br>
 			<label>password</label>
-			<input type="password" id="pw1" name="pw1" ng-model="init.pw1" ng-required/>
+			<input type="password" id="pw1" name="pw1" ng-model="init.pw1" required />
 			<div class="error" ng-messages="init_form.name.$error" ng-messages-multiple>
 				<div ng-message="required">sure you enter your password</div>
 				<div ng-message="minlengtrh"> your password must be at least 6 characters</div>
@@ -18,13 +18,14 @@
 			</div>
 			<br>
 			<label>confirm</label>
-		    <input type="password" id="pw2" name="pw2"  ng-model="init.pw2" ng-required pw-check="pw1"/>
-		    <div class="msg-block" ng-show="init_form.$error">
-				 <span class="msg-error" ng-show="myForm.pw2.$error.pwmatch">
-				    Passwords don't match.
-				 </span>
-		    </div>
+		    <input type="password" id="pw2" name="pw2"  ng-model="init.pw2"  required pw-check="pw1" />
+		    <!-- <div class="msg-block" ng-show="init_form.$error">
+		    				 <span class="msg-error" ng-show="myForm.pw2.$error.pwmatch">
+		    				    Passwords don't match.
+		    				 </span>
+		    </div> -->
+		    <button type="submit">Submit</button>
 	</form>
-   </div> 
+    
 </div>
 

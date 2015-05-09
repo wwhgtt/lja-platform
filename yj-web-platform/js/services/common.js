@@ -12,9 +12,18 @@ angular.module("services.common",[])
 				businessLicenseId:opt.businessLicenseId,
 				areaCode:opt.areaCode
 			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
 		}
 	}
 })
+
+//管理员登录
 .service("$login",function(
 	$http
 ){
