@@ -1,13 +1,12 @@
 angular.module("controllers.initAdmin",[])  //controller后面这个名字是无所谓的  只是新定义的一个内容罢了
 .controller("InitAdmin",function(
 	$scope,
-	$login,
+	$Init,
 	$location  //这个引入的是common里面定义的服务名字   相当于把服务引进来
 ){
 	$scope.init = {name:"",pw1:"",pw2:""};//先设置一个存放页面输入数据的对象；其实就是一个json数组；
 	$scope.initForm= function(){  // 调用html页面里面的ng-submit函数；
-		console.log("signinForm");
-		console.log("signin %o",$scope.signin);
+		console.log("init %o",$scope.init);
 		var userName = $scope.init.name;   //html页面里面的ng-module设置的内容    数据绑定
 		var password1 = $scope.init.pw1;
         var password2 = $scope.init.pw2;

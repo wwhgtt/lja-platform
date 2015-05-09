@@ -4,6 +4,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.systemInit",
 	"controllers.entering",
 	"controllers.login",
+	"controllers.initAdmin",
 	/*"controllers.signupControllers",*/
 	"directives.basicItem",
 	"directives.systemInit",
@@ -27,7 +28,7 @@ angular.module("ljaWebPlatform",[
 			controller:"Login"
 		}).when("/initAdmin",{
 			templateUrl:"template/initAdmin.html",
-			controller:"initAdmin"
+			controller:"InitAdmin"
 		})
 	 $locationProvider.html5Mode(true);
 }) 

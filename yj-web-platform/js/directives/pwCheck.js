@@ -1,5 +1,5 @@
 angular.module('directives.pwCheck', [])
-  .directive('pwCheck', [function () {
+  .directive('pwCheck', function (){
     return {
       require: 'ngModel',
       link: function (scope, elem, attrs, ctrl) {
@@ -12,4 +12,4 @@ angular.module('directives.pwCheck', [])
         });
       }
     }
-  }]);
+  });
