@@ -7,7 +7,7 @@ angular.module("controllers.systemInit",[])
 	$init.init(function(err,result){
 		console.log("result %o",result);
 		if(err){
-
+            alert("sorry,访问出错");
 		}else{
 			if(result && result.success){//系统已经初始化
 				console.log("result go login")

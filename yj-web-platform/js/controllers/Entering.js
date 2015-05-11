@@ -20,8 +20,8 @@ angular.module("controllers.entering",[])
 				if(result && result.success){ //result代表的是服务访问成功且有返回值表示密码正确
 					alert("添加成功");   //跳转到驾校管理页面去
 				}else{
-					console.log("用户名或者密码不对"); //服务访问成功  但是输入的密码不正确
-
+					//console.log("用户名或者密码不对"); //服务访问成功  但是输入的密码不正确
+                    alert("sorry,添加失败，请稍后重试");
 				}
 			}
 		})
