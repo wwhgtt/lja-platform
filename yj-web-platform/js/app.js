@@ -13,6 +13,7 @@ angular.module("ljaWebPlatform",[
 	"directives.systemInit",
 	"directives.login",
 	"directives.pwCheck",
+	"directives.bmap",
 	"services.common"
 ])
 .config(function(
