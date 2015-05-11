@@ -8,7 +8,7 @@ angular.module("directives.bmap",[])
 			console.log("Bmap",BMap);
 			console.log("element",element);
 			var map = new BMap.Map("allmap");
-			var point = new BMap.Point(116.417854,39.921988);
+			var point = new BMap.Point();
 			var marker = new BMap.Marker(point);  // 创建标注
 			map.addOverlay(marker);              // 将标注添加到地图中
 			map.centerAndZoom(point, 15);
@@ -24,6 +24,14 @@ angular.module("directives.bmap",[])
 				map.openInfoWindow(infoWindow,point); //开启信息窗口
 			});
 			map.enableScrollWheelZoom(true);
+			//
+			function myFun(result){
+				var cityName = result.name;
+				map.setCenter(cityName);
+				// alert("当前定位城市:"+cityName);
+			}
+			var myCity = new BMap.LocalCity();
+			myCity.get(myFun);
 			//搜索功能
 			$scope.getsite={address:""};
 			var local = new BMap.LocalSearch(map, {
