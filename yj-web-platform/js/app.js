@@ -6,6 +6,8 @@ angular.module("ljaWebPlatform",[
 	"controllers.login",
 	"controllers.initAdmin",
 	"controllers.rePwd",
+	"controllers.addSiteInfo",
+	"controllers.getSiteInfo",
 	/*"controllers.signupControllers",*/
 	"directives.basicItem",
 	"directives.systemInit",
@@ -33,6 +35,12 @@ angular.module("ljaWebPlatform",[
 		}).when("/rePwd",{
 			templateUrl:"template/rePwd.html",
 			controller:"RePwd"
+		}).when("/addSiteInfo",{
+			templateUrl:"template/addSiteInfo.html",
+			controller:"addSiteInfo"
+		}).when("/getSiteInfo",{
+			templateUrl:"template/getSiteInfo.html",
+			controller:"getSiteInfo"
 		})
 	 $locationProvider.html5Mode(true);
 }) 

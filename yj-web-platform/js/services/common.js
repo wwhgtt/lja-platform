@@ -109,3 +109,52 @@ angular.module("services.common",[])
 		}
 	}
 })
+
+//添加场地信息
+.service("$AddSiteInfo",function(
+	$http
+){
+	return {
+		addSiteInfo:function(long,lat,name,callback){
+			long = parseFloat(long);
+			lat = parseFloat(lat);
+			$http.post(BASE_URL + "/platform/operate/siteInfo/add",{
+				long:long,
+				lat:lat,
+				name:name
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+
+//获取场地信息
+.service("$GetSiteInfo",function(
+	$http
+){
+	return {
+		getSiteInfo:function(long,lat,distcine,callback){
+			long = parseFloat(long);
+			lat = parseFloat(lat);
+			distcine=parseFloat(distcine);
+			$http.get(BASE_URL + "/platform/operate/siteInfo/get",{
+				long:long,
+				lat:lat,
+				distcine:distcine
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

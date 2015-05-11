@@ -1,0 +1,26 @@
+<div class="addSiteInfo">
+	<form  name="addSiteInfo_form"  ng-submit="addSiteInfo()" novalidate>
+		<lable>经度</lable>
+		<input type="text" ng-model="addSite.long" required name="long" placeholder="请输入场地经度" ng-minlength=1 />
+		<div class="error" ng-messages="addSiteInfo_form.long.$error" ng-messages-multiple>
+				<div ng-message="required">sure you enter your long</div>
+				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
+			</div>
+		<br>
+		<lable>纬度</lable>
+		<input type="text" ng-model="addSite.lat" required name="lat" placeholder="请输入场地纬度" ng-minlength=1 />
+		<div class="error" ng-messages="addSiteInfo_form.lat.$error" ng-messages-multiple>
+				<div ng-message="required">sure you enter your lat</div>
+				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
+			</div>
+		<br>
+		<lable>场地名字</lable>
+		<input type="text" ng-model="addSite.name" required name="name" placeholder="请输入场名字" ng-minlength=1 />
+		<div class="error" ng-messages="addSiteInfo_form.name.$error" ng-messages-multiple>
+				<div ng-message="required">sure you enter your password</div>
+				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
+			</div>
+		<br>
+		<button type="submit">确认提交</button>
+	</form>
+</div>
