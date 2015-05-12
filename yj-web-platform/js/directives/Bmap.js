@@ -7,31 +7,38 @@ angular.module("directives.bmap",[])
 		link:function($scope,element,attr){
 			console.log("Bmap",BMap);
 			console.log("element",element);
+
 			var map = new BMap.Map("allmap");
-			var point = new BMap.Point();
-			var marker = new BMap.Marker(point);  // 创建标注
-			map.addOverlay(marker);              // 将标注添加到地图中
-			map.centerAndZoom(point, 15);
-			var opts = {
-			  width : 200,     // 信息窗口宽度
-			  height: 100,     // 信息窗口高度
-			  title : "海底捞王府井店" , // 信息窗口标题
-			  enableMessage:true,//设置允许信息窗发送短息
-			  message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-			}
-			var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象 
-			marker.addEventListener("click", function(){          
-				map.openInfoWindow(infoWindow,point); //开启信息窗口
-			});
-			map.enableScrollWheelZoom(true);
-			//
+			
 			function myFun(result){
 				var cityName = result.name;
 				map.setCenter(cityName);
-				// alert("当前定位城市:"+cityName);
+				map.centerAndZoom(cityName,12);
 			}
 			var myCity = new BMap.LocalCity();
 			myCity.get(myFun);
+			map.enableScrollWheelZoom(true);
+
+			var sContent =
+				"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>天安门</h4>" + 
+				"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>天安门坐落在中国北京市中心,故宫的南侧,与天安门广场隔长安街相望,是清朝皇城的大门...</p>" + 
+				"</div>";
+			var infoWindow = new BMap.InfoWindow(sContent);
+
+			map.addEventListener("click", showInfo);
+
+			function showInfo(e){
+				map.clearOverlays();
+				marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat));
+		        // 创建标注
+		        map.addOverlay(marker);
+		        marker.addEventListener("click",function(e){
+		        	this.openInfoWindow(infoWindow);
+				   	e.domEvent.stopPropagation();
+		        })
+			}
+
+			//
 			//搜索功能
 			$scope.getsite={address:""};
 			var local = new BMap.LocalSearch(map, {
