@@ -34,5 +34,15 @@
 	function saveAddress(){
     	var rep=$(".represent").val();
     	console.log("rep",rep);
+    	console.log(window.dataController.mapBrige.tempPoint);
+    	var coordinate=window.dataController.mapBrige.tempPoint;
+    	var long=coordinate.lng;
+    	var lat=coordinate.lat;
+    	var name=rep;
+    	$.post(BASE_URL+'/platform/operate/siteInfo/add',{
+    		long:long,
+    		lat:lat,
+    		name:name
+    	})
     }
 </script>
