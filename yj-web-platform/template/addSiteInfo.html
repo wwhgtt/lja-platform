@@ -17,9 +17,9 @@
 		<lable>场地名字</lable>
 		<input type="text" ng-model="addSite.name" required name="name" placeholder="请输入场名字" ng-minlength=1 />
 		<div class="error" ng-messages="addSiteInfo_form.name.$error" ng-messages-multiple>
-				<div ng-message="required">sure you enter your password</div>
-				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
-			</div>
+			<div ng-message="required">sure you enter your password</div>
+			<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
+		</div>
 		<br>
 		<button type="submit">确认提交</button>
 	</form>
@@ -28,5 +28,11 @@
 		<input type="text" placeholder="输入地址" name="siteinfo"  ng-model="getsite.address">
 		<button type="button" ng-click="searchAddress()">搜索</button>
 	</div>
-	<div id="allmap" add-bmap style="width:100%;height:500px;"></div>
+	<div id="allmap" style="width:100%;height:500px;" add-bmap></div>
 </div>
+<script>
+	function saveAddress(){
+    	var rep=$(".represent").val();
+    	console.log("rep",rep);
+    }
+</script>

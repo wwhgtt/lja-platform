@@ -112,3 +112,13 @@ from{transform:rotate(0deg)}
 	top:45%;
 	left:15%;
 }
+.represent{
+	margin:0 0 5px 0;
+	padding:0.2em 0;
+}
+.save_address{
+	width:60px;
+	height: 30px;
+	float: right;
+	margin-top: 40px
+}
