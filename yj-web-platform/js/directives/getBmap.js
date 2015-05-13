@@ -1,4 +1,4 @@
-angular.module("directives.getBmap",[])
+angular.module("directives.getBmap",["controllers.getSiteInfo"])
 .directive("getBmap",function(
 	$timeout
 ){
@@ -36,6 +36,16 @@ angular.module("directives.getBmap",[])
 	        	var address = $scope.getsite.address;
 	        	local.search(address);
 	        }
+	        //获取地图中心点并显示出返回的数据
+	        map.addEventListener("click", showInfo);
+	        function showInfo(e){
+				map.clearOverlays();
+				marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat));
+			   $scope.getSite.long=e.point.lng; //现在的问题是这个long不能与controllers里面的long一致
+	           $scope.getSite.lat=e.point.lat;
+	            console.log($scope.getSite.long);
+	            console.log($scope.getSite.lat)
+			}
 		}
 
 	}
