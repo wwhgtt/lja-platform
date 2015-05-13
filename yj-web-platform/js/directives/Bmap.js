@@ -34,11 +34,18 @@ angular.module("directives.bmap",[])
 		        	this.openInfoWindow(infoWindow);
 				   	e.domEvent.stopPropagation();
 		        })
-			    var  lng=e.point,lng;
+			    var  lng=e.point.lng;
 	            var  lat=e.point.lat;
 	            array = {lng:lng,lat:lat};
+	            window.dataController={
+	            	'mapBrige':{
+	            		//some comment
+	            		'tempPoint':null
+	            	}
+	            };
+	            window.dataController.mapBrige.tempPoint=array;
+	            console.log(array);
 			}
-
 			//搜索功能
 			$scope.getsite={address:""};
 			var local = new BMap.LocalSearch(map, {
