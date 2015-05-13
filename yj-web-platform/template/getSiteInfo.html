@@ -23,4 +23,10 @@
 		<br>
 		<button type="submit">确认</button>
 	</form>
+	<div class="getsite">
+		<label>输入地址</label>
+		<input type="text" placeholder="输入地址" name="siteinfo"  ng-model="getsite.address">
+		<button type="button" ng-click="searchAddress()">搜索</button>
+	</div>
+	<div id="getMap" style="width:80%;height:600px;margin:0 auto"  get-bmap></div>
 </div>
