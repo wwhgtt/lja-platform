@@ -46,8 +46,33 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 	            console.log($scope.getSite.long);
 	            console.log($scope.getSite.lat)
 			}
+			//把获取到的值放到百度地图中去
+			console.log($scope.map_name);
+			$scope.$watchCollection("mapData",function(newMapData){
+				// console.log("newMapData %o",newMapData);
+				for(var index in newMapData){
+					(function(){
+						var mapData = newMapData[index];
+						marker = new BMap.Marker(new BMap.Point(mapData.location[0],mapData.location[1]));
+				        // 创建标注
+				        map.addOverlay(marker);
+						var opts = {
+						  width : 200,     // 信息窗口宽度
+						  height: 100,     // 信息窗口高度
+						  title : "场地信息", // 信息窗口标题
+						  enableMessage:true,//设置允许信息窗发送短息
+						  message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+						}
+						var infoWindow = new BMap.InfoWindow(mapData.name, opts);  // 创建信息窗口对象 
+						console.log(mapData.name);
+						marker.addEventListener("click", function(e){
+							this.openInfoWindow(infoWindow); //开启信息窗口
+							e.domEvent.stopPropagation();
+						});
+					})(index);
+				}
+			})
 		}
-
 	}
 
 })
