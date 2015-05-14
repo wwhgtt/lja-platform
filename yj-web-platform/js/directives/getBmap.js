@@ -41,8 +41,8 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 	        function showInfo(e){
 				map.clearOverlays();
 				marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat));
-			   $scope.getSite.long=e.point.lng; //现在的问题是这个long不能与controllers里面的long一致
-	           $scope.getSite.lat=e.point.lat;
+			    $scope.getSite.long=e.point.lng; //现在的问题是这个long不能与controllers里面的long一致
+	            $scope.getSite.lat=e.point.lat;
 	            console.log($scope.getSite.long);
 	            console.log($scope.getSite.lat)
 			}

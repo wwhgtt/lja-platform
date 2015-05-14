@@ -143,10 +143,12 @@ angular.module("services.common",[])
 			long = parseFloat(long);
 			lat = parseFloat(lat);
 			distance=parseFloat(distance);
-			$http.get(BASE_URL + "/platform/operate/siteInfo/get",{
-				long:long,
-				lat:lat,
-				distance:distance
+			$http.get(BASE_URL + "/platform/operate/siteInfo/get",
+				{params:{
+					long:long,
+					lat:lat,
+					distance:distance
+				}		
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){

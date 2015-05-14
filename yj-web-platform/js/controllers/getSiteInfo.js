@@ -15,7 +15,7 @@ angular.module("controllers.getSiteInfo",[])  //controller后面这个名字是�
 			if(err){//这个代表的是服务本身出错后的程序
 				alert("sorry,访问出错");
 			}else{
-				if(result && result.name){ //result代表的是服务访问成功且有返回值表示密码正确
+				if(result && result.constructor==Array){ //result代表的是服务访问成功且有返回值表示密码正确
 					//$location.path("/entering");   //跳转到驾校管理页面去
 					alert("获取成功");
 				}else{
