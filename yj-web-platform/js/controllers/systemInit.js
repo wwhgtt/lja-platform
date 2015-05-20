@@ -13,7 +13,11 @@ angular.module("controllers.systemInit",[])
 				console.log("result go login")
 				$location.path("/login");
 			}else{//系统未初始化
-				$location.path("/initAdmin");//这个地方设置延迟
+				if(result && result.init == false){
+					$location.path("/initAdmin");//这个地方设置延迟
+				}else{
+					alert("系统出错");
+				}	
 			}
 		}
 	})

@@ -1,48 +1,31 @@
-angular.module("ljaWebPlatform",[
+angular.module("ljaWebDriveSchool",[
 	"ngRoute",
 	"ngMessages",
-	"controllers.systemInit",
-	"controllers.entering",
 	"controllers.login",
-	"controllers.initAdmin",
-	"controllers.rePwd",
-	"controllers.addSiteInfo",
-	"controllers.getSiteInfo",
-	/*"controllers.signupControllers",*/
-	"directives.basicItem",
-	"directives.systemInit",
+	"controllers.split",
+	"controllers.signalcoach",
+	"controllers.addMuch",
 	"directives.login",
-	"directives.pwCheck",
-	"directives.bmap",
-	"directives.getBmap",
+	"directives.muchcoach",
 	"services.common"
 ])
 .config(function(
 	$routeProvider,
 	$locationProvider
-){   
+){ 
 	$routeProvider
-		.when("/",{
-			templateUrl:"template/systemInit.html",
-			controller:"SystemInit"
-		}).when("/entering",{
-			templateUrl:"template/entering.html",
-			controller:"Entering"
-		}).when("/login",{
+		.when("/login",{
 			templateUrl:"template/login.html",
 			controller:"Login"
-		}).when("/initAdmin",{
-			templateUrl:"template/initAdmin.html",
-			controller:"InitAdmin"
-		}).when("/rePwd",{
-			templateUrl:"template/rePwd.html",
-			controller:"RePwd"
-		}).when("/addSiteInfo",{
-			templateUrl:"template/addSiteInfo.html",
-			controller:"addSiteInfo"
-		}).when("/getSiteInfo",{
-			templateUrl:"template/getSiteInfo.html",
-			controller:"getSiteInfo"
+		}).when("/addsignal",{
+			templateUrl:"template/signalcoach.html",
+			controller:"signalcoach"
+		}).when("/addmuch",{
+			templateUrl:"template/muchcoach.html",
+			controller:"addMuch"
+		}).when("/split",{
+			templateUrl:"template/split.html",
+			controller:"split"
 		})
 	 $locationProvider.html5Mode(true);
-}) 
+})
