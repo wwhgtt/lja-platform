@@ -39,7 +39,45 @@ angular.module("services.common",[])
 		}
 	}
 })
-
+.service("$addAll",function(
+	$http
+){
+	return {
+		addAll:function(coachList,callback){
+			$http.post(BASE_URL + "/basic/driveSchool/coach/addAll",{
+				coachList:coachList
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+.service("$stutent",function(
+	$http
+){
+	return {
+		stutent:function(name,phone,idNumber,coachId,callback){
+			$http.post(BASE_URL + "/basic/driveSchool/student/add",{
+				name:name,
+				phone:phone,
+				idNumber:idNumber,
+				coachId:coachId
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 
 
 

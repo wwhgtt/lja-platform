@@ -34,6 +34,13 @@ table { border-collapse:collapse; border-spacing:0; }
 	width:170px;
 	text-align: center
 }
+.student_rule span{
+	display: inline-block;
+	height:40px;
+	line-height: 40px;
+	width:170px;
+	text-align: center
+}
 #drop{
 	border:2px dashed #bbb;
 	-moz-border-radius:5px;

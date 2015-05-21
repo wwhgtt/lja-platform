@@ -5,6 +5,7 @@ angular.module("ljaWebDriveSchool",[
 	"controllers.split",
 	"controllers.signalcoach",
 	"controllers.addMuch",
+	"controllers.stutent",
 	"directives.login",
 	"directives.muchcoach",
 	"services.common"
@@ -26,6 +27,9 @@ angular.module("ljaWebDriveSchool",[
 		}).when("/split",{
 			templateUrl:"template/split.html",
 			controller:"split"
+		}).when("/addStutent",{
+			templateUrl:"template/student.html",
+			controller:"stutent"
 		})
 	 $locationProvider.html5Mode(true);
 })
