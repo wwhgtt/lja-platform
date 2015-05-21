@@ -6,6 +6,8 @@ angular.module("ljaWebDriveSchool",[
 	"controllers.signalcoach",
 	"controllers.addMuch",
 	"controllers.stutent",
+	"controllers.addAllStu",
+	"directives.allStudent",
 	"directives.login",
 	"directives.muchcoach",
 	"services.common"
@@ -30,6 +32,9 @@ angular.module("ljaWebDriveSchool",[
 		}).when("/addStutent",{
 			templateUrl:"template/student.html",
 			controller:"stutent"
+		}).when("/addAllStu",{
+			templateUrl:"template/allStudent.html",
+			controller:"addAllStu"
 		})
 	 $locationProvider.html5Mode(true);
 })

@@ -1,0 +1,24 @@
+<div class="output" all-student>
+	Output Format:
+		<select name="format">
+		<option value="json" ng-model="student.value" selected> JSON</option>
+		</select><br />
+		<div id="drop"  >拖动excel文件到此位置</div>
+		<div class="duoyu" style="display:none">
+		Advanced Demo Options: <br />
+		Use Web Workers: (when available) <input type="checkbox" name="useworker"  ng-model="student.useworker.checked" ng-disabled="student.useworker.disabled"><br />
+		Use Transferrables: (when available) <input type="checkbox" name="xferable"  ng-model="student.xferable.checked" ng-disabled="student.xferable.disabled"><br />
+		Use readAsBinaryString: (when available) <input type="checkbox" name="userabs"  ng-model="student.userabs.checked" ng-disabled="student.userabs.disabled"><br />
+		</div>
+		<table>
+			<!-- <th>教练姓名</th><th>教练手机号</th><th>教练身份证</th><th>是否挂靠教练（0\1)</th>  -->
+			<tbody>
+				<student-item ng-repeat="(key,student) in studentList"></student-item>
+			</tbody>
+		</table>
+		<button type="submit" ng-click="addAll()">确认提交</button>
+</div>
+<script src="./lib/shim.js"></script>
+<script src="./lib/jszip.js"></script>
+<script src="./lib/xlsx.js"></script>
+<script src="./lib/dist/ods.js"></script>

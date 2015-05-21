@@ -18,6 +18,7 @@ angular.module("services.common",[])
 		}
 	}
 })
+//添加单个学员
 .service("$signalcoach",function(
 	$http
 ){
@@ -39,6 +40,7 @@ angular.module("services.common",[])
 		}
 	}
 })
+//批量添加教练
 .service("$addAll",function(
 	$http
 ){
@@ -57,6 +59,7 @@ angular.module("services.common",[])
 		}
 	}
 })
+//添加单个学员
 .service("$stutent",function(
 	$http
 ){
@@ -67,6 +70,25 @@ angular.module("services.common",[])
 				phone:phone,
 				idNumber:idNumber,
 				coachId:coachId
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//批量添加学员
+.service("$addAllStu",function(
+	$http
+){
+	return {
+		addAllStu:function(studentList,callback){
+			$http.post(BASE_URL + "/basic/driveSchool/student/addAll",{
+				studentList:studentList
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
