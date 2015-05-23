@@ -6,6 +6,13 @@ angular.module("directives.coachcars",[])
 		templateUrl:"template/carsItem.html"
 	}
 })
+.directive("errorList",function(){
+	return {
+		restrict: "E",
+		replace: true,
+		templateUrl:"template/errorList.html"
+	}
+})
 .directive("coachcars",function(
 
 ){
@@ -112,8 +119,9 @@ angular.module("directives.coachcars",[])
 				return result;
 			}
 			function process_wb(wb) {
-				// console.log("$scope.coachList %o",$scope.coachList);
+				
 				$scope.carList = to_json(wb).Sheet1;
+				// console.log("$scope.carList %o",$scope.carList);
 				$scope.$digest();
 			}
 

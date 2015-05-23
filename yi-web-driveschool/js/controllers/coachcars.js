@@ -19,7 +19,7 @@ angular.module("controllers.coachcars",[])
 					//$location.path("/split"); 
 					alert("提交成功");  
 				}else{
-					console.log("请确认格式正确"); 
+					 $scope.errorList=result.errorList;
 				}
 			}
 		})

@@ -16,6 +16,8 @@
 		</tbody>
 	</table>
 	<button type="submit" ng-click="addCar()">确认提交</button>
+	<error-list ng-repeat="error in errorList" ng-model="errorList"></error-list>
+	<p class="wrong" ng-show="errorList">以上信息已经提交，请修正后重新提交</p>
 </div>
 <script src="./lib/shim.js"></script>
 <script src="./lib/jszip.js"></script>

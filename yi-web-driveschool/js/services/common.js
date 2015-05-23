@@ -24,7 +24,7 @@ angular.module("services.common",[])
 ){
 	return {
 		signalcoach:function(name,phone,idNumber,type,callback){
-			$http.post(BASE_URL + "/basic/driveSchool/coach/add",{
+			$http.post(BASE_URL + "/school/coach/add",{
 				name:name,
 				phone:phone,
 				idNumber:idNumber,
@@ -46,7 +46,7 @@ angular.module("services.common",[])
 ){
 	return {
 		addAll:function(coachList,callback){
-			$http.post(BASE_URL + "/basic/driveSchool/coach/addAll",{
+			$http.post(BASE_URL + "/school/coach/addAll",{
 				coachList:coachList
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
@@ -65,7 +65,7 @@ angular.module("services.common",[])
 ){
 	return {
 		stutent:function(name,phone,idNumber,coachId,callback){
-			$http.post(BASE_URL + "/basic/driveSchool/student/add",{
+			$http.post(BASE_URL + "/school/student/add",{
 				name:name,
 				phone:phone,
 				idNumber:idNumber,
@@ -87,7 +87,7 @@ angular.module("services.common",[])
 ){
 	return {
 		addAllStu:function(studentList,callback){
-			$http.post(BASE_URL + "/basic/driveSchool/student/addAll",{
+			$http.post(BASE_URL + "/school/student/addAll",{
 				studentList:studentList
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
@@ -106,7 +106,7 @@ angular.module("services.common",[])
 ){
 	return {
 		addCar:function(carList,callback){
-			$http.post(BASE_URL + "/basic/driveSchool/car/addAll",{
+			$http.post(BASE_URL + "/school/car/addAll",{
 				carList:carList
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转

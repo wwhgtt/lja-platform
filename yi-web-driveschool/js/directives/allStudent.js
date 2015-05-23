@@ -112,8 +112,9 @@ angular.module("directives.allStudent",[])
 				return result;
 			}
 			function process_wb(wb) {
-				// console.log("$scope.coachList %o",$scope.coachList);
+			    
 				$scope.studentList = to_json(wb).Sheet1;
+				console.log("$scope.studentList %o",$scope.studentList);
 				$scope.$digest();
 			}
 
