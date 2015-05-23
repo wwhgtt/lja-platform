@@ -12,10 +12,10 @@
 	</div>
 	<table>
 		<tbody>
-			<cars-item ng-repeat="(key,cars) in carList"></cars-item>
+			<cars-item ng-repeat="(key,cars) in carList" ></cars-item>
 		</tbody>
 	</table>
-	<button type="submit" ng-click="addCar()">确认提交</button>
+	<button type="submit" ng-click="addCar()"   >确认提交</button>
 	<error-list ng-repeat="error in errorList" ng-model="errorList"></error-list>
 	<p class="wrong" ng-show="errorList">以上信息已经提交，请修正后重新提交</p>
 </div>

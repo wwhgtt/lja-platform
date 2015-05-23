@@ -11,12 +11,15 @@
 		Use readAsBinaryString: (when available) <input type="checkbox" name="userabs"  ng-model="coach.userabs.checked" ng-disabled="coach.userabs.disabled"><br />
 		</div>
 		<table>
-			<!-- <th>教练姓名</th><th>教练手机号</th><th>教练身份证</th><th>是否挂靠教练（0\1)</th>  -->
 			<tbody>
 				<coach-item ng-repeat="(key,coach) in coachList"></coach-item>
 			</tbody>
 		</table>
-		<button type="submit" ng-click="addAll()">确认提交</button>
+		<button type="submit" ng-click="addAll()">提交教练信息</button>
+		<button type="submit" >提交车辆信息</button>
+		<button type="submit" >绑定教练与车</button>
+</div>
+</div>
 </div>
 <script src="./lib/shim.js"></script>
 <script src="./lib/jszip.js"></script>

@@ -45,9 +45,9 @@ angular.module("services.common",[])
 	$http
 ){
 	return {
-		addAll:function(coachList,callback){
+		addAll:function(dataList,callback){
 			$http.post(BASE_URL + "/school/coach/addAll",{
-				coachList:coachList
+				coachList:dataList
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
