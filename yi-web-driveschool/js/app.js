@@ -7,9 +7,7 @@ angular.module("ljaWebDriveSchool",[
 	"controllers.addMuch",
 	"controllers.stutent",
 	"controllers.addAllStu",
-    "controllers.coachcars",
 	"directives.allStudent",
-	"directives.coachcars",
 	"directives.login",
 	"directives.muchcoach",
 	"services.common"
