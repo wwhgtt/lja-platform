@@ -11,14 +11,16 @@ angular.module("controllers.addMuch",[])
 	$scope.coachList = [];
 	$scope.addAll=function(){
 		var coachList=$scope.coachList;
+		var dataList=[];
 		for(index in coachList){
 			var name=coachList[index].name,
 			    phone=coachList[index].phone,
 			    idNumber=coachList[index].idNumber,
 			    type=coachList[index].type;
-			var str={"name":name,"phone":phone,"idNumber":idNumber,"type":type};
-			console.log(str);
+			var obj={"name":name,"phone":phone,"idNumber":idNumber,"type":type};
+			dataList[index]=obj;
 		}
+		// console.log(dataList);	
 		$addAll.addAll(dataList,function(err,result){
 			if(err){
 				alert("sorry,提交失败");
