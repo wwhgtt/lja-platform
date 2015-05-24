@@ -119,5 +119,23 @@ angular.module("services.common",[])
 		}
 	}
 })
-
+//绑定教练与车
+.service("$bindcar",function(
+	$http
+){
+	return {
+		bindcar:function(bindList,callback){
+			$http.post(BASE_URL + "/school/coach/bindCar",{
+				bindList:bindList
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 
