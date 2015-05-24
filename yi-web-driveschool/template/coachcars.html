@@ -1,0 +1,26 @@
+<div class="output" coachcars>
+  Output Format:
+	<select name="format">
+	<option value="json"  selected> JSON</option>
+	</select><br />
+	<div id="drop"  >拖动excel文件到此位置</div>
+	<div class="duoyu" style="display:none">
+	Advanced Demo Options: <br />
+	Use Web Workers: (when available) <input type="checkbox" name="useworker"  ng-model="cars.useworker.checked" ng-disabled="cars.useworker.disabled"><br />
+	Use Transferrables: (when available) <input type="checkbox" name="xferable"  ng-model="cars.xferable.checked" ng-disabled="cars.xferable.disabled"><br />
+	Use readAsBinaryString: (when available) <input type="checkbox" name="userabs"  ng-model="cars.userabs.checked" ng-disabled="cars.userabs.disabled"><br />
+	</div>
+	<table>
+		<tbody>
+			<cars-item ng-repeat="(key,cars) in carList" ></cars-item>
+		</tbody>
+	</table>
+	<button type="submit" ng-click="addCar()"   >确认提交</button>
+	<error-list ng-repeat="error in errorList" ng-model="errorList"></error-list>
+	<p class="wrong" ng-show="errorList">以上信息已经提交，请修正后重新提交</p>
+</div>
+<script src="./lib/shim.js"></script>
+<script src="./lib/jszip.js"></script>
+<script src="./lib/xlsx.js"></script>
+<script src="./lib/dist/ods.js"></script>
+	

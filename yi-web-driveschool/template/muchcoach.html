@@ -18,6 +18,8 @@
 		<button type="submit" ng-click="addAll()">提交教练信息</button>
 		<button type="submit" ng-click="addCar()">提交车辆信息</button>
 		<button type="submit" >绑定教练与车</button>
+		<error-list ng-repeat="error in errorList" ng-model="errorList"></error-list>
+		<p class="wrong" ng-show="errorList">以上信息已经提交，请修正后重新提交</p>
 </div>
 <script src="./lib/shim.js"></script>
 <script src="./lib/jszip.js"></script>

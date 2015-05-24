@@ -9,6 +9,7 @@ angular.module("ljaWebDriveSchool",[
 	"controllers.addAllStu",
 	"directives.allStudent",
 	"directives.login",
+	"directives.errorList",
 	"directives.muchcoach",
 	"services.common"
 ])
