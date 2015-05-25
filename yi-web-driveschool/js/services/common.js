@@ -41,9 +41,9 @@ angular.module("services.common",[])
 	$http
 ){
 	return {
-		addAll:function(dataList,callback){
+		addAll:function(dataListTemp,callback){
 			$http.post(BASE_URL + "/school/coach/addAll",{
-				coachList:dataList
+				coachList:dataListTemp
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
@@ -98,9 +98,9 @@ angular.module("services.common",[])
 	$http
 ){
 	return {
-		addCar:function(carList,callback){
+		addCar:function(carListTemp,callback){
 			$http.post(BASE_URL + "/school/car/addAll",{
-				carList:carList
+				carList:carListTemp
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
