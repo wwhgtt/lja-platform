@@ -4,8 +4,8 @@
 			<span>name</span>
 			<span>phone</span>
 			<span>idNumber</span>
-			<span>coachId</span>
 		</div>
+		<div  class="new-onput" style="display:none"></div>
 		<form  name="stutent_form" novalidate ng-submit="stutentForm()" >
 			<input type="text" placeholder="Name"  name="name" ng-model="stutent.name" ng-minlength="1" ng-maxlength="20" required />
 			<div class="error" ng-show="stutent_form.name.$dirty && stutent_form.name.$invalid && stutent_form.submitted" >
@@ -24,10 +24,6 @@
 				<small class="error" ng-show="stutent_form.idNumber.$error.required">sure you enter your idNumber</small>
 				<small class="error" ng-show="stutent_form.idNumber.$error.minlength"> your name must be at least 18 characters</small>
 				<small class="error" ng-show="stutent_form.idNumber.$error.maxlength">your name can not be longer than 18 characters</small>
-			</div>
-			<input type="text" placeholder="coachId"  name="coachId" ng-model="stutent.coachId"  required />
-			<div class="error" ng-show="stutent_form.coachId.$dirty && stutent_form.coachId.$invalid && stutent_form.submitted">
-				<small class="error" ng-show="stutent_form.coachId.$error.required">sure you enter your type</small>
 			</div>
 			<button type="submit" ng-disabled="stutent_form.$invalid">Submit</button>
 		</form>

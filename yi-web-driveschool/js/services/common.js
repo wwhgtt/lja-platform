@@ -18,21 +18,17 @@ angular.module("services.common",[])
 		}
 	}
 })
-//添加单个学员
+//添加单个教练
 .service("$signalcoach",function(
 	$http
 ){
 	return {
-		signalcoach:function(name,phone,idNumber,type,callback){
-			$http.post(BASE_URL + "/school/coach/add",{
-				name:name,
-				phone:phone,
-				idNumber:idNumber,
-				type:type
+		signalcoach:function(coachList,callback){
+			$http.post(BASE_URL + "/school/coach/addAll",{
+				coachList:coachList
 			})
-			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
-				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+				if(callback)callback(null,data);  
 			})
 			.error(function(err){
 				if(callback)callback(err);
@@ -64,12 +60,9 @@ angular.module("services.common",[])
 	$http
 ){
 	return {
-		stutent:function(name,phone,idNumber,coachId,callback){
-			$http.post(BASE_URL + "/school/student/add",{
-				name:name,
-				phone:phone,
-				idNumber:idNumber,
-				coachId:coachId
+		stutent:function(studentList,callback){
+			$http.post(BASE_URL + "/school/student/addAll",{
+				studentList:studentList
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){

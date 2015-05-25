@@ -8,8 +8,11 @@ angular.module("ljaWebDriveSchool",[
 	"controllers.stutent",
 	"controllers.addAllStu",
 	"directives.allStudent",
+	"directives.bindCar",
 	"directives.login",
+	"directives.newInput",
 	"directives.errorList",
+	"directives.newOnput",
 	"directives.muchcoach",
 	"services.common"
 ])

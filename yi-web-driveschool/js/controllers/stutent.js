@@ -3,21 +3,22 @@ angular.module("controllers.stutent",[])  //controller后面这个名字是无�
 	$scope,
 	$stutent
 ){
-	$scope.stutent = {name:"",telphone:"",idNumber:"",coachId:""};
-	// console.log("signal %o",$scope.signal);
 	$scope.stutentForm = function(){
 		var name = $scope.stutent.name;   
 		var phone = $scope.stutent.telphone;
 		var idNumber = $scope.stutent.idNumber;
-		var coachId = $scope.stutent.coachId;
-		$stutent.stutent(name,phone,idNumber,coachId,function(err,result){
+		$scope.studentList={name:name,phone:phone,idNumber:idNumber};
+		var studentList=[];
+		studentList.push($scope.studentList);
+		$stutent.stutent(studentList,function(err,result){
 			if(err){
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success){ 
-					alert("添加成功");  
+					alert("添加成功");
+					$scope.$emit("success",studentList);  
 				}else{
-					console.log("sorry,添加失败"); 
+					alert("您格式有误，请重新输入"); 
 				}
 			}
 		})

@@ -15,11 +15,11 @@ angular.module("controllers.addAllStu",[])
 			if(err){
 				alert("sorry,提交失败");
 			}else{
-				if(result && result.errorList){ 
-					//$location.path("/split"); 
+				if(result && result.errorList == null){ 
+					
 					alert("提交成功");  
 				}else{
-					console.log("请确认格式正确"); 
+					 $scope.errorList=result.errorList;
 				}
 			}
 		})

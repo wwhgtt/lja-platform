@@ -59,3 +59,10 @@ table { border-collapse:collapse; border-spacing:0; }
 	color: red;
 	font-size: 16px;
 }
+.new-input span{
+	display: inline-block;
+	height:40px;
+	line-height: 40px;
+	width:170px;
+	text-align: center
+}
