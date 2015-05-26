@@ -53,7 +53,6 @@ angular.module("controllers.getcoach",[])  //controller后面这个名字是无�
 					}
 			})
 		}else{//上页
-			console.log(firstIncId);
 			var firstCoach = $scope.coachList[0];
 			var incId = firstCoach.incId;
 			if(incId !== firstIncId){

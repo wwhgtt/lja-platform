@@ -7,10 +7,10 @@ angular.module("controllers.getstudent",[])  //controller后面这个名字是�
 	$scope.toStudent=function(){
 		$location.path("/getstudent")
 	}
-	console.log($scope.firstPage);
 	var incId=0,
 		minIncId = 0,
 	    top=80;
+	var firstIncId;
 	    $getstudent.getstudent(incId,top,'next',function(err,result){
 	    	$scope.studentList=result.studentList;
 	    	minIncId = $scope.studentList[0].incId - 1;
@@ -21,8 +21,9 @@ angular.module("controllers.getstudent",[])  //controller后面这个名字是�
 			}else{
 				if(result && result.success == true){
 				    $scope.firstPage=true;
+				    firstIncId = studentList[0].incId;
 				}else{
-					if(result && result.commentArray == null){
+					if(result && result.studentList == null){
 						console.log("学员为空");
 					}else{
 						console.log("sorry,获取失败");
@@ -40,9 +41,9 @@ angular.module("controllers.getstudent",[])  //controller后面这个名字是�
 					alert("sorry,访问出错");
 					}else{
 						if(result && result.success == true){
-						    console.log("获取成功");
+						   $scope.firstPage=false;
 						}else{
-							if(result && result.commentArray == null){
+							if(result && result.studentList == null){
 								console.log("学员为空");
 							}else{
 								console.log("sorry,获取失败");
@@ -53,22 +54,27 @@ angular.module("controllers.getstudent",[])  //controller后面这个名字是�
 		}else{//上页
 			var firstStudent = $scope.studentList[0];
 			var incId = firstStudent.incId;
-			$getstudent.getstudent(incId,top,type,function(err,result){
-			$scope.studentList = result.studentList;
-			if(err){
-			alert("sorry,访问出错");
-			}else{
-				if(result && result.success == true){
-				    console.log("获取成功");
-				}else{
-					if(result && result.commentArray == null){
-						console.log("学员为空");
+			if(incId !== firstIncId){
+				$getstudent.getstudent(incId,top,type,function(err,result){
+				$scope.studentList = result.studentList;
+				if(err){
+						alert("sorry,访问出错");
 					}else{
-						console.log("sorry,获取失败");
+						if(result && result.success == true){
+						    console.log("获取成功");
+						}else{
+							if(result && result.commentArray == null){
+								console.log("学员为空");
+							}else{
+								console.log("sorry,获取失败");
+							}
+						}
 					}
-				}
+				})
+			}else{
+				alert("已经是第一页了");
+				$scope.firstPage=true;
 			}
-			})
 		}
 	}
 })
