@@ -66,3 +66,13 @@ table { border-collapse:collapse; border-spacing:0; }
 	width:170px;
 	text-align: center
 }
+.sidebar span{
+	display: inline-block;;
+	width: 177px;
+	text-align: center;
+	height:40px;
+	line-height: 40px;
+	background-color: orange;
+	color:white;
+	border-radius: 10px;
+}

@@ -6,10 +6,16 @@ angular.module("ljaWebDriveSchool",[
 	"controllers.signalcoach",
 	"controllers.addMuch",
 	"controllers.stutent",
+	"controllers.good",
 	"controllers.addAllStu",
+	"controllers.getstudent",
+	"controllers.getcoach",
 	"directives.allStudent",
 	"directives.bindCar",
 	"directives.login",
+	"directives.good",
+	"directives.coachTemp",
+	"directives.studentTemp",
 	"directives.newInput",
 	"directives.errorList",
 	"directives.newOnput",
@@ -42,6 +48,15 @@ angular.module("ljaWebDriveSchool",[
 		}).when("/addAllCars",{
 			templateUrl:"template/coachcars.html",
 			controller:"coachcars"
+		}).when("/getGoodNews",{
+			templateUrl:"template/good.html",
+			controller:"good"
+		}).when("/getcoach",{
+			templateUrl:"template/getcoach.html",
+			controller:"getcoach"
+		}).when("/getstudent",{
+			templateUrl:"template/getstudent.html",
+			controller:"getstudent"
 		})
 	 $locationProvider.html5Mode(true);
 })

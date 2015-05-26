@@ -135,7 +135,7 @@ angular.module("controllers.addMuch",[])
 					//$location.path("/split"); 
 					alert("绑定成功");  
 				}else{
-					 // $scope.errorList=result.errorList;
+					 $scope.errorList=result.errorList;
 				}
 			}
 		})
