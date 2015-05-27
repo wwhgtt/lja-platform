@@ -14,7 +14,7 @@ angular.module("controllers.getcoach",[])  //controller后面这个名字是无�
 	    $getcoach.getcoach(incId,top,'next',function(err,result){
 	    	$scope.coachList=result.coachList;
 	    	minIncId = $scope.coachList[0].incId - 1;
-	    	console.log("minIncId ",minIncId);
+	    	// console.log("minIncId ",minIncId);
             var coachList=$scope.coachList;
             $scope.coach={name:"",idNumber:"",phone:"",type:"",incId:""};
 	    	if(err){

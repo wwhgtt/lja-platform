@@ -1,5 +1,5 @@
-angular.module("directives.good",[])
-.directive("good",function(
+angular.module("directives.goodItem",[])
+.directive("goodItem",function(
 
 ){
 	return {

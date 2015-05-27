@@ -13,7 +13,7 @@ angular.module("ljaWebDriveSchool",[
 	"directives.allStudent",
 	"directives.bindCar",
 	"directives.login",
-	"directives.good",
+    "directives.goodItem",
 	"directives.coachTemp",
 	"directives.studentTemp",
 	"directives.newInput",

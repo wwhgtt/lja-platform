@@ -76,3 +76,19 @@ table { border-collapse:collapse; border-spacing:0; }
 	color:white;
 	border-radius: 10px;
 }
+.goodNews span{
+	/* display:inline-block; */
+	width:120px;
+	height: 30px;
+	border-radius: 5px;
+	line-height: 30px;
+	background-color: orange;
+	margin-bottom: 3px;
+	margin-left: 3px;
+	color: white;
+	text-align: center;
+	/* float:left; */
+}
+/* .goodNews{
+	display: block;
+} */
