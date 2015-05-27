@@ -7,12 +7,14 @@ angular.module("ljaWebDriveSchool",[
 	"controllers.addMuch",
 	"controllers.stutent",
 	"controllers.good",
+	// "controllers.getbad",
 	"controllers.addAllStu",
 	"controllers.getstudent",
 	"controllers.getcoach",
 	"directives.allStudent",
 	"directives.bindCar",
 	"directives.login",
+	"directives.forall",
     "directives.goodItem",
 	"directives.coachTemp",
 	"directives.studentTemp",
@@ -57,6 +59,9 @@ angular.module("ljaWebDriveSchool",[
 		}).when("/getstudent",{
 			templateUrl:"template/getstudent.html",
 			controller:"getstudent"
+		}).when("/getBadNews",{
+			templateUrl:"template/getBadNews.html",
+			controller:"getbad"
 		})
 	 $locationProvider.html5Mode(true);
 })
