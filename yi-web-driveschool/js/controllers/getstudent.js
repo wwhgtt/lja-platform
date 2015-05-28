@@ -4,9 +4,6 @@ angular.module("controllers.getstudent",[])  //controller后面这个名字是�
 	$getstudent,
 	$location
 ){
-	$scope.toStudent=function(){
-		$location.path("/getstudent")
-	}
 	var incId=0,
 		minIncId = 0,
 	    top=80;

@@ -13,7 +13,7 @@ angular.module("controllers.login",[])  //controller后面这个名字是无所�
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success){ 
-					$location.path("/split"); 
+					$location.path("/getcoach"); 
 					alert("登录成功");  
 				}else{
 					console.log("用户名或者密码不对"); 

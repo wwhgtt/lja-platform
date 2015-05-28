@@ -92,3 +92,10 @@ table { border-collapse:collapse; border-spacing:0; }
 /* .goodNews{
 	display: block;
 } */
+.container-fluid{
+	border-radius: 5px;
+	background-color:#00BFFF;
+}
+.nav li a{
+	color:white;
+}

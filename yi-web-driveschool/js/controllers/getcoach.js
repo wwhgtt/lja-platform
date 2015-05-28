@@ -4,9 +4,6 @@ angular.module("controllers.getcoach",[])  //controller后面这个名字是无�
 	$getcoach,
 	$location
 ){
-	$scope.toCoach=function(){
-		$location.path("/getcoach")
-	}
 	var incId=0,
 		minIncId = 0,
 	    top=80;
