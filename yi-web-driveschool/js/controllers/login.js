@@ -12,9 +12,10 @@ angular.module("controllers.login",[])  //controller后面这个名字是无所�
 			if(err){
 				alert("sorry,访问出错");
 			}else{
-				if(result && result.success){ 
-					$location.path("/getcoach"); 
-					alert("登录成功");  
+				if(result && result.success){
+					 name=result.userInfo.name;
+					 $location.path("/split");
+					alert("登录成功");   
 				}else{
 					console.log("用户名或者密码不对"); 
 				}
