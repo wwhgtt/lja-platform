@@ -1,0 +1,17 @@
+angular.module("ljaWebHomePage",[
+	"ngRoute",
+	"ngMessages",
+	"controllers.HomePage",
+	"services.common"
+])
+.config(function(
+	$routeProvider,
+	$locationProvider
+){   
+	$routeProvider
+		.when("/",{
+			templateUrl:"template/Home-page.html",
+			controller:"HomePage"
+		})
+	 $locationProvider.html5Mode(true);
+}) 
