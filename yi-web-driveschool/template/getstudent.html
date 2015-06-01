@@ -1,11 +1,13 @@
 <forall></forall>
 <section>
-	<div class="sidebar">
-		<span>学员姓名</span><span>学员身份证</span><span>学员电话</span>
+	<div class="container">
+		<div class="sidebar">
+			<span>学员姓名</span><span>学员身份证</span><span>学员电话</span>
+		</div>
+		<div class="getstudent">
+			<student-temp ng-repeat="(key,student) in studentList" ></student-temp>
+		</div>
+		<button class="btn btn-primary btn-lg"  ng-click="getMoreStudent('pre')" ng-disabled="firstPage"> 上一页</button>
+		<button class="btn btn-primary btn-lg"  ng-click="getMoreStudent('next')"> 下一页</button>
 	</div>
-	<div class="getstudent">
-		<student-temp ng-repeat="(key,student) in studentList" ></student-temp>
-	</div>
-	<button class="btn btn-primary btn-lg"  ng-click="getMoreStudent('pre')" ng-disabled="firstPage"> 上一页</button>
-	<button class="btn btn-primary btn-lg"  ng-click="getMoreStudent('next')"> 下一页</button>
 </section>

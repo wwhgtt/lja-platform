@@ -1,27 +1,29 @@
 <forall></forall>
-<div class="output" muchcoach>
-	Output Format:
-		<select name="format">
-		<option value="json" ng-model="coach.value" selected> JSON</option>
-		</select><br />
-		<div id="drop"  >拖动excel文件到此位置</div>
-		<div class="duoyu" style="display:none">
-		Advanced Demo Options: <br />
-		Use Web Workers: (when available) <input type="checkbox" name="useworker"  ng-model="coach.useworker.checked" ng-disabled="coach.useworker.disabled"><br />
-		Use Transferrables: (when available) <input type="checkbox" name="xferable"  ng-model="coach.xferable.checked" ng-disabled="coach.xferable.disabled"><br />
-		Use readAsBinaryString: (when available) <input type="checkbox" name="userabs"  ng-model="coach.userabs.checked" ng-disabled="coach.userabs.disabled"><br />
-		</div>
-		<table>
-			<tbody>
-				<coach-item ng-repeat="(key,coach) in coachList"></coach-item>
-			</tbody>
-		</table>
-		<button type="submit" ng-click="addAll()" >提交教练信息</button>
-		<button type="submit" ng-click="addCar()" >提交车辆信息</button>
-		<button type="submit" ng-click="bindCar()" >绑定教练与车</button>
-		<bind-car ng-repeat="(key,bindCar) in bindCarList" ></bind-car>
-		<error-list ng-repeat="error in errorList" ng-model="errorList"></error-list>
-		<p class="wrong" ng-show="errorList">以上信息已经提交，请修正后重新提交</p>
+<div class="container">
+	<div class="output" muchcoach>
+		Output Format:
+			<select name="format">
+			<option value="json" ng-model="coach.value" selected> JSON</option>
+			</select><br />
+			<div id="drop"  >拖动excel文件到此位置</div>
+			<div class="duoyu" style="display:none">
+			Advanced Demo Options: <br />
+			Use Web Workers: (when available) <input type="checkbox" name="useworker"  ng-model="coach.useworker.checked" ng-disabled="coach.useworker.disabled"><br />
+			Use Transferrables: (when available) <input type="checkbox" name="xferable"  ng-model="coach.xferable.checked" ng-disabled="coach.xferable.disabled"><br />
+			Use readAsBinaryString: (when available) <input type="checkbox" name="userabs"  ng-model="coach.userabs.checked" ng-disabled="coach.userabs.disabled"><br />
+			</div>
+			<table>
+				<tbody>
+					<coach-item ng-repeat="(key,coach) in coachList"></coach-item>
+				</tbody>
+			</table>
+			<button type="submit" ng-click="addAll()" >提交教练信息</button>
+			<button type="submit" ng-click="addCar()" >提交车辆信息</button>
+			<button type="submit" ng-click="bindCar()" >绑定教练与车</button>
+			<bind-car ng-repeat="(key,bindCar) in bindCarList" ></bind-car>
+			<error-list ng-repeat="error in errorList" ng-model="errorList"></error-list>
+			<p class="wrong" ng-show="errorList">以上信息已经提交，请修正后重新提交</p>
+	</div>
 </div>
 <script src="./lib/shim.js"></script>
 <script src="./lib/jszip.js"></script>

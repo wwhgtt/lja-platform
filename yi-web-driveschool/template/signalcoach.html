@@ -1,37 +1,39 @@
 <forall></forall>
 <section class="signalcoach">
-	<div class="signal">
-		<div  class="coach_rule">
-			<span>教练姓名</span>
-			<span>教练手机号</span>
-			<span>教练身份证</span>
-			<span>是否是挂靠教练(0/1)</span>
+	<div class="container">
+		<div class="signal">
+			<div  class="coach_rule">
+				<span>教练姓名</span>
+				<span>教练手机号</span>
+				<span>教练身份证</span>
+				<span>是否是挂靠教练(0/1)</span>
+			</div>
+			<div  class="new-input" style="display:none"></div>
+			<form  name="signal_form" novalidate ng-submit="signalForm()" id="signal_form">
+				<input type="text" placeholder="Name"  name="name" ng-model="coachList.name" ng-minlength="1" ng-maxlength="20" required />
+				<div class="error" ng-show="signal_form.name.$dirty && signal_form.name.$invalid && signal_form.submitted" >
+					<small class="error" ng-show="signal_form.name.$error.required">sure you enter your name</small>
+					<small class="error" ng-show="signal_form.name.$error.minlength"> your name must be at least 3 characters</small>
+					<small class="error" ng-show="signal_form.name.$error.maxlength">your name can not be longer than 20 characters</small>
+				</div>
+				<input type="text" placeholder="手机号"  name="telphone" ng-model="coachList.telphone" ng-minlength="11" ng-maxlength="11" ng-pattern="/^1[3|5|8|4|7][0-9]\d{4,8}$/" required />
+				<div class="error" ng-show="signal_form.telphone.$dirty && signal_form.telphone.$invalid && signal_form.submitted">
+					<small class="error" ng-show="signal_form.telphone.$error.required">sure you enter your phone</small>
+					<small class="error" ng-show="signal_form.telphone.$error.minlength"> your name must be at least 11 characters</small>
+					<small class="error" ng-show="signal_form.telphone.$error.maxlength">your name can not be longer than 11 characters</small>
+				</div>
+				<input type="text" placeholder="身份证"  name="idNumber" ng-model="coachList.idNumber" ng-minlength="18" ng-maxlength="18"  ng-pattern="/^\d{17}(\d|x|X)$/" required />
+				<div class="error" ng-show="signal_form.idNumber.$dirty && signal_form.idNumber.$invalid && signal_form.submitted">
+					<small class="error" ng-show="signal_form.idNumber.$error.required">sure you enter your idNumber</small>
+					<small class="error" ng-show="signal_form.idNumber.$error.minlength"> your name must be at least 18 characters</small>
+					<small class="error" ng-show="signal_form.idNumber.$error.maxlength">your name can not be longer than 18 characters</small>
+				</div>
+				<input type="text" placeholder="(0/1)"  name="type" ng-model="coachList.type" ng-pattern="/[0-2]+/"  required />
+				<div class="error" ng-show="signal_form.type.$dirty && signal_form.type.$invalid && signal_form.submitted">
+					<small class="error" ng-show="signal_form.type.$error.required">sure you enter your type</small>
+				</div>
+				<button type="submit" >Submit</button>
+			</form>
 		</div>
-		<div  class="new-input" style="display:none"></div>
-		<form  name="signal_form" novalidate ng-submit="signalForm()" id="signal_form">
-			<input type="text" placeholder="Name"  name="name" ng-model="coachList.name" ng-minlength="1" ng-maxlength="20" required />
-			<div class="error" ng-show="signal_form.name.$dirty && signal_form.name.$invalid && signal_form.submitted" >
-				<small class="error" ng-show="signal_form.name.$error.required">sure you enter your name</small>
-				<small class="error" ng-show="signal_form.name.$error.minlength"> your name must be at least 3 characters</small>
-				<small class="error" ng-show="signal_form.name.$error.maxlength">your name can not be longer than 20 characters</small>
-			</div>
-			<input type="text" placeholder="手机号"  name="telphone" ng-model="coachList.telphone" ng-minlength="11" ng-maxlength="11" ng-pattern="/^1[3|5|8|4|7][0-9]\d{4,8}$/" required />
-			<div class="error" ng-show="signal_form.telphone.$dirty && signal_form.telphone.$invalid && signal_form.submitted">
-				<small class="error" ng-show="signal_form.telphone.$error.required">sure you enter your phone</small>
-				<small class="error" ng-show="signal_form.telphone.$error.minlength"> your name must be at least 11 characters</small>
-				<small class="error" ng-show="signal_form.telphone.$error.maxlength">your name can not be longer than 11 characters</small>
-			</div>
-			<input type="text" placeholder="身份证"  name="idNumber" ng-model="coachList.idNumber" ng-minlength="18" ng-maxlength="18"  ng-pattern="/^\d{17}(\d|x|X)$/" required />
-			<div class="error" ng-show="signal_form.idNumber.$dirty && signal_form.idNumber.$invalid && signal_form.submitted">
-				<small class="error" ng-show="signal_form.idNumber.$error.required">sure you enter your idNumber</small>
-				<small class="error" ng-show="signal_form.idNumber.$error.minlength"> your name must be at least 18 characters</small>
-				<small class="error" ng-show="signal_form.idNumber.$error.maxlength">your name can not be longer than 18 characters</small>
-			</div>
-			<input type="text" placeholder="(0/1)"  name="type" ng-model="coachList.type" ng-pattern="/[0-2]+/"  required />
-			<div class="error" ng-show="signal_form.type.$dirty && signal_form.type.$invalid && signal_form.submitted">
-				<small class="error" ng-show="signal_form.type.$error.required">sure you enter your type</small>
-			</div>
-			<button type="submit" >Submit</button>
-		</form>
 	</div>
 </section>

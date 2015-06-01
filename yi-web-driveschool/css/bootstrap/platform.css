@@ -76,7 +76,6 @@ table { border-collapse:collapse; border-spacing:0; }
 	border-radius: 10px;
 }
 .goodNews span{
-	/* display:inline-block; */
 	width:120px;
 	height: 30px;
 	border-radius: 5px;
@@ -86,14 +85,9 @@ table { border-collapse:collapse; border-spacing:0; }
 	margin-left: 3px;
 	color: white;
 	text-align: center;
-	/* float:left; */
 }
-/* .goodNews{
-	display: block;
-} */
 .container{
 	border-radius: 5px;
-	/*background-color:#DCDCDC;*/
 }
 .nav li a{
 	color:white;
@@ -111,5 +105,5 @@ h2{
 	margin-top: 10px;
 }
 body{
-	background-color:#FFFF00;
+	background-color:#FFFFFF;
 }

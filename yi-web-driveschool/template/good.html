@@ -1,12 +1,14 @@
 <forall></forall>
 <section>
-	<button class="getgood btn btn-primary btn-lg" ng-click="toGood()">获取好评</button>
-	<div class="coach">
-		{{commentTemp.name}}
-	</div>
-	<div class="good">
-		<good-item ng-repeat="(key,good) in goodList"  class="goodNews"></good-item>
-	</div>
-	<button class="btn btn-primary btn-lg"  ng-click="getMoreGood('pre')" ng-disabled="firstPage"> 上一页</button>
-	<button class="btn btn-primary btn-lg"  ng-click="getMoreGood('next')"> 下一页</button> 
+	<div class="container">
+		<button class="getgood btn btn-primary btn-lg" ng-click="toGood()">获取好评</button>
+		<div class="coach">
+			{{commentTemp.name}}
+		</div>
+		<div class="good">
+			<good-item ng-repeat="(key,good) in goodList"  class="goodNews"></good-item>
+		</div>
+		<button class="btn btn-primary btn-lg"  ng-click="getMoreGood('pre')" ng-disabled="firstPage"> 上一页</button>
+		<button class="btn btn-primary btn-lg"  ng-click="getMoreGood('next')"> 下一页</button>
+	</div> 
 </section>
