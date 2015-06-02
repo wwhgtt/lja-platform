@@ -148,4 +148,35 @@ hr{
 .listTwo{
 	margin-bottom: 30px
 }
-
+.fluid_nav{
+	border-radius: 15px
+}
+.recruitList{
+	padding: 30px 0px 30px 0px; 
+}
+.even{
+	background-color:#F2F2F2 
+}
+.odd:{
+	background-color:#d7d7d7 
+}
+.test{
+	background-image: url("./img/u0.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%
+}
+.showLogo{
+	padding: 30px 0px 30px 0px;
+}
+.showLogo img{
+	width:20%;
+	height: auto;
+	vertical-align:middle;
+}
+.content h2{
+	padding: 30px 0px 30px 0px;
+}
+.content h3{
+	padding-bottom: 30px;
+	padding-top: 10px
+}
