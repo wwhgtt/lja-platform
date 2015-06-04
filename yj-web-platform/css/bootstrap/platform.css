@@ -141,3 +141,6 @@ from{transform:rotate(0deg)}
     width: 70px;
     border: 1px solid gray
 }
+.form-control{
+	width: 20%;
+}

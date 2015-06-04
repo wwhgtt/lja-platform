@@ -1,9 +1,15 @@
 <section>
-	<div class="addjobs0">
+	<p class="should">watching model:</p>
+    <div class="button should" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
+    Select File:
+    <div class="filechange" ngf-select ngf-change="upload($files)" ngf-multiple="multiple">Select File</div>
+	<p class="should">Upload Log:</p>
+	<pre class="should">{{log}}</pre>
+	<div class="addjobs">
 		<div class="jobs_detile">
 			<form name="jobs_form" novalidate ng-submit="jobsForm()">
 				<label>职位名字</label>
-				<input type="text" placeholder="职位名字" ng-model="jobs.name" />
+				<input type="text" placeholder="职位名字" ng-model="jobs.name" class="form-control" />
 				<br>
 				<label>职位描述</label>
 				<textarea type="text" placeholder="职位描述" ng-model="jobs.describle" ></textarea>
@@ -12,12 +18,12 @@
 				<textarea type="text" placeholder="职位职责" ng-model="jobs.duty" ></textarea>
 				<br>
 				<label>职位工资</label>
-				<input type="text" placeholder="职位工资" ng-model="jobs.pay" />
+				<input type="text" placeholder="职位工资" ng-model="jobs.pay" class="form-control" />
 				<br>
 				<label>职位图片</label>
-				<input  ng-model="jobs.imgName"  type="text" placeholder="职位图片" /> 
+				<input  ng-model="jobs.imgName"  type="text" placeholder="职位图片" class="form-control" />
 				<br>
-				<button type="submit">提交</button>
+				<button type="submit" class="btn btn-primary btn-lg active">提交</button>
 			</form>
 		</div>
 	</div>
