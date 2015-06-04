@@ -2,7 +2,8 @@ angular.module("controllers.addjobs",['ngFileUpload'])
 .controller("addjobs",function(
 	$scope,
 	$addjobs,
-	Upload
+	Upload,
+	$location
 ){
 	$scope.jobs={name:"",describle:"",duty:"",pay:"",imgName:""};
 	$scope.$watch('files', function () {
@@ -33,7 +34,8 @@ angular.module("controllers.addjobs",['ngFileUpload'])
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success == true){
-					alert("添加成功");   
+					alert("添加成功");
+					$location.path("/getjobs")  
 				}else{
 					console.log("添加失败"); 
 				}
