@@ -9,6 +9,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.addSiteInfo",
 	"controllers.getSiteInfo",
 	"controllers.addjobs",
+	"controllers.testView",
 	"controllers.jobList",
 	"controllers.jobsList",
 	"directives.jobList",
@@ -16,6 +17,7 @@ angular.module("ljaWebPlatform",[
 	"directives.basicItem",
 	"directives.systemInit",
 	"directives.login",
+	"directives.testView",
 	"directives.upLoad",
 	"directives.pwCheck",
 	"directives.bmap",
@@ -57,6 +59,9 @@ angular.module("ljaWebPlatform",[
 		}).when("/reviseJob",{
 			templateUrl:"template/reviseJob.html",
 			controller:"jobsList"
+		}).when("/LookTest",{
+			templateUrl:"template/testView.html",
+			controller:"testView"
 		})
 	 $locationProvider.html5Mode(true);
 }) 

@@ -244,3 +244,36 @@ angular.module("services.common",[])
 		}
 	}
 })
+//获取教练
+.service("$getTest",function(
+	$http
+){
+	return {
+		getTest:function(incId,top,type,callback){
+			$http.get(BASE_URL + "/platform/officialWebsite/tester",{
+				params:{
+					incId:incId,
+					top:top,
+					type:type
+				}
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(type === 'pre'){
+					var testerList = data.testerList;
+					testerList.sort(function(a,b){
+						if(a.incId < b.incId){
+							return -1;
+						}else if(a.incId > b.incId){
+							return 1;
+						}else return 0;
+					})
+				}
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
