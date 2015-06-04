@@ -122,3 +122,13 @@ from{transform:rotate(0deg)}
 	float: right;
 	margin-top: 40px
 }
+.imgUpLoad lable{
+	font-size: 16px;
+	padding: 20px 0px 20px 0px;
+}
+#exampleInputFile{
+	background-color: orange;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: white
+}

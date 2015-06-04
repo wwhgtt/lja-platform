@@ -152,8 +152,48 @@ angular.module("services.common",[])
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
-				console.log(data);
 				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+.service("$upload",function(
+	$http
+){
+   return {
+		upload:function(data,file,callback){
+			$http.post(BASE_URL + "/platform/officialWebsite/job/imgUpload",{
+				data:data,
+				file:file
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//添加职位
+.service("$addjobs",function(
+	$http
+){
+	return {
+		addjobs:function(name,describle,duty,pay,imgName,callback){
+			$http.post(BASE_URL + '/platform/officialWebsite/job',{
+				name:name,
+				describle:describle,
+				duty:duty,
+				pay:pay,
+				imgName:imgName
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
 			})
 			.error(function(err){
 				if(callback)callback(err);
