@@ -2,8 +2,7 @@ angular.module("controllers.jobList",[])  //controller后面这个名字是无�
 .controller("jobList",function(
 	$scope,
 	$getjob,
-	$deleteJob,
-	$location
+	$deleteJob
 ){
 	$getjob.getjob(function(err,result){
     	if(err){
@@ -31,7 +30,11 @@ angular.module("controllers.jobList",[])  //controller后面这个名字是无�
 			 }else{
 			 	if(result && result.success == true){
 			 		alert("删除成功"); 
-			 		
+			 		for(index in jobList){
+			 			if(id == jobList[index].id){
+			 				jobList.splice(index,1)
+			 			}
+			 		}
 			 	}else{
 			 		console.log("删除失败"); 
 			 	}
