@@ -144,3 +144,22 @@ from{transform:rotate(0deg)}
 .form-control{
 	width: 20%;
 }
+.job_image p{
+	width: 20%;
+	border: 1px solid black
+}
+.job_word p{
+	width: 20%;
+	border: 1px solid black
+}
+.job_word{
+	margin-bottom: 30px;
+	float:left;
+}
+.job_image{
+	float: left;
+}
+.job_image img{
+	width:200px;
+	height:200px;
+}

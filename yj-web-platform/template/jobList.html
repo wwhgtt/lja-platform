@@ -1,5 +1,15 @@
-<div class="job_detiles">
-	<div class="job_image">
-		
+<div class=".col-md-8">
+	<div class="jobList" >
+		<div class="job_image">
+			<img ng-src="{{job.url}}">
+		</div>
+		<div class="job_word">
+			<p>{{job.name}}</p>
+			<p>{{job.describle}}</p>
+			<p>{{job.duty}}</p>
+			<p>{{job.pay}}</p>
+		</div>
+		<input type="button" class="glyphicon glyphicon-remove" ng-click="deleteJob(job.id)" ></input>
 	</div>
+	
 </div>
