@@ -1,8 +1,8 @@
 angular.module("controllers.addjobs",[]) 
 .controller("addjobs",function(
-	$scope
+	$scope,
+	$addjobs
 ){
-	console.log("$scope %o",$scope);
 	$scope.jobs={name:"",describle:"",duty:"",pay:"",imgName:""};
 	$scope.jobsForm = function(){  
 		var name = $scope.jobs.name,  

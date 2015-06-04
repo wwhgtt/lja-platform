@@ -8,8 +8,10 @@ angular.module("ljaWebPlatform",[
 	"controllers.rePwd",
 	"controllers.addSiteInfo",
 	"controllers.getSiteInfo",
-	"controllers.imgUpLoad",
+    "controllers.imgUpLoad",
 	"controllers.addjobs",
+	"controllers.jobList",
+	"directives.jobList",
 	"directives.basicItem",
 	"directives.systemInit",
 	"directives.login",
@@ -46,10 +48,14 @@ angular.module("ljaWebPlatform",[
 			templateUrl:"template/getSiteInfo.html",
 			controller:"getSiteInfo"
 		}).when("/UpImg",{
-			templateUrl:"template/imgUpLoad.html",
+			templateUrl:"template/upLoadImg.html",
 			controller:"imgUpLoad"
 		}).when("/addjobs",{
-			templateUrl:"template/addjobs.html"
+			templateUrl:"template/addjobs.html",
+			controller:"addjobs"
+		}).when("/getjobs",{
+			templateUrl:"template/getjobs.html",
+			controller:"jobList"
 		})
 	 $locationProvider.html5Mode(true);
 }) 

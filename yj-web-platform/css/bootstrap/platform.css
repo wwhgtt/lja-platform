@@ -132,3 +132,12 @@ from{transform:rotate(0deg)}
 	margin-bottom: 20px;
 	color: white
 }
+.should{
+	display: none 
+}
+.filechange{
+	padding: 10px;
+    margin: 10px;
+    width: 70px;
+    border: 1px solid gray
+}

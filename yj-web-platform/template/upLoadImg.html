@@ -1,0 +1,14 @@
+<section>
+	imagename
+    <input type="text" ng-model="imagename"></br>
+    <p class="should">watching model:</p>
+    <div class="button should" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
+    Select File:
+    <div class="filechange" ngf-select ngf-change="upload($files)" ngf-multiple="multiple">Select File</div>
+	<!-- Files:
+	<ul>
+	    	<li ng-repeat="f in files" style="font:smaller">{{f.name}}</li>
+	</ul> -->
+	Upload Log:
+	<pre>{{log}}</pre>
+</section>
