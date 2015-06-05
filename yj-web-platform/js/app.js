@@ -130,7 +130,7 @@ angular.module("ljaWebPlatform",[
 			}
 		})
 		.state("platform.searchUser",{
-			url:"searchUser",
+			url:"/searchUser",
 			views:{
 				'menuContent':{
 					templateUrl:"template/phoneByUser.html",
