@@ -13,6 +13,7 @@
 	<script src="./lib/ng-file-upload.min.js"></script>
 	<script src="./lib/ng-file-upload-shim.min.js"></script>
 	<script src="./lib/angular-contenteditable.js"></script>
+	<script src="./lib/angular-ui-router.js"></script>
 	<script src="./js/BMap.js"></script>
 	<script src="./lib/bootstrap.min.js"></script>
 	<script src="./js/app.js"></script>
@@ -23,6 +24,8 @@
 	<script src="./js/controllers/rePwd.js"></script>
 	<script src="./js/controllers/addSiteInfo.js"></script>
 	<script src="./js/controllers/addjobs.js"></script>
+	<script src="./js/controllers/platform.js"></script>
+	<script src="./js/controllers/getuserByPhone.js"></script>
 	<script src="./js/controllers/testView.js"></script>
 	<script src="./js/controllers/jobList.js"></script>
 	<script src="./js/controllers/jobsList.js"></script>
@@ -43,7 +46,7 @@
 
 </head>
 <body ng-app="ljaWebPlatform">
-	<div ng-view></div>
+	<ui-view></ui-view>
 	<base href="/">
 </body>
 </html>

@@ -172,3 +172,17 @@ from{transform:rotate(0deg)}
 .test_span{
 	margin-left: 20px;
 }
+.form-control{
+	float: left;
+}
+.btn{
+	float: left;
+}
+.clear{
+	clear:both;
+}
+.phone_user{
+	height: 30px;
+	line-height: 30px;
+	margin-top: 20px
+}

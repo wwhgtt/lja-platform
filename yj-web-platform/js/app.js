@@ -1,6 +1,7 @@
 angular.module("ljaWebPlatform",[
 	"ngRoute",
 	"ngMessages",
+	"ui.router",
 	"contenteditable",
 	"controllers.systemInit",
 	"controllers.entering",
@@ -10,9 +11,11 @@ angular.module("ljaWebPlatform",[
 	"controllers.addSiteInfo",
 	"controllers.getSiteInfo",
 	"controllers.addjobs",
+	"controllers.platform",
 	"controllers.testView",
 	"controllers.jobList",
 	"controllers.jobsList",
+	"controllers.getUser",
 	"directives.jobList",
 	"directives.jobsList",
 	"directives.basicItem",
@@ -26,43 +29,115 @@ angular.module("ljaWebPlatform",[
 	"services.common"
 ])
 .config(function(
-	$routeProvider,
-	$locationProvider
+	$stateProvider,
+	$locationProvider,
+	$urlRouterProvider
 ){   
-	$routeProvider
-		.when("/",{
-			templateUrl:"template/systemInit.html",
-			controller:"SystemInit"
-		}).when("/entering",{
-			templateUrl:"template/entering.html",
-			controller:"Entering"
-		}).when("/login",{
-			templateUrl:"template/login.html",
-			controller:"Login"
-		}).when("/initAdmin",{
-			templateUrl:"template/initAdmin.html",
-			controller:"InitAdmin"
-		}).when("/rePwd",{
-			templateUrl:"template/rePwd.html",
-			controller:"RePwd"
-		}).when("/addSiteInfo",{
-			templateUrl:"template/addSiteInfo.html",
-			controller:"addSiteInfo"
-		}).when("/getSiteInfo",{
-			templateUrl:"template/getSiteInfo.html",
-			controller:"getSiteInfo"
-		}).when("/addjobs",{
-			templateUrl:"template/addjobs.html",
-			controller:"addjobs"
-		}).when("/getjobs",{
-			templateUrl:"template/getjobs.html",
-			controller:"jobList"
-		}).when("/reviseJob",{
-			templateUrl:"template/reviseJob.html",
-			controller:"jobsList"
-		}).when("/LookTest",{
-			templateUrl:"template/testView.html",
-			controller:"testView"
+	$stateProvider
+		.state('platform',{
+				url:"/platform",
+				templateUrl:"template/menu.html",
+				controller:"platform"
+			})
+		.state("platform.entering",{
+			url:"/entering",
+			views:{
+				'menuContent':{
+					templateUrl:"template/entering.html",
+					controller:"Entering"
+				}
+			}
 		})
-	 $locationProvider.html5Mode(true);
+		.state("platform.login",{
+			url:"/login",
+			views:{
+				'menuContent':{
+					templateUrl:"template/login.html",
+					controller:"Login"
+				}
+			}
+		})
+		.state("platform.initAdmin",{
+			url:"/initAdmin",
+			views:{
+				'menuContent':{
+					templateUrl:"template/initAdmin.html",
+					controller:"InitAdmin"
+				}
+			}
+		})
+		.state("platform.rePwd",{
+			url:"/rePwd",
+			views:{
+				'menuContent':{
+					templateUrl:"template/rePwd.html",
+					controller:"RePwd"
+				}
+			}
+		})
+		.state("platform.addSiteInfo",{
+			url:"/addSiteInfo",
+			views:{
+				'menuContent':{
+					templateUrl:"template/addSiteInfo.html",
+					controller:"addSiteInfo"
+				}
+			}
+		})
+		.state("platform.getSiteInfo",{
+			url:"/getSiteInfo",
+			views:{
+				'menuContent':{
+					templateUrl:"template/getSiteInfo.html",
+					controller:"getSiteInfo"
+				}
+			}
+		})
+		.state("platform.addjobs",{
+			url:"/addjobs",
+			views:{
+				'menuContent':{
+					templateUrl:"template/addjobs.html",
+					controller:"addjobs"
+				}
+			}
+		})
+		.state("platform.getjobs",{
+			url:"/getjobs",
+			views:{
+				'menuContent':{
+					templateUrl:"template/getjobs.html",
+					controller:"jobList"
+				}
+			}
+		})
+		.state("platform.reviseJob",{
+			url:"/reviseJob",
+			views:{
+				'menuContent':{
+					templateUrl:"template/reviseJob.html",
+					controller:"jobsList"
+				}
+			}
+		})
+		.state("platform.LookTest",{
+			url:"/LookTest",
+			views:{
+				'menuContent':{
+					templateUrl:"template/testView.html",
+					controller:"testView"
+				}
+			}
+		})
+		.state("platform.searchUser",{
+			url:"searchUser",
+			views:{
+				'menuContent':{
+					templateUrl:"template/phoneByUser.html",
+					controller:"getUser"
+				}
+			}
+		})
+		$urlRouterProvider.otherwise("/platform");
+		 $locationProvider.html5Mode(true);
 }) 

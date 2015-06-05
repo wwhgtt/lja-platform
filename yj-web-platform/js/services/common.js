@@ -277,3 +277,24 @@ angular.module("services.common",[])
 		}
 	}
 })
+//getUserByPhone
+.service("$getUser",function(
+	$http
+){
+	return {
+		getUser:function(phone,callback){
+			$http.get(BASE_URL + "/platform/operate/user/searchByPhone",{
+				params:{
+					phone:phone
+				}
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

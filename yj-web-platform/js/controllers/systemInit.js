@@ -1,8 +1,10 @@
 angular.module("controllers.systemInit",[])
-.controller("SystemInit",function(
+.controller("systemInit",function(
 	$scope,
 	$init,
-	$location
+	$location,
+	$state,
+	$rootScope
 ){
 	$init.init(function(err,result){
 		console.log("result %o",result);
@@ -11,7 +13,7 @@ angular.module("controllers.systemInit",[])
 		}else{
 			if(result && result.success){//系统已经初始化
 				console.log("result go login")
-				$location.path("/login");
+				$rootScope.$state.go('login');
 			}else{//系统未初始化
 				if(result && result.init == false){
 					$location.path("/initAdmin");//这个地方设置延迟
