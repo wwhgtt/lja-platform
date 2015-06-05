@@ -1,5 +1,14 @@
-<h2>{{}}</h2>
-<h4>职位描述</h4>
-<p>{{}}</p>
-<h4>岗位职责</h4>
-<p>{{}}</p>
+<div class="container-fluid job-list" ng-class="{even:!$even,odd:!$odd}">
+	<div class="recruitImg">
+		<img ng-src="{{job.url}}" alt="攻城狮">
+	</div>
+	<div class="jobside">
+		<h2>{{job.name}}</h2>
+		<h4>职位描述</h4>
+		<p contentEditable=false ng-model="job.describle"></p>
+		<h4>岗位职责</h4>
+		<p contentEditable=false ng-model="job.duty"></p>
+		<h4>岗位工资</h4>
+		<p>{{job.pay}}</p>
+	</div>
+</div>

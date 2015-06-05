@@ -5,7 +5,7 @@ angular.module("controllers.addjobs",['ngFileUpload'])
 	Upload,
 	$location
 ){
-	$scope.jobs={name:"",describle:"",duty:"",pay:"",imgName:""};
+	$scope.jobs={name:"",describle:"bcdjs v",duty:"jkdshcv sd",pay:"",imgName:""};
 	$scope.$watch('files', function () {
         $scope.upload($scope.files);
     });

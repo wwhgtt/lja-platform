@@ -1,6 +1,7 @@
 angular.module("ljaWebPlatform",[
 	"ngRoute",
 	"ngMessages",
+	"contenteditable",
 	"controllers.systemInit",
 	"controllers.entering",
 	"controllers.login",

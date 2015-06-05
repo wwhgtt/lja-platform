@@ -4,9 +4,9 @@
 			<img ng-src="{{job.url}}">
 		</div>
 		<div class="job_word">
-			<p>{{job.name}}</p>
-			<p>{{job.describle}}</p>
-			<p>{{job.duty}}</p>
+			<p >{{job.name}}</p>
+			<p contentEditable=false ng-model="job.describle"></p>
+			<p contentEditable=false ng-model="job.duty" ></p>
 			<p>{{job.pay}}</p>
 		</div>
 		<button type="button" class="glyphicon glyphicon-remove" ng-click="deleteJob(job.id)" ></button>

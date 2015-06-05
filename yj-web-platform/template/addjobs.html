@@ -12,10 +12,10 @@
 				<input type="text" placeholder="职位名字" ng-model="jobs.name" class="form-control" />
 				<br>
 				<label>职位描述</label>
-				<textarea type="text" placeholder="职位描述" ng-model="jobs.describle" ></textarea>
+				<div ng-model="jobs.describle"  contentEditable=true style="min-height:300px" ></div>
 				<br>
 				<label>职位职责</label>
-				<textarea type="text" placeholder="职位职责" ng-model="jobs.duty" ></textarea>
+				<div  ng-model="jobs.duty" contentEditable=true style="min-height:300px"></div>
 				<br>
 				<label>职位工资</label>
 				<input type="text" placeholder="职位工资" ng-model="jobs.pay" class="form-control" />

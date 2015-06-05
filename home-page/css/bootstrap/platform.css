@@ -184,3 +184,31 @@ hr{
 	padding-bottom: 30px;
 	padding-top: 10px
 }
+.recruitImg img{
+	width:150px;
+	height:300px;
+	margin-top: 50px
+}
+.recruitImg{
+	float: left;
+	margin-left: 6%
+}
+.jobside{
+	float: left;
+	margin-left: 8%;
+	width: auto;
+	margin-bottom: 10px
+}
+.job-list{
+	border: 1px solid gray;
+}
+.jobside h2{
+	padding: 10px 0px 10px 0px
+}
+.jobside h4{
+	padding: 10px 0px 10px 0px
+}
+.job-list{
+	height: 400px
+}
+

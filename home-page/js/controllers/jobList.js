@@ -1,6 +1,21 @@
 angular.module("controllers.jobList",[]) 
 .controller("jobList",function(
-	$scope
+	$scope,
+	$getjob
 ){
-	console.log("$scope %o",$scope);
+	$scope.jobList={name:"",duty:"",pay:"",describle:"",imgName:""};
+     $getjob.getjob(function(err,result){
+     	if (err) {
+     		alert("sorry,visited failed");
+     	}else{
+     		if(result){
+     			$scope.jobList=result;
+     			var jobList=$scope.jobList;
+     			for(index in jobList){
+     				var imgName=result[index].imgName;
+					jobList[index].url=BASE_URL+"/websiteData/img/"+imgName;
+     			}
+     		}
+     	}
+     })
 })

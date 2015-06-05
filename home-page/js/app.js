@@ -1,6 +1,7 @@
 angular.module("ljaWebHomePage",[
 	"ngRoute",
 	"ngMessages",
+	"contenteditable",
 	"controllers.HomePage",
 	"directives.navgps",
 	"directives.jobList",
