@@ -163,3 +163,12 @@ from{transform:rotate(0deg)}
 	width:200px;
 	height:200px;
 }
+.tester_detile span{
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	border: 1px dashed gray
+}
+.test_span{
+	margin-left: 20px;
+}

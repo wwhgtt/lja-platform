@@ -9,16 +9,16 @@ angular.module("controllers.testView",[])
 	    top=5;
 	var firstIncId;
 	$getTest.getTest(incId,top,'next',function(err,result){
-    	// $scope.testerList=result.testerList;
-    	// console.log($scope.testerList);
-    	// minIncId = $scope.testerList[0].incId - 1;
-     //    var testerList=$scope.testerList;
+    	 $scope.testerList=result.testerList;
+    	 console.log($scope.testerList);
+    	 minIncId = $scope.testerList[0].incId - 1;
+         var testerList=$scope.testerList;
     	if(err){
 			alert("sorry,访问出错");
 		}else{
 			if(result && result.success == true){
 				$scope.firstPage=true;
-				// firstIncId = result[0].incId;
+				 firstIncId = testerList[0].incId;
 			}else{
 				if(result && result.testerList == null){
 					console.log("参与者为空");
@@ -33,15 +33,16 @@ angular.module("controllers.testView",[])
 			var lastTester = $scope.testerList[$scope.testerList.length - 1];
 			var incId = lastTester.incId;
 			$getTest.getTest(incId,top,type,function(err,result){
-				$scope.testerList = result.testerList;
 				if(err){
 					alert("sorry,访问出错");
 					}else{
-						if(result && result.success == true){
+						if(result && result.testerList !== null){
+							$scope.testerList = result.testerList;
 							$scope.firstPage=false;
 						}else{
 							if(result && result.testerList == null){
-								console.log("参与者为空");
+								$scope.lastPage = true;
+								alert("没有下一页了");
 							}else{
 								console.log("sorry,获取失败");
 							}
