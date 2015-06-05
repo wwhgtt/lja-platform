@@ -1,7 +1,21 @@
 angular.module("controllers.test",[]) 
 .controller("test",function(
-	$scope
+	$scope,
+	$postEmail
 ){
-	console.log("$scope %o",$scope);
-	$scope.user={email:""};
+	$scope.user ={email:""};
+	$scope.postemail = function(){
+		var email=$scope.user.email;
+		$postEmail.postEmail(email,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					alert("submit success");   
+				}else{
+					alert("sorry,submit false"); 
+				}
+			}
+		})
+	}
 })

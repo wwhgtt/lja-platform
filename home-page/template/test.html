@@ -6,9 +6,9 @@
 	<div class="content">
 		<h2>久等了，益驾马上为您解决驾考这一世纪难题！</h2>
 		<h3>益驾app内测已开放，您可以在下方留下邮箱了解测试详情。</h3>
-		<form name="email" ng-submit="postEmail" novalidate>
-			<input type="email" ng-model="uesr.email">
-			<img src="./img/"><button type="submit" ></button></img>
+		<form name="email"  novalidate>
+			<input type="email" ng-model="user.email" class="btn btn-default">
+			<button type="submit" class="glyphicon glyphicon-ok btn btn-default" ng-click="postemail()" ></button>
 		</form>
 	</div>
 </div>
