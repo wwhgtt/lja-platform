@@ -7,8 +7,16 @@
 	</div>
 	<div class="clear"></div>
 	<h2 ng-show="phone" class="phone_user" >该手机对应的学员为:{{user._id}}</h2>
-	<div class="getUsers">
+	<div class="getUsers" ng-controller="userItem">
+		<div class="clear"></div>
+		<div class="compline">
+			<button  type="button" class="btn btn-default btn-lg margin">用户_id</button>
+			<button  type="button" class="btn btn-default btn-lg margin">用户phone</button>
+			<button  type="button" class="btn btn-default btn-lg margin">创建日期</button>
+		</div>
+		<div class="clear"></div>
 		<user-item ng-repeat="(key,user) in userItem"></user-item>
+		<div class="clear"></div>
 		<div class="getMore">
 			<button class="btn btn-default" ng-click="getFirstPage()">首页</button>
 			<button class="btn btn-default" ng-click="getMoreUser('pre')" >上一页</button>

@@ -270,3 +270,7 @@ from{transform:rotate(0deg)}
 	margin-top: -25px;
 	margin-right: 15px
 }
+.margin{
+	width: 200px;
+	overflow: hidden;
+}
