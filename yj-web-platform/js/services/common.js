@@ -294,3 +294,24 @@ angular.module("services.common",[])
 		}
 	}
 })
+//获取尾页用户
+.service("$getLastUser",function(
+	$http
+){
+	return {
+		getLastUser:function(top,callback){
+			$http.get(BASE_URL + "/platform/operate/user/lastPage",
+				{params:{
+					top:top
+				}		
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
