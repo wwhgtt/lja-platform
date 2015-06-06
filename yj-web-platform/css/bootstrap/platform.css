@@ -148,19 +148,20 @@ from{transform:rotate(0deg)}
 	border: 1px solid black
 }
 .job_word p{
-	width: 20%;
+	width: 100%;
 	border: 1px solid black
 }
 .job_word{
-	margin-bottom: 30px;
 	float:left;
+	width: 75%;
+	margin-left: 10px;
 }
 .job_image{
 	float: left;
+	width: 20%
 }
 .job_image img{
-	width:200px;
-	height:200px;
+	width: 100%;
 }
 .tester_detile span{
 	display: inline-block;
@@ -170,9 +171,6 @@ from{transform:rotate(0deg)}
 }
 .test_span{
 	margin-left: 20px;
-}
-.form-control{
-	float: left;
 }
 .btn{
 	float: left;
@@ -228,4 +226,47 @@ from{transform:rotate(0deg)}
 
 .list-group-item{
 	border: 1px dashed gray;
+}
+.jobs_detile label{
+	margin-top: 10px
+}
+.work_boder{
+	border: 1px dashed gray
+}
+.jobs_detile button{
+	margin-top: 15px
+}
+.single_p{
+	line-height: 25px;
+	margin-top: 5px;
+	border-radius: 5px
+}
+.glyphicon{
+	width: 20px;
+	float: left;
+	margin-left: 5px;
+}
+.dis_pay{
+	margin-bottom: 5px
+}
+.jobList{
+	margin: 20px 0px 20px 10px
+}
+.fix_img{
+	float: left;
+	width: 20%;
+}
+.form_input{
+	width: 95%;
+	height: auto;
+	line-height: 25px;
+	border-radius: 5px;
+	margin-top: 5px
+}
+.try_fix{
+	float: right;
+	background-color: #FFA500;
+	color: white;
+	margin-top: -25px;
+	margin-right: 15px
 }

@@ -1,14 +1,12 @@
-<div class=".col-md-8">
-	<div class="jobList" >
-		<div class="job_image">
-			<img ng-src="{{job.url}}">
-		</div>
-		<div class="job_word">
-			<p >{{job.name}}</p>
-			<p contentEditable=false ng-model="job.describle"></p>
-			<p contentEditable=false ng-model="job.duty" ></p>
-			<p>{{job.pay}}</p>
-		</div>
-		<button type="button" class="glyphicon glyphicon-remove" ng-click="deleteJob(job.id)" ></button>
+<div class="jobList" >
+	<div class="job_image jobList">
+		<img ng-src="{{job.url}}">
 	</div>
+	<div class="job_word jobList">
+		<p class="form-control">{{job.name}}</p>
+		<p contentEditable=false ng-model="job.describle" class="single_p" ></p>
+		<p contentEditable=false ng-model="job.duty" class="single_p dis_pay" ></p>
+		<p class="form-control">{{job.pay}}</p>
+	</div>
+	<button type="button" class="glyphicon glyphicon-remove " ng-click="deleteJob(job.id)" ></button>
 </div>

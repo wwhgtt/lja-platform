@@ -1,19 +1,19 @@
-<div class=".col-md-8">
+<div class="container">
 	<form  name="jobsList" novalidate ng-submit="reviseJobs(job)">
 		<p class="should">watching model:</p>
     	<div class="button should" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
 		<div class="jobs_image">
-			<img ng-src="{{job.url}}" class="filechange" ngf-select ngf-change="upload($files)" ngf-multiple="multiple">
+			<img ng-src="{{job.url}}" class="filechange fix_img" ngf-select ngf-change="upload($files)" ngf-multiple="multiple">
 		</div>
 		<p class="should">Upload Log:</p>
 		<pre class="should">{{log}}</pre>
-		<pre class="should" >{{jobs.imgName}}</pre>
+		<pre class="should " >{{jobs.imgName}}</pre>
 		<div class="job_word">
-			<input ng-model="job.name"  type="text" />
-			<input ng-model="job.describle" type="text" />
-			<input ng-model="job.duty" type="text" />
-			<input ng-model="job.pay" type="text" />
+			<input ng-model="job.name"  type="text" class="form-control" />
+			<p ng-model="job.describle" class="form_input" contentEditable=true />
+			<p ng-model="job.duty" class="form_input dis_pay"  contentEditable=true />
+			<input ng-model="job.pay" type="text" class="form-control form_" />
 		</div>
-		<button type="submit" >确认保存</button>
+		<button type="submit" class="try_fix btn btn-default" >确认修改</button>
 	</form>
 </div>
