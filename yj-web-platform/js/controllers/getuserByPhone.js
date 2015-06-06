@@ -1,4 +1,4 @@
-angular.module("controllers.getUser",[]) 
+angular.module("controllers.getUser",["controllers.userItem"]) 
 .controller("getUser",function(
 	$scope,
 	$getUser 

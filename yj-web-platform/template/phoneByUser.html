@@ -1,10 +1,19 @@
-<section>
+<section class="container">
 	<div class="getUser">
 		<form novalidate name="User_form" ng-submit="finaUser()" >
-			<input class="form-control" placeholder="userPhone" ng-model="user.phone" />
-			<button class="btn btn-default" type="submit">提交</button>
+			<input class="form-control" style="float:left" placeholder="userPhone" ng-model="user.phone" />
+			<button class="btn btn-default" type="submit"  style="float:left">提交</button>
 		</form>
 	</div>
 	<div class="clear"></div>
 	<h2 ng-show="phone" class="phone_user" >该手机对应的学员为:{{user._id}}</h2>
+	<div class="getUsers">
+		<user-item ng-repeat="(key,user) in userItem"></user-item>
+		<div class="getMore">
+			<button class="btn btn-default" ng-click="getFirstPage()">首页</button>
+			<button class="btn btn-default" ng-click="getMoreUser('pre')" >上一页</button>
+			<button class="btn btn-default" ng-click="getMoreUser('next')" >下一页</button>
+			<button class="btn btn-default" ng-click="getLastPage()" >尾页</button>
+		</div>
+	</div>
 </section>

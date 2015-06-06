@@ -1,10 +1,11 @@
 <!DOCTYPE>
 <html>
 <head>
+	<base href="/">
 	<meta charset="utf-8" />
 	<title>乐驾平台端</title>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap/bootstrap.min.css">
-	<script src="./lib/jquery.min.js"></script>
+	<script src="./lib/jquery.min.js" ></script>
 	<script src="./lib/angular.min.js"></script>
 	<script src="./lib/angular-route.min.js"></script>
 	<script src="./lib/angular-sanitize.min.js"></script>
@@ -16,7 +17,7 @@
 	<script src="./lib/angular-ui-router.js"></script>
 	<script src="./js/BMap.js"></script>
 	<script src="./lib/bootstrap.min.js"></script>
-	<script src="./js/app.js"></script>
+	<script src="./js/app.js" type="text/javascript"></script>
 	<script src="./js/controllers/systemInit.js"></script>
 	<script src="./js/controllers/entering.js"></script>
 	<script src="./js/controllers/login.js"></script>
@@ -25,10 +26,12 @@
 	<script src="./js/controllers/addSiteInfo.js"></script>
 	<script src="./js/controllers/addjobs.js"></script>
 	<script src="./js/controllers/platform.js"></script>
+	<script src="./js/controllers/userItem.js"></script>
 	<script src="./js/controllers/getuserByPhone.js"></script>
 	<script src="./js/controllers/testView.js"></script>
 	<script src="./js/controllers/jobList.js"></script>
 	<script src="./js/controllers/jobsList.js"></script>
+	<script src="./js/directives/userItem.js"></script>
 	<script src="./js/controllers/getSiteInfo.js"></script>
 	<script src="./js/directives/basicItem.js"></script>
 	<script src="./js/directives/jobList.js"></script>
@@ -47,6 +50,6 @@
 </head>
 <body ng-app="ljaWebPlatform">
 	<ui-view></ui-view>
-	<base href="/">
+	
 </body>
 </html>

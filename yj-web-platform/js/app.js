@@ -12,6 +12,8 @@ angular.module("ljaWebPlatform",[
 	"controllers.getSiteInfo",
 	"controllers.addjobs",
 	"controllers.platform",
+	"controllers.userItem",
+	"directives.userItem",
 	"controllers.testView",
 	"controllers.jobList",
 	"controllers.jobsList",
@@ -39,7 +41,7 @@ angular.module("ljaWebPlatform",[
 				templateUrl:"template/menu.html",
 				controller:"platform"
 			})
-		.state("platform.entering",{
+		.state('platform.entering',{
 			url:"/entering",
 			views:{
 				'menuContent':{
@@ -48,16 +50,16 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.login",{
+		.state('platform.login',{
 			url:"/login",
 			views:{
-				'menuContent':{
+				"menuContent":{
 					templateUrl:"template/login.html",
 					controller:"Login"
 				}
 			}
 		})
-		.state("platform.initAdmin",{
+		.state('platform.initAdmin',{
 			url:"/initAdmin",
 			views:{
 				'menuContent':{
@@ -66,7 +68,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.rePwd",{
+		.state('platform.rePwd',{
 			url:"/rePwd",
 			views:{
 				'menuContent':{
@@ -75,7 +77,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.addSiteInfo",{
+		.state('platform.addSiteInfo',{
 			url:"/addSiteInfo",
 			views:{
 				'menuContent':{
@@ -84,7 +86,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.getSiteInfo",{
+		.state('platform.getSiteInfo',{
 			url:"/getSiteInfo",
 			views:{
 				'menuContent':{
@@ -93,7 +95,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.addjobs",{
+		.state('platform.addjobs',{
 			url:"/addjobs",
 			views:{
 				'menuContent':{
@@ -102,7 +104,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.getjobs",{
+		.state('platform.getjobs',{
 			url:"/getjobs",
 			views:{
 				'menuContent':{
@@ -111,7 +113,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.reviseJob",{
+		.state('platform.reviseJob',{
 			url:"/reviseJob",
 			views:{
 				'menuContent':{
@@ -120,7 +122,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.LookTest",{
+		.state('platform.LookTest',{
 			url:"/LookTest",
 			views:{
 				'menuContent':{
@@ -129,7 +131,7 @@ angular.module("ljaWebPlatform",[
 				}
 			}
 		})
-		.state("platform.searchUser",{
+		.state('platform.searchUser',{
 			url:"/searchUser",
 			views:{
 				'menuContent':{
@@ -139,5 +141,5 @@ angular.module("ljaWebPlatform",[
 			}
 		})
 		$urlRouterProvider.otherwise("/platform");
-		 $locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(true);
 }) 

@@ -43,31 +43,6 @@ angular.module("services.common",[])
 		}
 	}
 })
-
-//检测系统是否已初始化管理员
-
-.service("$init",function(
-	$http,
-	$location
-){
-	return {
-		init:function(callback){
-			var promise=$http({
-		    	method:'GET',
-		    	url:BASE_URL+'/platform/checkInit'
-		    });
-
-		    promise.success(function(data){//{success:false/true}
-		    	if(callback)callback(null,data);
-		    });
-
-		    promise.error(function(err){
-		    	if(callback)callback(err);
-		    });
-		}
-	}
-   
-})
 //系统初始化
 .service("$Init",function(
 	$http
@@ -287,6 +262,27 @@ angular.module("services.common",[])
 				params:{
 					phone:phone
 				}
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//获取首页用户
+.service("$getUserItem",function(
+	$http
+){
+	return {
+		getUserItem:function(top,callback){
+			$http.get(BASE_URL + "/platform/operate/user/firstPage",
+				{params:{
+					top:top
+				}		
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
