@@ -1,5 +1,5 @@
 <header id="top" class="navbar navbar-static-top bs-docs-nav" role="banner"> 
-	<div class="container-fulid">
+	<div class="container navside">
 		<div class="navbar-header">
 			<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
@@ -11,9 +11,7 @@
 		</div>
 		<nav class="collapse navbar-collapse bs-navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="/platform/entering" title="录入驾校">录入驾校</a></li>
-				<li><a href="/platform/login" title="登录">登录</a></li>
-				<li><a href="/platform/initAdmin" title="初始化">初始化</a></li>
+				<li><a href="/platform/initAdmin" title="初始化" style="display:none">初始化</a></li>
 				<li><a href="/platform/rePwd" title="修改密码">修改密码</a></li>
 				<li><a href="/platform/addSiteInfo" title="添加场地信息">添加场地信息</a></li>
 				<li><a href="/platform/getSiteInfo" title="获取场地信息">获取场地信息</a></li>
@@ -23,9 +21,50 @@
 				<li><a href="/platform/LookTest" title="查看测试人员">查看测试人员</a></li>
 				<li><a href="/platform/searchUser" title="寻找用户">寻找用户</a></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+		        <li><a href="/platform/login">登录</a></li>
+		     </ul>
 		</nav>
 	</div>
 </header>
 <ui-view name="menuContent">
-	傻逼小华
+	<div class="container">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel"  >
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			  </ol>
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="./img/280165.jpg" alt="...">
+			      <div class="carousel-caption">
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="./img/278799.jpg" alt="...">
+			      <div class="carousel-caption">
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="./img/279607.jpg" alt="...">
+			      <div class="carousel-caption">
+			      </div>
+			    </div>
+			  </div>
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+		</div>
+		<h2 class="word_view">平台端操作说明</h2>
+		<p class="list-group-item">一切操作需要登录后才能使用</p>
+		<p class="list-group-item">修改密码指修改驾校密码，需提供驾校营业执照后才能修改</p>
+		<p class="list-group-item">获取场地信息默认的distance为整个div高度所对应的实际距离</p>
+		<p class="list-group-item">添加图片时选中图片后暂时还显示不出来(需要改进)</p>
+	</div>
 </ui-view>

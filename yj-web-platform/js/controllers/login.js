@@ -17,7 +17,6 @@ angular.module("controllers.login",[])  //controller后面这个名字是无所�
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.role){ //result代表的是服务访问成功且有返回值表示密码正确
-					$location.path("/entering");   //跳转到驾校管理页面去
 				}else{
 					console.log("用户名或者密码不对"); //服务访问成功  但是输入的密码不正确
 

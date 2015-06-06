@@ -16,7 +16,6 @@ angular.module("controllers.rePwd",[])  //controller后面这个名字是无所�
 			}else{
 				if(result && result.success){ //result代表的是服务访问成功且有返回值表示密码正确
 					alert("重置成功");
-					//$location.path("/entering");   //跳转到驾校管理页面去
 
 				}else{
 					//console.log("用户名或者密码不对"); //服务访问成功  但是输入的密码不正确
