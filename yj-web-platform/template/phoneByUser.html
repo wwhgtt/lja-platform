@@ -18,8 +18,8 @@
 		<user-item ng-repeat="(key,user) in userItem"></user-item>
 		<div class="clear"></div>
 		<div class="getMore">
-			<button class="btn btn-default" ng-click="getFirstPage()">首页</button>
-			<button class="btn btn-default" ng-click="getMoreUser('pre')" >上一页</button>
+			<button class="btn btn-default" ng-click="getFirstPage()" ng-disable="firstPage">首页</button>
+			<button class="btn btn-default" ng-click="getMoreUser('pre')" ng-disable="firstPage" >上一页</button>
 			<button class="btn btn-default" ng-click="getMoreUser('next')" >下一页</button>
 			<button class="btn btn-default" ng-click="getLastPage()" >尾页</button>
 		</div>
