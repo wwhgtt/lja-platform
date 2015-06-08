@@ -13,7 +13,7 @@
 	<p class="should">Upload Log:</p>
 	<pre class="should">{{log}}</pre>
 	<button  ng-click="getDownload()">获取下载链接</button>
-	<input type="text" ng-model="Download.url" />
+	<input type="text" ng-model="Download.url" ng-show="DownSuccess" />
 	<form name="examine_form" novalidate ng-submit="examineCoach()" >
 		<lable>输入身份证</lable>
 		<input type="text" ng-model="examine.id" required />

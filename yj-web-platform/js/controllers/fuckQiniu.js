@@ -66,32 +66,31 @@ angular.module("controllers.fuckQiniu",[])
 					if(result && result.success == true){
 						console.log("成功");
 						$scope.Download.url=result.downloadUrl;
+						$scope.DownSuccess=true;
 					}else{
 						alert("出错了");
 					}
 				}
 			})
 		}
-		console.log("$scope %o",$scope);
-		$scope.examine={id:"",teachType:"",name:""};
-		$scope.examineCoach=function(){
-			var idNumber=$scope.examine.id,
-				teachType=$scope.examine.teachType,
-				coachId=user._id,
-				name=$scope.examine.name;
-
-			$examine.examine(coachId,idNumber,name,teachType,function(err,result){
-				if(err){
-					alert("sorry,访问出错");
+	}
+	$scope.examine={id:"",teachType:"",name:""};
+	$scope.examineCoach=function(){
+		var idNumber=$scope.examine.id,
+			teachType=$scope.examine.teachType,
+			coachId=$scope.users.id,
+			name=$scope.examine.name;
+		$examine.examine(coachId,idNumber,name,teachType,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					console.log("成功");
 				}else{
-					if(result && result.success == true){
-						console.log("成功");
-					}else{
-						var errorInfo=result.errorInfo;
-						alert(errorInfo);
-					}
+					var errorInfo=result.errorInfo;
+					alert(errorInfo);
 				}
-			})
-		}
+			}
+		})
 	}
 })
