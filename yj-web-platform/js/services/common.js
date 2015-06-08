@@ -338,3 +338,25 @@ angular.module("services.common",[])
 		}
 	}
 })
+//获取用户获取证件上传凭证 
+.service("$getLisence",function(
+	$http
+){
+	return {
+		getLisence:function(lisenceType,userId,callback){
+			$http.get(BASE_URL + "/platform/operate/user/lisenceUpToken",{
+				params:{
+					lisenceType:lisenceType,
+					userId:userId
+				}
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

@@ -4,3 +4,14 @@
 	<button  type="button" class="btn btn-default btn-lg margin">{{user.phone}}</button>
 	<button  type="button" class="btn btn-default btn-lg margin">{{user.createDate}}</button>
 </div>
+<div ng-controller="fuckQiniu">
+	<button type="submit" ng-click="postIdCardF(user)"  >获取凭证</button>
+	<form method="post" action="http://upload.qiniu.com/" enctype="multipart/form-data" >
+	  <input name="key" type="hidden" value="{{user._id}}"> 
+	  <!-- <input name="x:<custom_name>" type="hidden" value="<custom_value>"> -->
+	  <input name="token" type="hidden" value="{{users.token}}">
+	  <input name="file" type="file" />
+	  <input type="submit" value="提交"></button>
+	</form>
+</div>
+

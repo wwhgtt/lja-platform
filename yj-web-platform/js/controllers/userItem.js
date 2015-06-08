@@ -1,14 +1,16 @@
-angular.module("controllers.userItem",[]) 
+angular.module("controllers.userItem",["controllers.fuckQiniu"]) 
 .controller("userItem",function(
 	$scope,
 	$getUserItem,
 	$getLastUser,
-	$getMoreUsers
+	$getMoreUsers,
+	$getLisence,
+	Upload
 ){
 	var top=1,
 	 	incId=0;
  	var firstIncId;
-	$scope.user={_id:"",phone:"",createDate:""};
+	// $scope.user={_id:"",phone:"",createDate:"",lisence:""};
 	$getUserItem.getUserItem(top,function(err,result){ 
 		if(err){
 			alert("sorry,访问出错");
@@ -17,7 +19,6 @@ angular.module("controllers.userItem",[])
 				$scope.userItem=result.userList;
 				var userItem=$scope.userItem;
 				firstIncId = userItem[0].incId;
-				alert("获取成功");
 			}else{
 				if(result && result.userList == null){
 					alert("用户为空");
@@ -32,7 +33,6 @@ angular.module("controllers.userItem",[])
 			}else{
 				if(result && result.userList !== null){
 					$scope.userItem=result.userList;
-					alert("获取成功");
 				}else{
 					if(result && result.userList == null){
 						alert("用户为空");
@@ -49,7 +49,6 @@ angular.module("controllers.userItem",[])
 			}else{
 				if(result && result.userList !== null){
 					$scope.userItem=result.userList;
-					alert("获取成功");
 				}else{
 					if(result && result.userList == null){
 						alert("用户为空");
@@ -109,4 +108,8 @@ angular.module("controllers.userItem",[])
 			}
 		}
 	}
+	
+	
+
+    
 })
