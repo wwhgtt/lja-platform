@@ -13,6 +13,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.addjobs",
 	"controllers.platform",
 	"controllers.userItem",
+	"controllers.getImUsers",
 	"directives.userItem",
 	"controllers.testView",
 	"controllers.jobList",
@@ -20,6 +21,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.getUser",
 	"directives.jobList",
 	"directives.jobsList",
+	"directives.imuserList",
 	"directives.basicItem",
 	"directives.systemInit",
 	"directives.login",
@@ -137,6 +139,15 @@ angular.module("ljaWebPlatform",[
 				'menuContent':{
 					templateUrl:"template/phoneByUser.html",
 					controller:"getUser"
+				}
+			}
+		})
+		.state('platform.getImUsers',{
+			url:"/getImUsers",
+			views:{
+				'menuContent':{
+					templateUrl:"template/getImUsers.html",
+					controller:"getImUsers"
 				}
 			}
 		})

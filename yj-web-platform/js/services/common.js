@@ -422,3 +422,19 @@ angular.module("services.common",[])
 		}
 	}
 })
+//获取未审查教练
+.service("$getExamineUser",function(
+	$http
+){
+	return {
+		getExamineUser:function(callback){
+			$http.get(BASE_URL + "/platform/operate/coach/applyList",{})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

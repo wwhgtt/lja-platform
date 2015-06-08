@@ -1,0 +1,10 @@
+<div class="container">
+	<button type="button" class="btn btn-default">用户_id</button>
+	<button type="button" class="btn btn-default">用户phone</button>
+	<button type="button" class="btn btn-default">创建日期</button>
+	<br>
+	<imuser-list ng-repeat="(key,imuser) in imuserLIst"></imuser-list>
+	<br>
+	<button ng-click="examine()" class="btn btn-success">审核教练</button>
+	<button ng-click="examineRefuseCoach()" class="btn btn-success">拒绝审核教练</button>
+</div>
