@@ -360,3 +360,65 @@ angular.module("services.common",[])
 		}
 	}
 })
+//图片链接回传给服务器
+.service("$postLisence",function(
+	$http
+){
+	return {
+		postLisence:function(lisenceType,userId,callback){
+			$http.post(BASE_URL + "/platform/operate/user/lisence",{
+					lisenceType:lisenceType,
+					userId:userId
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//获取证件照的下载链接
+.service("$getDown",function(
+	$http
+){
+	return {
+		getDown:function(lisenceType,userId,callback){
+			$http.post(BASE_URL + "/platform/operate/user/lisenceGettoken",{
+					lisenceType:lisenceType,
+					userId:userId
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//审查教练
+.service("$examine",function(
+	$http
+){
+	return {
+		examine:function(coachId,idNumber,name,teachType,callback){
+			$http.post(BASE_URL + "/platform/operate/coach/examine",{
+					coachId:coachId,
+					idNumber:idNumber,
+					name:name,
+					teachType:teachType
+			})
+			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

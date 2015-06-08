@@ -6,12 +6,23 @@
 </div>
 <div ng-controller="fuckQiniu">
 	<button type="submit" ng-click="postIdCardF(user)"  >获取凭证</button>
-	<form method="post" action="http://upload.qiniu.com/" enctype="multipart/form-data" >
-	  <input name="key" type="hidden" value="{{user._id}}"> 
-	  <!-- <input name="x:<custom_name>" type="hidden" value="<custom_value>"> -->
-	  <input name="token" type="hidden" value="{{users.token}}">
-	  <input name="file" type="file" />
-	  <input type="submit" value="提交"></button>
+	<p class="should">watching model:</p>
+    <div class="button should" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
+    Select File:
+    <div class="filechange" ngf-select ngf-change="upload($files)" ngf-multiple="multiple">Select File</div>
+	<p class="should">Upload Log:</p>
+	<pre class="should">{{log}}</pre>
+	<button  ng-click="getDownload()">获取下载链接</button>
+	<input type="text" ng-model="Download.url" />
+	<form name="examine_form" novalidate ng-submit="examineCoach()" >
+		<lable>输入身份证</lable>
+		<input type="text" ng-model="examine.id" required />
+		<lable>输入teachType</lable>
+		<input type="text" ng-model="examine.teachType" required>
+		<lable>输入名字</lable>
+		<input type="text" ng-model="examine.name" required>
+		<button type="submit" ng-click="examineCoach()" >提交</button>
 	</form>
 </div>
+
 
