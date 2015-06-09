@@ -8,6 +8,7 @@ angular.module("controllers.examineNews",[])
     $scope.examine={id:"",teachType:"",name:"",resaon:""};
 	$scope.examines=function(imuser){
 	    $scope.showExamine = true;
+	    $scope.showReason = false;
 		$scope.examineCoach=function(){
 			var idNumber=$scope.examine.id,
 			teachType=$scope.examine.teachType,
@@ -29,9 +30,10 @@ angular.module("controllers.examineNews",[])
 		}
 	}
 	$scope.examineRefuseCoach=function(imuser){
+		$scope.showExamine = false;
 		$scope.showReason = true;
 		$scope.examineResaon=function(){
-			var resaon=$scope.examine.resaon;
+			var reason=$scope.examine.resaon;
 			var coachId=imuser.userId;
 			$resaon.resaon(coachId,reason,function(err,result){
 				if(err){

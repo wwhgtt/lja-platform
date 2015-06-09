@@ -7,15 +7,15 @@
 	<div class="clear"></div>
 	<form name="examine_form" novalidate ng-show="showExamine" >
 		<lable>输入名字</lable>
-		<input type="text" ng-model="examine.name" required />
+		<input type="text" ng-model="examine.name" required  />
 		<lable>输入身份证</lable>
-		<input type="text" ng-model="examine.id" required />
+		<input type="text" ng-model="examine.id" required    />
 		<lable>输入teachType</lable>
-		<input type="text" ng-model="examine.teachType" required />
+		<input type="text" ng-model="examine.teachType" required    />
 		<button type="submit" ng-click="examineCoach()" >提交</button>
 	</form>
-	<form name="reason_form" novalidate ng-show="showReason">
-		<input  class="form-control"  ng-model="examine.resaon" />
-		<button type="submit" ng-click="examineResaon()" >提交</button>
+	<form name="reason_form" novalidate ng-show="showReason" style="margin-top:5px">
+		<input  class="form-control"  ng-model="examine.resaon" style="float:left" />
+		<button type="submit" class="btn btn-success" ng-click="examineResaon()" style="float:left" >提交</button>
 	</form>
 </div>
