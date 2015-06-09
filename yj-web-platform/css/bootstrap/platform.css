@@ -274,3 +274,7 @@ from{transform:rotate(0deg)}
 	width: 200px;
 	overflow: hidden;
 }
+.fixed_width{
+	width: 160px;
+	overflow:overlay;
+}
