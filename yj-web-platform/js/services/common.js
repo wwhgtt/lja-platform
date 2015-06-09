@@ -386,9 +386,11 @@ angular.module("services.common",[])
 ){
 	return {
 		getDown:function(lisenceType,userId,callback){
-			$http.post(BASE_URL + "/platform/operate/user/lisenceGettoken",{
+			$http.get(BASE_URL + "/platform/operate/user/lisenceGettoken",{
+				params:{
 					lisenceType:lisenceType,
 					userId:userId
+				}
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
@@ -429,6 +431,25 @@ angular.module("services.common",[])
 	return {
 		getExamineUser:function(callback){
 			$http.get(BASE_URL + "/platform/operate/coach/applyList",{})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//拒绝审查教练
+.service("$resaon",function(
+	$http
+){
+	return {
+		resaon:function(coachId,reason,callback){
+			$http.post(BASE_URL + "/platform/operate/coach/examineRefuse",{
+				coachId:coachId,
+				reason:reason
+			})
 			.success(function(data){
 				if(callback)callback(null,data);
 			})

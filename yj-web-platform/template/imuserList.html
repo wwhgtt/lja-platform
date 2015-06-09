@@ -1,3 +1,21 @@
-<button type="button">{{imuser._id}}</button>
-<button type="button">{{imuser.phone}}</button>
-<button type="button">{{imuser.creatdDate}}</button>
+<button type="button" class="btn btn-default" >{{imuser._id}}</button>
+<button type="button" class="btn btn-default" >{{imuser.createDate}}</button>
+<button type="button" class="btn btn-default" >{{imuser.userId}}</button>
+<div class="container" ng-controller="examineNews">
+	<button ng-click="examines(imuser)" class="btn btn-success">审核教练</button>
+	<button ng-click="examineRefuseCoach(imuser)" class="btn  btn-success">拒绝审核教练</button>
+	<div class="clear"></div>
+	<form name="examine_form" novalidate ng-show="showExamine" >
+		<lable>输入名字</lable>
+		<input type="text" ng-model="examine.name" required />
+		<lable>输入身份证</lable>
+		<input type="text" ng-model="examine.id" required />
+		<lable>输入teachType</lable>
+		<input type="text" ng-model="examine.teachType" required />
+		<button type="submit" ng-click="examineCoach()" >提交</button>
+	</form>
+	<form name="reason_form" novalidate ng-show="showReason">
+		<input  class="form-control"  ng-model="examine.resaon" />
+		<button type="submit" ng-click="examineResaon()" >提交</button>
+	</form>
+</div>

@@ -1,7 +1,8 @@
-angular.module("controllers.getImUsers",[]) 
+angular.module("controllers.getImUsers",["controllers.examineNews"]) 
 .controller("getImUsers",function(
 	$scope,
-	$getExamineUser
+	$getExamineUser,
+	$examine
 ){
 	$getExamineUser.getExamineUser(function(err,result){
 		if(err){

@@ -59,6 +59,7 @@ angular.module("controllers.fuckQiniu",[])
 		})
 		$scope.Download={url:""};
 		$scope.getDownload=function(){
+			// var lisenceType="identity";
 			$getDown.getDown(lisenceType,userId,function(err,result){
 				if(err){
 					alert("sorry,访问出错");
@@ -73,24 +74,5 @@ angular.module("controllers.fuckQiniu",[])
 				}
 			})
 		}
-	}
-	$scope.examine={id:"",teachType:"",name:""};
-	$scope.examineCoach=function(){
-		var idNumber=$scope.examine.id,
-			teachType=$scope.examine.teachType,
-			coachId=$scope.users.id,
-			name=$scope.examine.name;
-		$examine.examine(coachId,idNumber,name,teachType,function(err,result){
-			if(err){
-				alert("sorry,访问出错");
-			}else{
-				if(result && result.success == true){
-					console.log("成功");
-				}else{
-					var errorInfo=result.errorInfo;
-					alert(errorInfo);
-				}
-			}
-		})
 	}
 })
