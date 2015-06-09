@@ -13,9 +13,9 @@ angular.module("controllers.testView",[])
     	 console.log($scope.testerList);
     	 minIncId = $scope.testerList[0].incId - 1;
          var testerList=$scope.testerList;
-    	if(err){
+    	 if(err){
 			alert("sorry,访问出错");
-		}else{
+		 }else{
 			if(result && result.success == true){
 				$scope.firstPage=true;
 				 firstIncId = testerList[0].incId;
@@ -26,7 +26,7 @@ angular.module("controllers.testView",[])
 					console.log("sorry,获取失败");
 				}
 			}
-		}
+		 }
     })
     $scope.getMoreView = function(type){
 		if(type === 'next'){//下页
@@ -76,49 +76,3 @@ angular.module("controllers.testView",[])
 		}
 	}
 })
-// $scope.getMoreCoach = function(type){
-// 		if(type === 'next'){//下页
-// 			var lastCoach = $scope.coachList[$scope.coachList.length - 1];
-// 			var incId = lastCoach.incId;
-// 			$getcoach.getcoach(incId,top,type,function(err,result){
-// 				$scope.coachList = result.coachList;
-// 				if(err){
-// 					alert("sorry,访问出错");
-// 					}else{
-// 						if(result && result.success == true){
-// 							$scope.firstPage=false;
-// 						}else{
-// 							if(result && result.coachList == null){
-// 								console.log("教练为空");
-// 							}else{
-// 								console.log("sorry,获取失败");
-// 							}
-// 						}
-// 					}
-// 			})
-// 		}else{//上页
-// 			var firstCoach = $scope.coachList[0];
-// 			var incId = firstCoach.incId;
-// 			if(incId !== firstIncId){
-// 				$getcoach.getcoach(incId,top,type,function(err,result){
-// 				$scope.coachList = result.coachList;
-// 					if(err){
-// 						alert("sorry,访问出错");
-// 					}else{
-// 						if(result && result.coachList !== null){
-// 		                     console.log("获取成功");
-// 						}else{
-// 							if(result && result.commentArray == null){
-// 								console.log("教练为空");
-// 							}else{
-// 								console.log("sorry,获取失败");
-// 							}
-// 						}
-// 					}
-// 			  })
-// 			}else{
-// 				alert("已经是第一页了");
-// 				$scope.firstPage=true;
-// 			}
-// 		}
-// 	}

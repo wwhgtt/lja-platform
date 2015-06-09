@@ -8,10 +8,68 @@ angular.module("controllers.fuckQiniu",[])
 	$examine
 ){
 	$scope.users={token:"",id:""};
+	$scope.Download={url:"",Durl:"",IUrl:""};
 	$scope.postIdCardF=function(user){
-		 var lisenceType="coach",
+		var lisenceType="coach",
 		 	 userId=user._id;
 		$scope.users.id=userId;
+		var lisenceList=$scope.user.lisence;
+		if(lisenceList !== null){
+			if(lisenceList.coach){
+			    var lisenceType="coach";
+				$getDown.getDown(lisenceType,userId,function(err,result){
+					if(err){
+						alert("sorry,访问出错");
+					}else{
+						if(result && result.success == true){
+							console.log("成功");
+							$scope.jiashi = true;
+							$scope.Download.url=result.downloadUrl;
+						}else{
+							alert("出错了");
+						}
+					}
+				})
+			}else{
+				$scope.jiashizheng=true;
+			}
+			if(lisenceList.drive){
+			    var lisenceType="drive";
+				$getDown.getDown(lisenceType,userId,function(err,result){
+					if(err){
+						alert("sorry,访问出错");
+					}else{
+						if(result && result.success == true){
+							console.log("成功");
+							$scope.jiaolian = true;
+							$scope.Download.Durl=result.downloadUrl;
+						}else{
+							alert("出错了");
+						}
+					}
+				})
+			}else{
+				$scope.jiaolianzheng = true;
+			}
+			if(lisenceList.identity){
+			    var lisenceType="identity";
+				$getDown.getDown(lisenceType,userId,function(err,result){
+					if(err){
+						alert("sorry,访问出错");
+					}else{
+						if(result && result.success == true){
+							console.log("成功");
+							$scope.shenfen = true;
+							$scope.Download.Iurl=result.downloadUrl;
+						}else{
+							alert("出错了");
+						}
+					}
+				})
+			}else{
+				$scope.shenfenzheng=true;
+			}
+		}
 		$getLisence.getLisence(lisenceType,userId,function(err,result){
 			if(err){
 				alert("sorry,访问出错");
@@ -57,22 +115,97 @@ angular.module("controllers.fuckQiniu",[])
 				}
 			}
 		})
-		$scope.Download={url:""};
-		$scope.getDownload=function(){
-			// var lisenceType="identity";
-			$getDown.getDown(lisenceType,userId,function(err,result){
-				if(err){
-					alert("sorry,访问出错");
+		var lisenceType="drive";
+		$getLisence.getLisence(lisenceType,userId,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					$scope.users.token=result.upToken;
+					$scope.$watch('files', function () {
+				        $scope.upload($scope.files);
+				    });
+				    $scope.log = '';
+				    $scope.upload = function(files){
+				        if (files && files.length){
+				            var file = files[0];
+				            var token=$scope.users.token;
+				            var key=$scope.users.id;
+				            Upload.upload({
+				            	url:"http://upload.qiniu.com/",
+				            	fields:{
+				            		key:key,
+				            		token:token
+				            	},
+				            	file: file
+				            }).success(function (data, status, headers, config){
+				            	alert("上传成功");
+				                $scope.log = 'file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data) + '\n' + $scope.log;
+				                $postLisence.postLisence(lisenceType,userId,function(err,result){
+				                	if(err){
+										alert("sorry,访问出错");
+									}else{
+										if(result && result.success == true){
+											console.log("图片链接回传给服务器");
+										}else{
+												alert("出错了");
+											}
+										}
+									}
+				                )
+				            });
+				        }
+				    };
 				}else{
-					if(result && result.success == true){
-						console.log("成功");
-						$scope.Download.url=result.downloadUrl;
-						$scope.DownSuccess=true;
-					}else{
-						alert("出错了");
-					}
+					console.log("添加失败"); 
 				}
-			})
-		}
+			}
+		})
+		var lisenceType="identity";
+		$getLisence.getLisence(lisenceType,userId,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					$scope.users.token=result.upToken;
+					$scope.$watch('files', function () {
+				        $scope.upload($scope.files);
+				    });
+				    $scope.log = '';
+				    $scope.upload = function(files){
+				        if (files && files.length){
+				            var file = files[0];
+				            var token=$scope.users.token;
+				            var key=$scope.users.id;
+				            Upload.upload({
+				            	url:"http://upload.qiniu.com/",
+				            	fields:{
+				            		key:key,
+				            		token:token
+				            	},
+				            	file: file
+				            }).success(function (data, status, headers, config){
+				            	alert("上传成功");
+				                $scope.log = 'file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data) + '\n' + $scope.log;
+				                $postLisence.postLisence(lisenceType,userId,function(err,result){
+				                	if(err){
+										alert("sorry,访问出错");
+									}else{
+										if(result && result.success == true){
+											console.log("图片链接回传给服务器");
+										}else{
+												alert("出错了");
+											}
+										}
+									}
+				                )
+				            });
+				        }
+				    };
+				}else{
+					console.log("添加失败"); 
+				}
+			}
+		})
 	}
 })
