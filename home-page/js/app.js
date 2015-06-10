@@ -6,6 +6,7 @@ angular.module("ljaWebHomePage",[
 	"directives.navgps",
 	"directives.jobList",
 	"controllers.jobList",
+	"controllers.joinus",
 	"controllers.test",
 	"services.common"
 ])
@@ -19,7 +20,7 @@ angular.module("ljaWebHomePage",[
 			controller:"HomePage"
 		}).when("/join",{
 			templateUrl:"template/joinus.html",
-			controller:"jobList"
+			controller:"joinus"
 		}).when("/test",{
 			templateUrl:"template/test.html",
 			controller:"test"
