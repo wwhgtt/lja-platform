@@ -8,13 +8,13 @@
 	<div class="modal fade bs-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
-	    	<img ng-src="{{examine.urlCoach}}" width="100" height="150">
-	    	<img ng-src="{{examine.urlID}}" width="100" height="150">
-	    	<img ng-src="{{examine.urlOther}}" width="100" height="150">
-	      	<form name="reason_form" novalidate ng-show="showReason" style="margin-top:5px">
+	    	<img ng-src="{{examine.urlCoach}}" width="33%" >
+	    	<img ng-src="{{examine.urlID}}" width="33%">
+	    	<img ng-src="{{examine.urlOther}}" width="33%">
+	      	<form name="reason_form" novalidate ng-show="showReason" style="margin-top:20px">
 	      		<label>拒绝原因</label>
 	      		<br>
-				<input  class="form-control"  ng-model="examine.resaon" style="float:left" />
+				<input  class="form-control"  ng-model="examine.resaon" style="float:left" class="form-control" />
 				<button type="submit" class="btn btn-success" ng-click="examineResaon()" style="float:left" >提交</button>
 			</form>
 			<div class="modal-footer">
@@ -26,16 +26,16 @@
 	<div class="modal fade as-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
-	    	<img ng-src="{{examine.urlCoacha}}" width="100" height="150">
-	    	<img ng-src="{{examine.urlIDa}}" width="100" height="150">
-	    	<img ng-src="{{examine.urlOthera}}" width="100" height="150">
-	      	<form name="examine_form" novalidate ng-show="showExamine" >
+	    	<img ng-src="{{examine.urlCoacha}}" width="33%">
+	    	<img ng-src="{{examine.urlIDa}}" width="33%">
+	    	<img ng-src="{{examine.urlOthera}}" width="33%">
+	      	<form name="examine_form" novalidate ng-show="showExamine" style="margin-top:20px;margin-left:30px">
 				<lable>输入名字</lable>
-				<input type="text" ng-model="examine.name" required  />
+				<input type="text" ng-model="examine.name" required class="form-control" />
 				<lable>输入身份证</lable>
-				<input type="text" ng-model="examine.id" required    />
+				<input type="text" ng-model="examine.id" required class="form-control"   />
 				<lable>输入teachType</lable>
-				<input type="text" ng-model="examine.teachType" required    />
+				<input type="text" ng-model="examine.teachType" required  class="form-control"  />
 				<button type="submit" ng-click="examineCoach()" >提交</button>
 			</form>
 			<div class="modal-footer">

@@ -5,9 +5,10 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 	$getLastUser,
 	$getMoreUsers,
 	$getLisence,
-	Upload
+	Upload,
+	$window
 ){
-	var top=1,
+	var top=2,
 	 	incId=0;
  	var firstIncId;
 	// $scope.user={_id:"",phone:"",createDate:"",lisence:""};
@@ -42,7 +43,7 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 		})
 	}
 	$scope.getLastPage=function(){
-		var top=200;
+		var top=2;
 		$getLastUser.getLastUser(top,function(err,result){
 			if(err){
 				alert("sorry,访问出错");
@@ -60,41 +61,48 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 	$scope.getMoreUser = function(type){
 		if(type === 'next'){//下页
 			var top=2;
-			var lastUser = $scope.userItem[$scope.userItem.length - 1];
-			var incId = lastUser.incId;
-			$getMoreUsers.getMoreUsers(incId,top,type,function(err,result){
-				if(err){
-					alert("sorry,访问出错");
-					}else{
-						if(result && result.success == true){
-							$scope.userItem = result.userList;
+			var userItem=$scope.userItem;
+			if(userItem.length !== 0 ){
+				var lastUser = $scope.userItem[$scope.userItem.length - 1];
+				var incId = lastUser.incId;
+				$getMoreUsers.getMoreUsers(incId,top,type,function(err,result){
+					if(err){
+						alert("sorry,访问出错");
 						}else{
-							if(result && result.userList == null){
-								console.log("用户为空");
+							if(result && result.success == true){
+								$scope.userItem = result.userList;
 							}else{
-								console.log("sorry,获取失败");
+								if(result && result.userList.length == 0){
+									alert("用户为空");
+								}else{
+									alert("sorry,获取失败");
+								}
 							}
 						}
-					}
-			})
+				})
+			}else{
+				if(userItem.length == 0){
+					alert("已经没有数据了");
+					$window.location.reload();
+				}
+			}
 		}else{//上页
 			var firstUser = $scope.userItem[0];
 			if(firstUser){
 				var incId = firstUser.incId;
 				if(incId !== firstIncId){
-					var top=1;
+					var top=2;
 					$getMoreUsers.getMoreUsers(incId,top,type,function(err,result){
 						if(err){
 							alert("sorry,访问出错");
 						}else{
 							if(result && result.userList !== null){
 								$scope.userItem = result.userList;
-			                    console.log("获取成功");
 							}else{
 								if(result && result.userList == null){
-									console.log("用户为空");
+									alert("用户为空");
 								}else{
-									console.log("sorry,获取失败");
+									alert("sorry,获取失败");
 								}
 							}
 						}
@@ -104,12 +112,9 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 					$scope.firstPage=true;
 				}
 			}else{
-				alert("本页没有任何数据，请返回首页");
+				// alert("本页没有任何数据，请返回首页");
+				// $window.history.back(-1);
 			}
 		}
 	}
-	
-	
-
-    
 })

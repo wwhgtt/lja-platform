@@ -17,7 +17,6 @@ angular.module("controllers.examineNews",[])
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success == true){
-					console.log("成功");
 					$scope.examine.urlCoacha=result.downloadUrl;
 				}else{
 					alert("出错了");
@@ -30,7 +29,6 @@ angular.module("controllers.examineNews",[])
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success == true){
-					console.log("成功");
 					$scope.examine.urlIDa=result.downloadUrl;
 				}else{
 					alert("出错了");
@@ -43,7 +41,6 @@ angular.module("controllers.examineNews",[])
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success == true){
-					console.log("成功");
 					$scope.examine.urlOthera=result.downloadUrl;
 				}else{
 					alert("出错了");
@@ -80,7 +77,6 @@ angular.module("controllers.examineNews",[])
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success == true){
-					console.log("成功");
 					$scope.examine.urlCoach=result.downloadUrl;
 				}else{
 					alert("出错了");
@@ -93,7 +89,6 @@ angular.module("controllers.examineNews",[])
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success == true){
-					console.log("成功");
 					$scope.examine.urlID=result.downloadUrl;
 				}else{
 					alert("出错了");
@@ -106,7 +101,6 @@ angular.module("controllers.examineNews",[])
 				alert("sorry,访问出错");
 			}else{
 				if(result && result.success == true){
-					console.log("成功");
 					$scope.examine.urlOther=result.downloadUrl;
 				}else{
 					alert("出错了");

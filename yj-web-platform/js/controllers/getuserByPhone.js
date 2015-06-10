@@ -14,7 +14,7 @@ angular.module("controllers.getUser",["controllers.userItem"])
 					$scope.user=result.user;
 					$scope.phone=true;
 				}else{
-					console.log("获取失败");
+					alert("获取失败");
 				}
 			}
 		})

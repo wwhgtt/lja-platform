@@ -6,6 +6,7 @@
 </div>
 <div ng-controller="fuckQiniu">
 	<button type="submit" ng-click="postIdCardF(user)" class="btn btn-success"  >查看详情</button>
+	<div class="clear"></div>
 	<div class="photoList">
 		<small  ng-show="jiashi">驾驶证</small>
 		<img ng-src="{{Download.url}}" width="100" height="150" ng-show="jiashi">

@@ -22,7 +22,6 @@ angular.module("controllers.fuckQiniu",[])
 						alert("sorry,访问出错");
 					}else{
 						if(result && result.success == true){
-							console.log("成功");
 							$scope.jiashi = true;
 							$scope.Download.url=result.downloadUrl;
 						}else{
@@ -40,7 +39,6 @@ angular.module("controllers.fuckQiniu",[])
 						alert("sorry,访问出错");
 					}else{
 						if(result && result.success == true){
-							console.log("成功");
 							$scope.jiaolian = true;
 							$scope.Download.Durl=result.downloadUrl;
 						}else{
@@ -58,7 +56,6 @@ angular.module("controllers.fuckQiniu",[])
 						alert("sorry,访问出错");
 					}else{
 						if(result && result.success == true){
-							console.log("成功");
 							$scope.shenfen = true;
 							$scope.Download.Iurl=result.downloadUrl;
 						}else{
@@ -100,7 +97,7 @@ angular.module("controllers.fuckQiniu",[])
 										alert("sorry,访问出错");
 									}else{
 										if(result && result.success == true){
-											console.log("图片链接回传给服务器");
+											alert("图片链接已回传给服务器");
 										}else{
 												alert("出错了");
 											}
@@ -111,7 +108,7 @@ angular.module("controllers.fuckQiniu",[])
 				        }
 				    };
 				}else{
-					console.log("添加失败"); 
+					console.log("无需添加"); 
 				}
 			}
 		})
@@ -146,7 +143,7 @@ angular.module("controllers.fuckQiniu",[])
 										alert("sorry,访问出错");
 									}else{
 										if(result && result.success == true){
-											console.log("图片链接回传给服务器");
+											alert("图片链接回传给服务器");
 										}else{
 												alert("出错了");
 											}
@@ -157,7 +154,7 @@ angular.module("controllers.fuckQiniu",[])
 				        }
 				    };
 				}else{
-					console.log("添加失败"); 
+					console.log("无需添加"); 
 				}
 			}
 		})
@@ -192,7 +189,7 @@ angular.module("controllers.fuckQiniu",[])
 										alert("sorry,访问出错");
 									}else{
 										if(result && result.success == true){
-											console.log("图片链接回传给服务器");
+											alert("图片链接回传给服务器");
 										}else{
 												alert("出错了");
 											}
@@ -203,7 +200,7 @@ angular.module("controllers.fuckQiniu",[])
 				        }
 				    };
 				}else{
-					console.log("添加失败"); 
+					console.log("无需添加"); 
 				}
 			}
 		})

@@ -10,7 +10,6 @@ angular.module("controllers.testView",[])
 	var firstIncId;
 	$getTest.getTest(incId,top,'next',function(err,result){
     	 $scope.testerList=result.testerList;
-    	 console.log($scope.testerList);
     	 minIncId = $scope.testerList[0].incId - 1;
          var testerList=$scope.testerList;
     	 if(err){
@@ -21,9 +20,9 @@ angular.module("controllers.testView",[])
 				 firstIncId = testerList[0].incId;
 			}else{
 				if(result && result.testerList == null){
-					console.log("参与者为空");
+					alert("参与者为空");
 				}else{
-					console.log("sorry,获取失败");
+					alert("sorry,获取失败");
 				}
 			}
 		 }
@@ -44,7 +43,7 @@ angular.module("controllers.testView",[])
 								$scope.lastPage = true;
 								alert("没有下一页了");
 							}else{
-								console.log("sorry,获取失败");
+								alert("sorry,获取失败");
 							}
 						}
 					}
@@ -59,12 +58,11 @@ angular.module("controllers.testView",[])
 						alert("sorry,访问出错");
 					}else{
 						if(result && result.testerList !== null){
-		                     console.log("获取成功");
 						}else{
 							if(result && result.testerList == null){
-								console.log("教练为空");
+								alert("教练为空");
 							}else{
-								console.log("sorry,获取失败");
+								alert("sorry,获取失败");
 							}
 						}
 					}
