@@ -1,32 +1,8 @@
 <div class="getSiteInfo container">
-	<form  name="getSiteInfo_form"  ng-submit="getSiteInfo()" novalidate>
-		<lable>经度</lable>
-		<input type="text" ng-model="getSite.long" required name="long" placeholder="请输入场地经度" ng-minlength=1 />
-		<div class="error" ng-messages="getSiteInfo_form.long.$error" ng-messages-multiple>
-				<div ng-message="required">sure you enter your long</div>
-				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
-			</div>
-		<br>
-		<lable>纬度</lable>
-		<input type="text" ng-model="getSite.lat" required name="lat" placeholder="请输入场地纬度" ng-minlength=1 />
-		<div class="error" ng-messages="getSiteInfo_form.lat.$error" ng-messages-multiple>
-				<div ng-message="required">sure you enter your lat</div>
-				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
-			</div>
-		<br>
-		<lable>距离</lable>
-		<input type="text" ng-model="getSite.distance" required name="distance" placeholder="请输入范围" ng-minlength=1 />
-		<div class="error" ng-messages="getSiteInfo_form.distance.$error" ng-messages-multiple>
-				<div ng-message="required">sure you enter your distance</div>
-				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
-			</div>
-		<br>
-		<button type="submit">确认</button>
-	</form>
 	<div class="getsite">
 		<label>输入地址</label>
 		<input type="text" placeholder="输入地址" name="siteinfo"  ng-model="getsite.address">
 		<button type="button" ng-click="searchAddress()">搜索</button>
 	</div>
-	<div id="getMap" style="width:80%;height:600px;margin:0 auto"  get-bmap></div>
+	<div id="getMap" style="width:100%;height:500px;"  get-bmap></div>
 </div>

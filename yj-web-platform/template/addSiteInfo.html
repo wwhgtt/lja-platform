@@ -1,28 +1,4 @@
 <div class="addSiteInfo container">
-	<form  name="addSiteInfo_form"  ng-submit="addSiteInfo()" novalidate>
-		<lable>经度</lable>
-		<input type="text" ng-model="addSite.long" required name="long" placeholder="请输入场地经度" ng-minlength=1 />
-		<div class="error" ng-messages="addSiteInfo_form.long.$error" ng-messages-multiple>
-				<div ng-message="required">sure you enter your long</div>
-				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
-			</div>
-		<br>
-		<lable>纬度</lable>
-		<input type="text" ng-model="addSite.lat" required name="lat" placeholder="请输入场地纬度" ng-minlength=1 />
-		<div class="error" ng-messages="addSiteInfo_form.lat.$error" ng-messages-multiple>
-				<div ng-message="required">sure you enter your lat</div>
-				<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
-			</div>
-		<br>
-		<lable>场地名字</lable>
-		<input type="text" ng-model="addSite.name" required name="name" placeholder="请输入场名字" ng-minlength=1 />
-		<div class="error" ng-messages="addSiteInfo_form.name.$error" ng-messages-multiple>
-			<div ng-message="required">sure you enter your password</div>
-			<div ng-message="minlengtrh"> your password must be at least 1 characters</div>
-		</div>
-		<br>
-		<button type="submit">确认提交</button>
-	</form>
 	<div class="getsite">
 		<label>输入地址</label>
 		<input type="text" placeholder="输入地址" name="siteinfo"  ng-model="getsite.address">
@@ -33,8 +9,6 @@
 <script>
 	function saveAddress(){
     	var rep=$(".represent").val();
-    	console.log("rep",rep);
-    	console.log(window.dataController.mapBrige.tempPoint);
     	var coordinate=window.dataController.mapBrige.tempPoint;
     	var long=coordinate.lng;
     	var lat=coordinate.lat;
@@ -43,6 +17,10 @@
     		long:long,
     		lat:lat,
     		name:name
+    	}).success(function(){
+    		alert("添加成功");
+    	}).error(function(){
+    		alert("添加失败，请稍后重试");
     	})
     }
 </script>

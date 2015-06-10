@@ -5,11 +5,7 @@ angular.module("directives.bmap",[])
 	return {
 		restrict: 'A',
 		link:function($scope,element,attr){
-			console.log("Bmap",BMap);
-			console.log("element",element);
-
 			var map = new BMap.Map("allmap");
-			
 			function myFun(result){
 				var cityName = result.name;
 				map.setCenter(cityName);
@@ -18,7 +14,6 @@ angular.module("directives.bmap",[])
 			var myCity = new BMap.LocalCity();
 			myCity.get(myFun);
 			map.enableScrollWheelZoom(true);
-
 			var sContent =
 			 	"<input  placeholder='添加描述'' name='represent' class='represent' />" + 
 				"<button class='save_address' value='保存' onclick='saveAddress()'>保存</button>";
@@ -44,7 +39,6 @@ angular.module("directives.bmap",[])
 	            	}
 	            };
 	            window.dataController.mapBrige.tempPoint=array;
-	            console.log(array);
 			}
 			//搜索功能
 			$scope.getsite={address:""};
@@ -57,7 +51,6 @@ angular.module("directives.bmap",[])
 	        		$timeout.cancel(handler);
 	        	}
 	        	handler = $timeout(function(){
-	        		console.log("newValue ",newValue)
 	        		var address = newValue.address;
 	        		if(address){
 	        			local.search(address);

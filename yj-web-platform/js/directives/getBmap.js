@@ -25,7 +25,6 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 	        		$timeout.cancel(handler);
 	        	}
 	        	handler = $timeout(function(){
-	        		console.log("newValue ",newValue)
 	        		var address = newValue.address;
 	        		if(address){
 	        			local.search(address);
@@ -41,15 +40,16 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 	        function showInfo(e){
 				map.clearOverlays();
 				marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat));
-			    $scope.getSite.long=e.point.lng; //现在的问题是这个long不能与controllers里面的long一致
+			    $scope.getSite.long=e.point.lng; 
 	            $scope.getSite.lat=e.point.lat;
-	            console.log($scope.getSite.long);
-	            console.log($scope.getSite.lat)
+	            var longList=$scope.getSite.long,
+	            	latList=$scope.getSite.lat;
+	            $scope.siteInfo={longList:longList,latList:latList};
+	            $scope.$emit("siteInfoChange",$scope.siteInfo);
+
 			}
 			//把获取到的值放到百度地图中去
-			console.log($scope.map_name);
 			$scope.$watchCollection("mapData",function(newMapData){
-				// console.log("newMapData %o",newMapData);
 				for(var index in newMapData){
 					(function(){
 						var mapData = newMapData[index];
@@ -61,7 +61,7 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 						  height: 100,     // 信息窗口高度
 						  title : "场地信息", // 信息窗口标题
 						  enableMessage:true,//设置允许信息窗发送短息
-						  message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+						  message:""
 						}
 						var infoWindow = new BMap.InfoWindow(mapData.name, opts);  // 创建信息窗口对象 
 						console.log(mapData.name);
