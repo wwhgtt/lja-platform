@@ -1,6 +1,10 @@
 angular.module("controllers.platform",[])
 .controller("platform",function(
-	$scope
+	$scope,
+	$window
 ){
-	console.log("platform");
+	$scope.login="登录";
+	$scope.$on("userLogin",function(){
+		$scope.login = "退出";
+	})
 })
