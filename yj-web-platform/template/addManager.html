@@ -1,0 +1,19 @@
+<div class="container">
+	<button class="btn btn-success" ng-click="addManager()">添加管理员</button>
+	<button class="btn btn-success" ng-click="getManager()">获取管理员</button>
+	<div class="clear"></div>
+	<form name="manager_form" novalidate ng-submit="managerForm()" class="manager_form" ng-show="addMan">
+		<label>请输入用户名</label>
+		<input type="text" class="form-control" placeholder="userName" ng-model="manager.name" />
+		<label>请输入管理员身份</label>
+		<input type="text" class="form-control" placeholder="userType" ng-model="manager.type" ng-disabled="true" />
+		<label>请输入密码<small>(可选)</small></label>
+		<input type="text" class="form-control" placeholder="userPassword" ng-model="manager.password" />
+		<button type="submit" class="btn btn-success" style="margin-top:20px">确认提交</button>
+	</form>
+	<div class="clear"></div>
+	<div class="managerList getManager" ng-show="get">
+		<b>managerList</b>
+		<manager-list ng-repeat="(key,manager) in managerList"></manager-list>
+	</div>
+</div>

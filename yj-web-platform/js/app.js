@@ -12,11 +12,13 @@ angular.module("ljaWebPlatform",[
 	"controllers.getSiteInfo",
 	"controllers.addjobs",
 	"controllers.platform",
+	"controllers.addManager",
 	"controllers.userItem",
 	"controllers.getImUsers",
 	"directives.userItem",
 	"controllers.testView",
 	"directives.schoolList",
+	"directives.managerList",
 	"controllers.jobList",
 	"controllers.jobsList",
 	"controllers.getUser",
@@ -50,6 +52,15 @@ angular.module("ljaWebPlatform",[
 				'menuContent':{
 					templateUrl:"template/addDriveSchool.html",
 					controller:"Entering"
+				}
+			}
+		})
+		.state('platform.manageUser',{
+			url:"/manageUser",
+			views:{
+				'menuContent':{
+					templateUrl:"template/addManager.html",
+					controller:"addManager"
 				}
 			}
 		})

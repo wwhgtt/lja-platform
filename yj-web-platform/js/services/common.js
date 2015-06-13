@@ -32,6 +32,42 @@ angular.module("services.common",[])
 		}
 	}
 })
+.service("$getMaker",function(
+	$http
+){
+	return {
+		getMaker:function(callback){
+			$http.get(BASE_URL + '/platform/operate/manager',{
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//添加管理员
+.service("$addMaker",function(
+	$http
+){
+	return {
+		addMaker:function(userName,type,password,callback){
+			$http.post(BASE_URL + '/platform/operate/manager',{
+				userName:userName,
+				type:type,
+				password:password
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 
 //管理员登录
 .service("$login",function(
