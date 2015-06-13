@@ -64,7 +64,6 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 						  message:""
 						}
 						var infoWindow = new BMap.InfoWindow(mapData.name, opts);  // 创建信息窗口对象 
-						console.log(mapData.name);
 						marker.addEventListener("click", function(e){
 							this.openInfoWindow(infoWindow); //开启信息窗口
 							e.domEvent.stopPropagation();

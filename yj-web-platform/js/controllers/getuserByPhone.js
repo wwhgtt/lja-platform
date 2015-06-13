@@ -14,7 +14,7 @@ angular.module("controllers.getUser",["controllers.userItem"])
 					$scope.user=result.user;
 					$scope.phone=true;
 				}else{
-					alert("获取失败");
+					alert("没有该用户");
 				}
 			}
 		})
