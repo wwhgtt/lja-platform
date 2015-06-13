@@ -16,6 +16,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.getImUsers",
 	"directives.userItem",
 	"controllers.testView",
+	"directives.schoolList",
 	"controllers.jobList",
 	"controllers.jobsList",
 	"controllers.getUser",
@@ -43,11 +44,11 @@ angular.module("ljaWebPlatform",[
 				templateUrl:"template/menu.html",
 				controller:"platform"
 			})
-		.state('platform.entering',{
-			url:"/entering",
+		.state('platform.addDriveSchool',{
+			url:"/addDriveSchool",
 			views:{
 				'menuContent':{
-					templateUrl:"template/entering.html",
+					templateUrl:"template/addDriveSchool.html",
 					controller:"Entering"
 				}
 			}

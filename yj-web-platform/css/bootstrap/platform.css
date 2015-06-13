@@ -289,3 +289,9 @@ from{transform:rotate(0deg)}
 	float: right;
 	margin-top: 10%
 }
+.getSchool{
+	margin-top: 20px;
+}
+.driveName{
+	float: left
+}

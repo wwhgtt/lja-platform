@@ -1,0 +1,18 @@
+<div class="container">
+	<button class="btn btn-success" ng-click="addSchoolRepeat()">添加驾校</button>
+	<button class="btn btn-success" ng-click="getSchoolRepeat()">获取驾校</button>
+	<div class="clear"></div>
+	<form  name="addDrive_form" novalidate ng-submit="addDriveForm()" ng-show="addSchool" class="getSchool">
+		<label>请输入驾校名字</label>
+		<div class="clear"></div>
+		<input type="text" placeholder="驾校名字" class="form-control driveName" ng-model="opt.name" />
+		<button class="btn btn-warning" ng-click="addDriveSchool()" class="driveName">确认提交</button>
+	</form>
+	<div class="clear"></div>
+	<div class="schoolList getSchool" ng-show="getSchool">
+		schoolList
+		<school-list ng-repeat="(key,school) in schoolList"></school-list>
+		<!-- <button class="btn btn-success" ng-click="getSchool('pre')">添加驾校</button>
+		<button class="btn btn-success" ng-click="getSchool('next')">获取驾校</button> -->
+	</div>
+</div>
