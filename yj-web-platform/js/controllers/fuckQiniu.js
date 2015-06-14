@@ -13,8 +13,8 @@ angular.module("controllers.fuckQiniu",[])
 		var lisenceType="coach",
 		 	 userId=user._id;
 		$scope.users.id=userId;
-		var lisenceList=$scope.user.lisence;
-		if(lisenceList !== null){
+		var lisenceList=user.lisence;
+		if(lisenceList){
 			if(lisenceList.coach){
 			    var lisenceType="coach";
 				$getDown.getDown(lisenceType,userId,function(err,result){
@@ -66,6 +66,11 @@ angular.module("controllers.fuckQiniu",[])
 			}else{
 				$scope.shenfenzheng=true;
 			}
+		}else{
+			alert("该用户还没有上传任何证件");
+			$scope.jiashizheng=true;
+			$scope.jiaolianzheng = true;
+			$scope.shenfenzheng=true;
 		}
 		$getLisence.getLisence(lisenceType,userId,function(err,result){
 			if(err){
