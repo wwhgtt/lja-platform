@@ -42,7 +42,7 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 		})
 	}
 	$scope.getLastPage=function(){
-		var top=2;
+		var top=30;
 		$getLastUser.getLastUser(top,function(err,result){
 			if(err){
 				alert("sorry,访问出错");
@@ -59,7 +59,7 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 	}
 	$scope.getMoreUser = function(type){
 		if(type === 'next'){//下页
-			var top=2;
+			var top=30;
 			var userItem=$scope.userItem;
 			if(userItem.length !== 0 ){
 				var lastUser = $scope.userItem[$scope.userItem.length - 1];
@@ -90,7 +90,7 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 			if(firstUser){
 				var incId = firstUser.incId;
 				if(incId !== firstIncId){
-					var top=2;
+					var top=30;
 					$getMoreUsers.getMoreUsers(incId,top,type,function(err,result){
 						if(err){
 							alert("sorry,访问出错");

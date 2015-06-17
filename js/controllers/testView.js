@@ -6,7 +6,7 @@ angular.module("controllers.testView",[])
 ){
 	var incId=0,
 		minIncId = 0,
-	    top=5;
+	    top=30;
 	var firstIncId;
 	$getTest.getTest(incId,top,'next',function(err,result){
     	 $scope.testerList=result.testerList;
