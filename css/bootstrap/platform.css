@@ -275,7 +275,7 @@ from{transform:rotate(0deg)}
 }
 .margin{
 	width: 200px;
-	overflow: hidden;
+	overflow: overlay;
 }
 .fixed_width{
 	width: 160px;

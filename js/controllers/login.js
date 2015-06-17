@@ -19,8 +19,7 @@ angular.module("controllers.login",[])
 					$location.path("/platform");
 					$scope.$emit("userLogin");
 				}else{
-					console.log("用户名或者密码不对"); 
-
+					alert("用户名或者密码不对"); 
 				}
 			}
 		})

@@ -8,10 +8,9 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 	Upload,
 	$window
 ){
-	var top=2,
+	var top=30,
 	 	incId=0;
  	var firstIncId;
-	// $scope.user={_id:"",phone:"",createDate:"",lisence:""};
 	$getUserItem.getUserItem(top,function(err,result){ 
 		if(err){
 			alert("sorry,访问出错");
