@@ -11,7 +11,7 @@ angular.module("controllers.fuckQiniu",[])
 	$scope.Download={url:"",Durl:"",IUrl:""};
 	$scope.postIdCardF=function(user){
 		var lisenceType="coach",
-		 	 userId=user._id;
+	 	userId=user._id;
 		$scope.users.id=userId;
 		var lisenceList=user.lisence;
 		if(lisenceList){

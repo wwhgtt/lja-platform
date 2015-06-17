@@ -1,4 +1,4 @@
-angular.module("controllers.getUser",["controllers.userItem"]) 
+angular.module("controllers.getUser",["controllers.userItem","controllers.fuckQiniu"]) 
 .controller("getUser",function(
 	$scope,
 	$getUser 
@@ -19,4 +19,7 @@ angular.module("controllers.getUser",["controllers.userItem"])
 			}
 		})
 	}
+	// $scope.postIdCardF=function(){
+
+	// }
 })
