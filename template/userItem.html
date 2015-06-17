@@ -7,39 +7,39 @@
 <div ng-controller="fuckQiniu">
 	<button type="submit" ng-click="postIdCardF(user)" class="btn btn-success"  >查看详情</button>
 	<div class="clear"></div>
-	<div class="photoList">
-		<small  ng-show="jiashi">驾驶证</small>
-		<img ng-src="{{Download.url}}" width="100" height="150" ng-show="jiashi">
-		<div class="addPhote" ng-show="jiashizheng">
+	<div class="photoList" ng-show="photoShow">
+		<small  ng-show="Download.coachUrl">驾驶证</small>
+		<img ng-src="{{Download.coachUrl}}" width="150" height="100" ng-show="Download.coachUrl" class="zoom">
+		<div class="addPhote" ng-show="!user.lisence || !user.lisence.drive">
 			<small style="float:left">添加驾驶证</small>
 			<p class="should">watching model:</p>
 		    <div class="button should" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
-		    <div class="filechange" ngf-select ngf-change="upload($files)" ngf-multiple="multiple" style="float:left">Select File</div>
+		    <div class="filechange" ngf-select ngf-change="upload($files,'drive')" ngf-multiple="multiple" style="float:left">Select File</div>
 			<p class="should">Upload Log:</p>
 			<pre class="should">{{log}}</pre>
 		</div>
-		<small ng-show="jiaolian" >教练证</small>
-		<img ng-src="{{Download.Durl}}" width="100" height="150" ng-show="jiaolian">
-		<div class="addPhote" ng-show="jiaolianzheng">
+		<small ng-show="Download.driveUrl" >教练证</small>
+		<img ng-src="{{Download.driveUrl}}" width="150" height="100" ng-show="Download.driveUrl" class="zoom">
+		<div class="addPhote" ng-show="!user.lisence || !user.lisence.coach">
 			<small style="float:left">添加教练证</small>
 			<p class="should">watching model:</p>
 		    <div class="button should" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
-		    <div class="filechange" ngf-select ngf-change="upload($files)" ngf-multiple="multiple" style="float:left">Select File</div>
+		    <div class="filechange" ngf-select ngf-change="upload($files,'coach')" ngf-multiple="multiple" style="float:left">Select File</div>
 			<p class="should">Upload Log:</p>
 			<pre class="should">{{log}}</pre>
 		</div>
-		<small ng-show="shenfen" >身份证</small>
-		<img ng-src="{{Download.Iurl}}" width="100" height="150" ng-show="shenfen">
-		<div class="addPhote" ng-show="shenfenzheng">
+		<small ng-show="Download.identityUrl" >身份证</small>
+		<img ng-src="{{Download.identityUrl}}" width="150" height="100" ng-show="Download.identityUrl" class="zoom">
+		<div class="addPhote" ng-show="!user.lisence || !user.lisence.identity">
 			<small style="float:left" >添加身份证</small>
 			<p class="should">watching model:</p>
 		    <div class="button should" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div>
-		    <div class="filechange" ngf-select ngf-change="upload($files)" ngf-multiple="multiple" style="float:left">Select File</div>
+		    <div class="filechange" ngf-select ngf-change="upload($files,'identity')" ngf-multiple="multiple" style="float:left">Select File</div>
 			<p class="should">Upload Log:</p>
 			<pre class="should">{{log}}</pre>
 		</div>
 	</div>
-	
 </div>
+<script src="./lib/zoomy.js"></script>
 
 
