@@ -130,6 +130,24 @@ angular.module("services.common",[])
 		}
 	}
 })
+//平台端检测初始化管理员
+.service("$initem",function(
+	$http
+){
+	return {
+		initem:function(callback){
+			$http.get(BASE_URL + "/platform/checkInit",{
+
+			})
+			.success(function(data){
+				if(callback)callback(null,data);  //这里的null表示err==null  表示没出错 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 
 //添加场地信息
 .service("$AddSiteInfo",function(

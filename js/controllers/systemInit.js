@@ -1,27 +1,22 @@
 angular.module("controllers.systemInit",[])
 .controller("systemInit",function(
 	$scope,
-	$init,
-	$location,
-	$state,
-	$rootScope
+	$initem,
+	$location
 ){
-	$init.init(function(err,result){
-		console.log("result %o",result);
+	$initem.initem(function(err,result){
 		if(err){
             alert("sorry,访问出错");
 		}else{
-			if(result && result.success){//系统已经初始化
-				console.log("result go login")
-				$rootScope.$state.go('login');
-			}else{//系统未初始化
+			if(result && result.success){
+				$location.path('/platform/login');
+			}else{
 				if(result && result.init == false){
-					$location.path("/initAdmin");//这个地方设置延迟
+					$location.path("/platform/systemInit");
 				}else{
 					alert("系统出错");
 				}	
 			}
 		}
 	})
-	console.log("$scope %o",$scope)
 })

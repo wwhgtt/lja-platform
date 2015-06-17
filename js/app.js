@@ -26,7 +26,7 @@ angular.module("ljaWebPlatform",[
 	"directives.jobsList",
 	"directives.imuserList",
 	"directives.basicItem",
-	"directives.systemInit",
+	// "directives.systemInit",
 	"directives.login",
 	"directives.testView",
 	"directives.upLoad",
@@ -52,6 +52,24 @@ angular.module("ljaWebPlatform",[
 				'menuContent':{
 					templateUrl:"template/addDriveSchool.html",
 					controller:"Entering"
+				}
+			}
+		})
+		.state('platform.checkInit',{
+			url:"/checkInit",
+			views:{
+				'menuContent':{
+					templateUrl:"template/systemInit.html",
+					controller:"systemInit"
+				}
+			}
+		})
+		.state('platform.systemInit',{
+			url:"/systemInit",
+			views:{
+				'menuContent':{
+					templateUrl:"template/systemItem.html",
+					controller:"initAdmin"
 				}
 			}
 		})
