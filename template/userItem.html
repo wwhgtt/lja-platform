@@ -1,15 +1,15 @@
 <div class="clear"></div>
 <div class="data_detile">
-	<button  type="button" class="btn btn-default btn-lg margin" style="width:170px">{{user._id}}</button>
-	<button  type="button" class="btn btn-default btn-lg margin" style="width:170px">{{user.phone}}</button>
-	<button  type="button" class="btn btn-default btn-lg margin" style="width:170px">{{user.createDate}}</button>
+	<button  type="button" class="btn btn-default btn-lg margin" style="width:30%">{{user._id}}</button>
+	<button  type="button" class="btn btn-default btn-lg margin" style="width:30%">{{user.phone}}</button>
+	<button  type="button" class="btn btn-default btn-lg margin" style="width:30%">{{user.createDate}}</button>
 </div>
 <div ng-controller="fuckQiniu">
 	<button type="submit" ng-click="postIdCardF(user)" class="btn btn-success"  >查看详情</button>
 	<div class="clear"></div>
 	<div class="photoList" ng-show="photoShow">
 		<small  ng-show="Download.coachUrl">驾驶证</small>
-		<img ng-src="{{Download.coachUrl}}" width="150" height="100" ng-show="Download.coachUrl" class="zoom">
+		<img ng-src="{{Download.coachUrl}}" width="300" height="150" ng-show="Download.coachUrl" class="zoom">
 		<div class="addPhote" ng-show="!user.lisence || !user.lisence.drive">
 			<small style="float:left">添加驾驶证</small>
 			<p class="should">watching model:</p>
@@ -19,7 +19,7 @@
 			<pre class="should">{{log}}</pre>
 		</div>
 		<small ng-show="Download.driveUrl" >教练证</small>
-		<img ng-src="{{Download.driveUrl}}" width="150" height="100" ng-show="Download.driveUrl" class="zoom">
+		<img ng-src="{{Download.driveUrl}}" width="300" height="150" ng-show="Download.driveUrl" class="zoom">
 		<div class="addPhote" ng-show="!user.lisence || !user.lisence.coach">
 			<small style="float:left">添加教练证</small>
 			<p class="should">watching model:</p>
@@ -29,7 +29,7 @@
 			<pre class="should">{{log}}</pre>
 		</div>
 		<small ng-show="Download.identityUrl" >身份证</small>
-		<img ng-src="{{Download.identityUrl}}" width="150" height="100" ng-show="Download.identityUrl" class="zoom">
+		<img ng-src="{{Download.identityUrl}}" width="300" height="150" ng-show="Download.identityUrl" class="zoom">
 		<div class="addPhote" ng-show="!user.lisence || !user.lisence.identity">
 			<small style="float:left" >添加身份证</small>
 			<p class="should">watching model:</p>
@@ -40,6 +40,5 @@
 		</div>
 	</div>
 </div>
-<script src="./lib/zoomy.js"></script>
 
 

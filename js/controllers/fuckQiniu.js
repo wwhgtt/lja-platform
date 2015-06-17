@@ -37,7 +37,6 @@ angular.module("controllers.fuckQiniu",[])
 				if(err){
 
 				}else{
-					console.log("type /////",type);
 					if(result && result.success == true){
 						var token = result.upToken;
 						var env = result.env;
@@ -59,7 +58,6 @@ angular.module("controllers.fuckQiniu",[])
 										alert("sorry,访问出错");
 									}else{
 										if(result && result.success == true){
-											// alert("图片链接已回传给服务器");
 											if(!user.lisence){
 												user.lisence = {};
 											}
