@@ -11,7 +11,6 @@ angular.module("controllers.fuckQiniu",[])
 	$scope.photoShow = false;
 	$scope.postIdCardF=function(user){
 		$scope.photoShow = !$scope.photoShow;
-		var lisenceType="coach",
 	 	userId=user._id;
 		var lisenceList=user.lisence;
 		if(lisenceList){
@@ -32,10 +31,9 @@ angular.module("controllers.fuckQiniu",[])
 			}
 		}
 		$scope.upload = function(files,type){
-			console.log("upload type",type);
 			$getLisence.getLisence(type,userId,function(err,result){
 				if(err){
-
+					alert("sorry,访问出错");
 				}else{
 					if(result && result.success == true){
 						var token = result.upToken;

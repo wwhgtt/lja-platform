@@ -241,9 +241,9 @@ from{transform:rotate(0deg)}
 	margin-top: 5px;
 	border-radius: 5px
 }
-.container{
+/*.container{
 	width: 75% !important;
-}
+}*/
 .glyphicon{
 	width: 20px;
 	float: left;
