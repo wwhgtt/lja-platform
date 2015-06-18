@@ -9,14 +9,14 @@ angular.module("controllers.testView",[])
 	    top=30;
 	var firstIncId;
 	$getTest.getTest(incId,top,'next',function(err,result){
-    	 $scope.testerList=result.testerList;
-    	 minIncId = $scope.testerList[0].incId - 1;
-         var testerList=$scope.testerList;
     	 if(err){
 			alert("sorry,访问出错");
 		 }else{
 			if(result && result.success == true){
-				$scope.firstPage=true;
+				$scope.testerList=result.testerList;
+				 minIncId = $scope.testerList[0].incId - 1;
+         		 var testerList=$scope.testerList;
+				 $scope.firstPage=true;
 				 firstIncId = testerList[0].incId;
 			}else{
 				if(result && result.testerList == null){

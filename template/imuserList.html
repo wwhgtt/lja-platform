@@ -1,6 +1,6 @@
-<button type="button" class="btn btn-default fixed_width" >{{imuser._id}}</button>
-<button type="button" class="btn btn-default fixed_width" >{{imuser.createDate}}</button>
-<button type="button" class="btn btn-default fixed_width" >{{imuser.userId}}</button>
+<button type="button" class="btn btn-default fixed_width" style="width:25%" >{{imuser._id}}</button>
+<button type="button" class="btn btn-default fixed_width" style="width:25%" >{{imuser.createDate}}</button>
+<button type="button" class="btn btn-default fixed_width" style="width:25%" >{{imuser.userId}}</button>
 <div class="container" ng-controller="examineNews">
 	<button ng-click="examines(imuser)" class="btn btn-warning" data-toggle="modal" data-target=".as-example-modal-lg" >审核教练</button>
 	<button ng-click="examineRefuseCoach(imuser)" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-lg" >拒绝审核教练</button>
@@ -36,7 +36,7 @@
 				<input type="text" ng-model="examine.id" required class="form-control"   />
 				<lable>输入teachType</lable>
 				<input type="text" ng-model="examine.teachType" required  class="form-control"  />
-				<button type="submit" ng-click="examineCoach()" >提交</button>
+				<button type="submit" ng-click="examineCoach()" class="btn btn-success" >提交</button>
 			</form>
 			<div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right">Close</button>
