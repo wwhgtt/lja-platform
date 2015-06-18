@@ -3,12 +3,12 @@ angular.module("controllers.getSiteInfo",[])
 	$scope,
 	$GetSiteInfo
 ){
-	$scope.getSite={long:"",lat:"",distance:"2"};
+	$scope.getSite={long:"",lat:""};
 	$scope.mapData = [];
-    var distance = $scope.getSite.distance;
 	$scope.$on("siteInfoChange",function(){
 		var long=$scope.siteInfo.longList,
 		 	lat=$scope.siteInfo.latList;
+		 	var distance=$scope.siteInfo.distance;
 		 	$GetSiteInfo.getSiteInfo(long,lat,distance,function(err,result){
 		 	if(err){
 		 		alert("sorry,访问出错");

@@ -45,10 +45,21 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 	            $scope.getSite.lat=center.lat;
 	            var longList=$scope.getSite.long,
 	            	latList=$scope.getSite.lat;
-	            $scope.siteInfo={longList:longList,latList:latList};
+	            var bounds = map.getBounds(); //得到边界
+				var changdu=bounds.getSouthWest().lng;
+				var changduone= bounds.getNorthEast().lng;
+				var gaodu=bounds.getNorthEast().lat;
+				var gaoduone=bounds.getSouthWest().lat;
+				var finall=(changdu-changduone);
+				var finallone=(gaodu-gaoduone);
+				var resultone=Math.sqrt(Math.pow(finall,2)+Math.pow(finallone,2));
+				var distance=resultone/2;
+	            $scope.siteInfo={longList:longList,latList:latList,distance:distance};
 	            $scope.$emit("siteInfoChange",$scope.siteInfo);
 
 			}
+			
+
 			//把获取到的值放到百度地图中去
 			$scope.$watchCollection("mapData",function(newMapData){
 				for(var index in newMapData){
