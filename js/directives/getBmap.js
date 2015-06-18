@@ -36,12 +36,13 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 	        	local.search(address);
 	        }
 	        //获取地图中心点并显示出返回的数据
-	        map.addEventListener("click", showInfo);
+	        map.addEventListener("dragend", showInfo);
 	        function showInfo(e){
 				map.clearOverlays();
-				marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat));
-			    $scope.getSite.long=e.point.lng; 
-	            $scope.getSite.lat=e.point.lat;
+				var center = map.getCenter();
+				marker = new BMap.Marker(new BMap.Point(center.lng, center.lat));
+			    $scope.getSite.long=center.lng; 
+	            $scope.getSite.lat=center.lat;
 	            var longList=$scope.getSite.long,
 	            	latList=$scope.getSite.lat;
 	            $scope.siteInfo={longList:longList,latList:latList};

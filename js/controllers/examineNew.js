@@ -8,8 +8,7 @@ angular.module("controllers.examineNews",[])
 ){
     $scope.examine={id:"",teachType:"",name:"",resaon:"",urlCoach:"",userId:"",urlID:"",urlOther:"",urlCoach:"",urlIDa:"",urlOthera:""};
 	$scope.examines=function(imuser){
-	    $scope.showExamine = true;
-	    $scope.showReason = false;
+		console.log(imuser);
 	    var lisenceType="coach";
 		var userId=imuser.userId;
 		$getDown.getDown(lisenceType,userId,function(err,result){
@@ -68,8 +67,6 @@ angular.module("controllers.examineNews",[])
 		}
 	}
 	$scope.examineRefuseCoach=function(imuser){
-		$scope.showExamine = false;
-		$scope.showReason = true;
 		var lisenceType="coach";
 		var userId=imuser.userId;
 		$getDown.getDown(lisenceType,userId,function(err,result){

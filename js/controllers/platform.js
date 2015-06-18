@@ -12,4 +12,4 @@ angular.module("controllers.platform",[])
 		$scope.login = "登录";
 		$scope.myhref="/platform/login";
 	})
-})
+}) 
