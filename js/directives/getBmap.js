@@ -9,7 +9,7 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 			function myFun(result){
 				var cityName=result.name;
 				map.setCenter(cityName);
-				map.centerAndZoom(cityName,15);
+				map.centerAndZoom(cityName,12);
 			}
 			var myCity = new BMap.LocalCity();
 			myCity.get(myFun);
