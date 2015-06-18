@@ -541,3 +541,21 @@ angular.module("services.common",[])
 		}
 	}
 })
+//获取用户总数
+.service("$getCount",function(
+	$http
+){
+	return {
+		getCount:function(callback){
+			$http.get(BASE_URL + "/platform/operate/user/count",{
+				
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

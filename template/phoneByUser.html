@@ -9,21 +9,14 @@
 	<div class="PhoneUser" ng-show="phone" ng-controller="fuckQiniu">
 		<h2  class="phone_user" >该手机对应的用户为:</h2>
 		<user-item></user-item>
-		<!-- <label>id</label>
-		<input class="form-control" ng-model="user._id" type="text">
-		<label>phone</label>
-		<input class="form-control" ng-model="user.phone" type="text">
-		<label>createDate</label>
-		<input class="form-control" ng-model="user.createDate" type="text">
-		<button type="submit" ng-click="postIdCardF(user)" class="btn btn-success">查看详情</button> -->
 	</div>
 	
 	<div class="getUsers" ng-controller="userItem">
 		<div class="clear"></div>
 		<div class="compline">
-			<button  type="button" class="btn btn-default btn-lg margin" style="width:30%">用户_id</button>
-			<button  type="button" class="btn btn-default btn-lg margin" style="width:30%">用户phone</button>
-			<button  type="button" class="btn btn-default btn-lg margin" style="width:30%">创建日期</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:25%">用户_id</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:25%">用户phone</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:25%">创建日期</button>
 		</div>
 		<div class="clear"></div>
 		<user-item ng-repeat="(key,user) in userItem"></user-item>
@@ -35,4 +28,5 @@
 			<button class="btn btn-default" ng-click="getLastPage()" >尾页</button>
 		</div>
 	</div>
+	<div class="thumbnail  userNumber"><button type="button" class="btn btn-success"><h1>{{number}}</h1></button></div>
 </section>
