@@ -13,8 +13,9 @@ angular.module("controllers.addManager",[])
 			}else{
 				if(result && result.success == true){
 					$scope.managerList=result.userList;
-				}else{
-					console.log("获取失败"); 
+				}else if(result && result.success == false){
+					var errorInfo=result.errorInfo;
+					alert(errorInfo);
 				}
 			}
 		})  
@@ -36,8 +37,9 @@ angular.module("controllers.addManager",[])
 					alert("添加成功");
 					$scope.manager.name =null;
 					$scope.manager.password =null;
-				}else{
-					console.log("格式错误"); 
+				}else if(result && result.success == false){
+					var errorInfo=result.errorInfo;
+					alert(errorInfo);
 				}
 			}
 		})

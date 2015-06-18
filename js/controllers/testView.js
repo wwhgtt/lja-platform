@@ -19,8 +19,9 @@ angular.module("controllers.testView",[])
 				 $scope.firstPage=true;
 				 firstIncId = testerList[0].incId;
 			}else{
-				if(result && result.testerList == null){
-					alert("参与者为空");
+				if(result && result.success == false){
+					var errorInfo=result.errorInfo;
+					alert(errorInfo);
 				}else{
 					alert("sorry,获取失败");
 				}

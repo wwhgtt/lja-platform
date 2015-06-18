@@ -15,13 +15,14 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 		if(err){
 			alert("sorry,访问出错");
 		}else{
-			if(result && result.userList !== null){
+			if(result && result.success == true){
 				$scope.userItem=result.userList;
 				var userItem=$scope.userItem;
 				firstIncId = userItem[0].incId;
 			}else{
-				if(result && result.userList == null){
-					alert("用户为空");
+				if(result && result.success == false){
+					var errorInfo=result.errorInfo;
+					alert(errorInfo);
 				}
 			}
 		}
@@ -34,8 +35,9 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 				if(result && result.userList !== null){
 					$scope.userItem=result.userList;
 				}else{
-					if(result && result.userList == null){
-						alert("用户为空");
+					if(result && result.success == false){
+						var errorInfo=result.errorInfo;
+						alert(errorInfo);
 					}
 				}
 			}
@@ -50,8 +52,9 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 				if(result && result.userList !== null){
 					$scope.userItem=result.userList;
 				}else{
-					if(result && result.userList == null){
-						alert("用户为空");
+					if(result && result.success == false){
+						var errorInfo=result.errorInfo;
+						alert(errorInfo);
 					}
 				}
 			}

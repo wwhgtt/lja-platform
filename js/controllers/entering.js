@@ -18,8 +18,9 @@ angular.module("controllers.entering",[])
 				if(result && result.success == true){
 					alert("添加成功");
 					$scope.opt.name= null;  
-				}else{
-                    alert("sorry,添加失败，请稍后重试");
+				}else if(result && result.success == false){
+                    var errorInfo=result.errorInfo;
+			 		alert(errorInfo);
 				}
 			}
 		})
@@ -33,8 +34,9 @@ angular.module("controllers.entering",[])
 			 		$scope.addSchool = false;
 			 		$scope.getSchool = true;
 			 		$scope.schoolList=result.driveSchoolList;
-			 	}else{
-			 		console.log("删除失败"); 
+			 	}else if (result && result.success == false){
+			 		var errorInfo=result.errorInfo;
+			 		alert(errorInfo);
 			 	}
 			 }
 		})
