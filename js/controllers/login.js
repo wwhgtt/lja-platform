@@ -6,12 +6,9 @@ angular.module("controllers.login",[])
 ){
 	$scope.signin = {name:"",password:""};
 	$scope.signinForm = function(){  
-		console.log("signinForm");
-		console.log("signin %o",$scope.signin);
 		var userName = $scope.signin.name;   
 		var password = $scope.signin.password;
 		$login.login(userName,password,function(err,result){
-			
 			if(err){
 				alert("sorry,访问出错");
 			}else{

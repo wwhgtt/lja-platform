@@ -89,6 +89,24 @@ angular.module("services.common",[])
 		}
 	}
 })
+//管理员退出
+.service("$loginOut",function(
+	$http
+){
+	return {
+		loginOut:function(callback){
+			$http.get(BASE_URL + "/platform/loginOut",{
+				
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 //系统初始化
 .service("$Init",function(
 	$http

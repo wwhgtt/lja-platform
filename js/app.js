@@ -14,6 +14,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.platform",
 	"controllers.addManager",
 	"controllers.userItem",
+	"controllers.loginOut",
 	"controllers.getImUsers",
 	"directives.userItem",
 	"controllers.testView",
@@ -88,6 +89,15 @@ angular.module("ljaWebPlatform",[
 				"menuContent":{
 					templateUrl:"template/login.html",
 					controller:"Login"
+				}
+			}
+		})
+		.state('platform.loginOut',{
+			url:"/loginOut",
+			views:{
+				"menuContent":{
+					templateUrl:"template/loginOut.html",
+					controller:"loginOut"
 				}
 			}
 		})
