@@ -559,3 +559,21 @@ angular.module("services.common",[])
 		}
 	}
 })
+//检测登录状态
+.service("$loginState",function(
+	$http
+){
+	return {
+		loginState:function(callback){
+			$http.get(BASE_URL + "/platform/loginState",{
+				
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

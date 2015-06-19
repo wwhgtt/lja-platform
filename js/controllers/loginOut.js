@@ -9,7 +9,6 @@ angular.module("controllers.loginOut",["controllers.platform"])
 			alert("sorry,访问出错");
 		}else{
 			if(result && result.success == true){
-				alert("退出成功"); 
 				$location.path("/platform/login");
 				$scope.$emit("loginOut");
 			}else{
