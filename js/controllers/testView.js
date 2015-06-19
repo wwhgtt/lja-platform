@@ -12,7 +12,7 @@ angular.module("controllers.testView",[])
     	 if(err){
 			alert("sorry,访问出错");
 		 }else{
-			if(result && result.success == true){
+			if(result && result.testerList.length !== 0){
 				$scope.testerList=result.testerList;
 				 minIncId = $scope.testerList[0].incId - 1;
          		 var testerList=$scope.testerList;
@@ -36,11 +36,11 @@ angular.module("controllers.testView",[])
 				if(err){
 					alert("sorry,访问出错");
 					}else{
-						if(result && result.testerList !== null){
+						if(result && result.testerList.length !== 0){
 							$scope.testerList = result.testerList;
 							$scope.firstPage=false;
 						}else{
-							if(result && result.testerList == null){
+							if(result && result.testerList.length == 0){
 								$scope.lastPage = true;
 								alert("没有下一页了");
 							}else{
@@ -58,9 +58,9 @@ angular.module("controllers.testView",[])
 					if(err){
 						alert("sorry,访问出错");
 					}else{
-						if(result && result.testerList !== null){
+						if(result && result.testerList.length !== 0){
 						}else{
-							if(result && result.testerList == null){
+							if(result && result.testerList.length == 0){
 								alert("教练为空");
 							}else{
 								alert("sorry,获取失败");

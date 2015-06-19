@@ -3,5 +3,5 @@ angular.module("controllers.addSiteInfo",[])
 	$scope,
 	$AddSiteInfo
 ){
-	console.log("$scope %o",$scope);
+	
 })

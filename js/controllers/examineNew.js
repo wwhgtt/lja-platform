@@ -8,7 +8,6 @@ angular.module("controllers.examineNews",[])
 ){
     $scope.examine={id:"",teachType:"",name:"",resaon:"",urlCoach:"",userId:"",urlID:"",urlOther:"",urlCoach:"",urlIDa:"",urlOthera:""};
 	$scope.examines=function(imuser){
-		console.log(imuser);
 	    var lisenceType="coach";
 		var userId=imuser.userId;
 		$getDown.getDown(lisenceType,userId,function(err,result){
