@@ -19,7 +19,7 @@ angular.module("controllers.testView",[])
 				 $scope.firstPage=true;
 				 firstIncId = testerList[0].incId;
 			}else{
-				if(result && result.success == false){
+				if(result && result.testerList.length == 0){
 					var errorInfo=result.errorInfo;
 					alert(errorInfo);
 				}else{
