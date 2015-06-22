@@ -27,7 +27,7 @@ angular.module("ljaWebPlatform",[
 	"directives.jobsList",
 	"directives.imuserList",
 	"directives.basicItem",
-	// "directives.systemInit",
+	"directives.largeImg",
 	"directives.login",
 	"directives.testView",
 	"directives.upLoad",

@@ -577,3 +577,23 @@ angular.module("services.common",[])
 		}
 	}
 })
+//通过Id搜索用户
+.service("$getUserById",function(
+	$http
+){
+	return {
+		getUserById:function(userId,callback){
+			$http.get(BASE_URL + "/platform/operate/user/byId",{
+				params:{
+					userId:userId
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})

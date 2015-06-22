@@ -4,12 +4,28 @@ angular.module("controllers.examineNews",[])
 	$examine,
 	$window,
 	$resaon,
-	$getDown
+	$getDown,
+	$getUserById
 ){
-    $scope.examine={id:"",teachType:"",name:"",resaon:"",urlCoach:"",userId:"",urlID:"",urlOther:"",urlCoach:"",urlIDa:"",urlOthera:""};
+    $scope.examine={id:"",teachType:"",name:"",resaon:"",urlCoach:"",userId:"",urlID:"",urlOther:"",urlCoach:"",urlIDa:"",urlOthera:"",phone:""};
 	$scope.examines=function(imuser){
 	    var lisenceType="coach";
 		var userId=imuser.userId;
+		$getUserById.getUserById(userId,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					$scope.examine.name=result.user.name;
+					$scope.examine.phone=result.user.phone;
+					$scope.examine.teachType=result.user.teachType+'';
+					$scope.examine.id=result.user.idNumber;
+				}else{
+					var errorInfo=result.errorInfo;
+				    alert(errorInfo);
+				}
+			}
+		})
 		$getDown.getDown(lisenceType,userId,function(err,result){
 			if(err){
 				alert("sorry,访问出错");
@@ -47,9 +63,9 @@ angular.module("controllers.examineNews",[])
 		})
 		$scope.examineCoach=function(){
 			var idNumber=$scope.examine.id,
-			teachType=$scope.examine.teachType,
-			name=$scope.examine.name,
-			coachId=imuser.userId;
+				teachType=parseInt($scope.examine.teachType,10),
+				name=$scope.examine.name,
+				coachId=imuser.userId;
 			$examine.examine(coachId,idNumber,name,teachType,function(err,result){
 				if(err){
 					alert("sorry,访问出错");
@@ -120,5 +136,13 @@ angular.module("controllers.examineNews",[])
 				}
 			})
 		}
+	}
+	$scope.showLarge=function(url){
+		$scope.largeImg=true;
+		$scope.myHref= url;
+	}
+	$scope.showLarger=function(url){
+		$scope.largeImage=true;
+		$scope.myHref= url;
 	}
 })

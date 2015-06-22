@@ -1,23 +1,28 @@
 <div ng-controller="examineNews">
-	<button type="button" class="btn btn-default fixed_width" style="width:25%" >{{imuser._id}}</button>
-	<button type="button" class="btn btn-default fixed_width" style="width:25%" >{{imuser.createDate}}</button>
-	<button type="button" class="btn btn-default fixed_width" style="width:25%" >{{imuser.userId}}</button>
+	<input type="text" class="btn btn-default fixed_width" style="width:25%" ng-model="imuser._id" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:25%" ng-model="imuser.createDate"></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:25%" ng-model="imuser.userId" ></input>
 	<div class="container" >
 		<button ng-click="examines(imuser)" class="btn btn-warning" data-toggle="modal" data-target="{{'.as-example-modal-lg-' + imuser.userId}}" >审核教练</button>
 		<button ng-click="examineRefuseCoach(imuser)" class="btn btn-warning" data-toggle="modal" data-target="{{'.bs-example-modal-lg-'+imuser.userId}}" >拒绝审核教练</button>
 		<div class="clear"></div>
-		<div class="{{'modal fade bs-example-modal-lg-'+imuser.userId}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="{{'modal fade bs-example-modal-lg-'+imuser.userId}}" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
 		    <div class="modal-content">
-		    	<img ng-src="{{examine.urlCoach}}" width="33%" >
-		    	<img ng-src="{{examine.urlID}}" width="33%">
-		    	<img ng-src="{{examine.urlOther}}" width="33%">
+		    	<img ng-src="{{examine.urlCoach}}" width="33%"  ng-click="showLarge(examine.urlCoach)" >
+		    	<img ng-src="{{examine.urlID}}" width="33%" ng-click="showLarge(examine.urlID)"  >
+		    	<img ng-src="{{examine.urlOther}}" width="33%"  ng-click="showLarge(examine.urlOther)"  >
 		      	<form name="reason_form" novalidate  style="margin-top:20px">
 		      		<label>拒绝原因</label>
 		      		<br>
 					<input  class="form-control"  ng-model="examine.resaon" style="float:left" class="form-control" />
 					<button type="submit" class="btn btn-success" ng-click="examineResaon()" style="float:left" >提交</button>
 				</form>
+				<div class="clear"></div>
+				<div  ng-show="largeImg" style="margin-top:50px">
+					<img  ng-src="{{myHref}}"  class="largeImg" large-img />
+					<small>点击旋转图片</small>
+				</div>
 				<div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right">Close</button>
 			    </div>
@@ -28,18 +33,29 @@
 		<div class="{{'modal fade as-example-modal-lg-'+ imuser.userId}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
 		    <div class="modal-content">
-		    	<img ng-src="{{examine.urlCoacha}}" width="33%">
-		    	<img ng-src="{{examine.urlIDa}}" width="33%">
-		    	<img ng-src="{{examine.urlOthera}}" width="33%">
+		    	<img ng-src="{{examine.urlCoacha}}" width="33%"  ng-click="showLarger(examine.urlCoacha)">
+		    	<img ng-src="{{examine.urlIDa}}" width="33%" ng-click="showLarger(examine.urlIDa)"  >
+		    	<img ng-src="{{examine.urlOthera}}" width="33%" ng-click="showLarger(examine.urlOthera)">
 		      	<form name="examine_form" novalidate style="margin-top:20px;margin-left:30px">
 					<lable>输入名字</lable>
 					<input type="text" ng-model="examine.name" required class="form-control" />
 					<lable>输入身份证</lable>
 					<input type="text" ng-model="examine.id" required class="form-control"   />
-					<lable>输入teachType</lable>
-					<input type="text" ng-model="examine.teachType" required  class="form-control"  />
+					<lable>输入teachType</lable> 
+					<select  class="form-control" ng-model="examine.teachType">
+						<option class="form-control" value="0" >0(表示一对一)</option>
+						<option class="form-control" value="1" >1(表示一对多)</option>
+					</select>
+					<lable>用户手机号</lable>
+					<input type="text" ng-model="examine.phone" required class="form-control"   />
+					<br>
 					<button type="submit" ng-click="examineCoach()" class="btn btn-success" >提交</button>
 				</form>
+				<div class="clear"></div>
+				<div  ng-show="largeImage" style="margin-top:30px">
+					<img  ng-src="{{myHref}}"  class="largeImg" large-img />
+					<small>点击旋转图片</small>
+				</div>
 				<div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right">Close</button>
 			    </div>
