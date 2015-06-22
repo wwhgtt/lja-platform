@@ -1,7 +1,8 @@
 <div ng-controller="examineNews">
-	<input type="text" class="btn btn-default fixed_width" style="width:25%" ng-model="imuser._id" ></input>
-	<input type="text" class="btn btn-default fixed_width" style="width:25%" ng-model="imuser.createDate"></input>
-	<input type="text" class="btn btn-default fixed_width" style="width:25%" ng-model="imuser.userId" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.userId" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.name" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.phone" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.createDate"></input>
 	<div class="container" >
 		<button ng-click="examines(imuser)" class="btn btn-warning" data-toggle="modal" data-target="{{'.as-example-modal-lg-' + imuser.userId}}" >审核教练</button>
 		<button ng-click="examineRefuseCoach(imuser)" class="btn btn-warning" data-toggle="modal" data-target="{{'.bs-example-modal-lg-'+imuser.userId}}" >拒绝审核教练</button>
