@@ -1,8 +1,9 @@
 <div class="clear"></div>
 <div class="data_detile">
-	<button  type="button" class="btn btn-default btn-lg margin" style="width:25%">{{user._id}}</button>
-	<button  type="button" class="btn btn-default btn-lg margin" style="width:25%">{{user.phone}}</button>
-	<button  type="button" class="btn btn-default btn-lg margin" style="width:25%">{{user.createDate}}</button>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="user._id" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="user.name" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="user.phone" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="user.createDate"></input>
 </div>
 <div ng-controller="fuckQiniu">
 	<button type="submit" ng-click="postIdCardF(user)" class="btn btn-success"  >查看详情</button>
