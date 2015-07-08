@@ -56,10 +56,7 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 				var distance=resultone/2;
 	            $scope.siteInfo={longList:longList,latList:latList,distance:distance};
 	            $scope.$emit("siteInfoChange",$scope.siteInfo);
-
 			}
-			
-
 			//把获取到的值放到百度地图中去
 			$scope.$watchCollection("mapData",function(newMapData){
 				for(var index in newMapData){
