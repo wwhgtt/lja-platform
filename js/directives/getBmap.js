@@ -68,10 +68,11 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 						var opts = {
 						  width : 200,     // 信息窗口宽度
 						  height: 100,     // 信息窗口高度
-						  title : "场地信息", // 信息窗口标题
+						  title : mapData.address, // 信息窗口标题
 						  enableMessage:true,//设置允许信息窗发送短息
 						  message:""
 						}
+						// var mapInfoAddress={name:mapData.name,address:mapData.address};
 						var infoWindow = new BMap.InfoWindow(mapData.name, opts);  // 创建信息窗口对象 
 						marker.addEventListener("click", function(e){
 							this.openInfoWindow(infoWindow); //开启信息窗口

@@ -15,22 +15,34 @@ angular.module("directives.bmap",[])
 			myCity.get(myFun);
 			map.enableScrollWheelZoom(true);
 			var sContent =
-			 	"<input  placeholder='添加描述'' name='represent' class='represent' />" + 
+			 	"<input  placeholder='添加描述' name='represent' class='represent' />" +"</br>"+
+			 	"<input  placeholder='场地位置' name='address' class='address' id='addressMap'  />"+
 				"<button class='save_address' value='保存' onclick='saveAddress()'>保存</button>";
-			var infoWindow = new BMap.InfoWindow(sContent);
-			map.addEventListener("click", showInfo);
+			var gc = new BMap.Geocoder();//地址解析类
+			map.addEventListener("click", function(e){
+				gc.getLocation(e.point, function(rs){
+			        showInfo(e.point, rs);
+			    });
+			    
+			});
 			var array;
-			function showInfo(e){
+			function showInfo(pt,rs){
 				map.clearOverlays();
-				marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat));
+				marker = new BMap.Marker(new BMap.Point(pt.lng, pt.lat));
 		        // 创建标注
 		        map.addOverlay(marker);
+		        var addComp = rs.addressComponents;
+    			window.addr =  addComp.city + addComp.district+ 
+    			addComp.street+ addComp.streetNumber ;
+    			var infoWindow = new BMap.InfoWindow(sContent);
+
 		        marker.addEventListener("click",function(e){
 		        	this.openInfoWindow(infoWindow);
+		        	document.getElementById("addressMap").value=window.addr;
 				   	e.domEvent.stopPropagation();
 		        })
-			    var  lng=e.point.lng;
-	            var  lat=e.point.lat;
+			    var  lng=pt.lng;
+	            var  lat=pt.lat;
 	            array = {lng:lng,lat:lat};
 	            window.dataController={
 	            	'mapBrige':{

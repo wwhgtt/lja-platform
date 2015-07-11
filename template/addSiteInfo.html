@@ -13,6 +13,7 @@
 <script>
 	function saveAddress(){
     	var rep=$(".represent").val();
+        var address=$(".address").val();
     	var coordinate=window.dataController.mapBrige.tempPoint;
     	var long=coordinate.lng;
     	var lat=coordinate.lat;
@@ -20,7 +21,8 @@
     	$.post(BASE_URL+'/platform/operate/siteInfo/add',{
     		long:long,
     		lat:lat,
-    		name:name
+    		name:name,
+            address:address
     	}).success(function(){
     		alert("添加成功");
     	}).error(function(){
