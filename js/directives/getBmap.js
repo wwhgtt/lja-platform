@@ -53,16 +53,16 @@ angular.module("directives.getBmap",["controllers.getSiteInfo"])
 				var finall=(changdu-changduone);
 				var finallone=(gaodu-gaoduone);
 				var resultone=Math.sqrt(Math.pow(finall,2)+Math.pow(finallone,2));
-				var distance=resultone/2;
+				var distance=resultone/0.0000000002;
 	            $scope.siteInfo={longList:longList,latList:latList,distance:distance};
 	            $scope.$emit("siteInfoChange",$scope.siteInfo);
 			}
 			//把获取到的值放到百度地图中去
-			$scope.$watchCollection("mapData",function(newMapData){
-				for(var index in newMapData){
+			$scope.$watchCollection("mapData",function(newValue){
+				for(var index in newValue){
 					(function(){
-						var mapData = newMapData[index];
-						marker = new BMap.Marker(new BMap.Point(mapData.location[0],mapData.location[1]));
+						var mapData = newValue[index];
+						marker = new BMap.Marker(new BMap.Point(mapData.location.x,mapData.location.y));
 				        // 创建标注
 				        map.addOverlay(marker);
 						var opts = {
