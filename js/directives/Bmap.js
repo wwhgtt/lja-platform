@@ -18,7 +18,7 @@ angular.module("directives.bmap",[])
 			 	"<input  placeholder='添加描述' name='represent' class='represent' />" +"</br>"+
 			 	"<input  placeholder='场地位置' name='address' class='address' id='addressMap'  />"+
 				"<button class='save_address' value='保存' onclick='saveAddress()'>保存</button>";
-			var gc = new BMap.Geocoder();//地址解析类
+			var gc = new BMap.Geocoder();
 			map.addEventListener("click", function(e){
 				gc.getLocation(e.point, function(rs){
 			        showInfo(e.point, rs);
