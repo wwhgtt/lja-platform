@@ -1,8 +1,7 @@
 angular.module("controllers.getUser",["controllers.userItem","controllers.fuckQiniu"]) 
 .controller("getUser",function(
 	$scope,
-	$getUser,
-	$getCount 
+	$getUser
 ){
 	$scope.user = {phone:"",_id:""};
 	$scope.finaUser = function(){  
@@ -20,17 +19,7 @@ angular.module("controllers.getUser",["controllers.userItem","controllers.fuckQi
 			}
 		})
 	}
-	$getCount.getCount(function(err,result){
-		if(err){
-				alert("sorry,访问出错");
-		}else{
-			if(result && result.success== true){
-				$scope.number=result.count;
-			}else{
-				alert("没有该用户");
-			}
-		}
-	})
+	
 	// $scope.postIdCardF=function(){
 
 	// }
