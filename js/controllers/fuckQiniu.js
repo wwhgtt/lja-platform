@@ -12,12 +12,13 @@ angular.module("controllers.fuckQiniu",[])
 	$scope.photoShow = false;
 	var coachPhoto="";
 	$scope.postIdCardF=function(user){
+		coachPhoto = "";
 		$scope.photoShow = !$scope.photoShow;
 	 	userId=user.id;
 		var lisenceList=user.lisence;
 		if(lisenceList){
 			if(lisenceList.coach){
-				coachPhoto="教练证";
+				coachPhoto="教练证,";
 				var lisenceType="coach";
 				$getDown.getDown(lisenceType,userId,function(err,result){
 					if(err){
@@ -32,7 +33,7 @@ angular.module("controllers.fuckQiniu",[])
 				})
 			}
 			if(lisenceList.drive){
-				coachPhoto=coachPhoto+",驾驶证";
+				coachPhoto=coachPhoto+"驾驶证,";
 				var lisenceType="drive";
 				$getDown.getDown(lisenceType,userId,function(err,result){
 					if(err){
@@ -47,7 +48,7 @@ angular.module("controllers.fuckQiniu",[])
 				})
 			}
 			if(lisenceList.identity){
-				coachPhoto=coachPhoto+",身份证";
+				coachPhoto=coachPhoto+"身份证";
 				var lisenceType="identity";
 				$getDown.getDown(lisenceType,userId,function(err,result){
 					if(err){
@@ -113,10 +114,14 @@ angular.module("controllers.fuckQiniu",[])
 			$scope.use.coach=user.coach;
 		}else{
 			$scope.roleCoach=true;
-			var driveSchool=user.driveSchool;
-			var name=user.site.name;
-			$scope.use.Dname=driveSchool.name;
-			$scope.use.Dsite=name;
+			if(user.driveSchool){
+				var driveSchool=user.driveSchool;
+				$scope.use.Dname=driveSchool.name;
+			}
+			if(user.site){
+				var name=user.site.name;
+				$scope.use.Dsite=name;
+			}
 			var teachType=user.teachType;
 			if(teachType == 0){
 				$scope.use.teachType="一对一"
