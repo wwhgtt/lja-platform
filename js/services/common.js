@@ -360,9 +360,10 @@ angular.module("services.common",[])
 	$http
 ){
 	return {
-		getUserItem:function(top,callback){
-			$http.get(BASE_URL + "/platform/operate/user/firstPage",
+		getUserItem:function(index,top,callback){
+			$http.get(BASE_URL + "/platform/operate/user/",
 				{params:{
+					index:index,
 					top:top
 				}		
 			})

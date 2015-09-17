@@ -14,10 +14,11 @@
 	<div class="getUsers" ng-controller="userItem">
 		<div class="clear"></div>
 		<div class="compline">
-			<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">用户_id</button>
-			<button  type="button" class="btn btn-default btn-lg fixed_width" style="width:20%">用户</button>
-			<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">用户phone</button>
-			<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">创建日期</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">用户id</button>
+			<button  type="button" class="btn btn-default btn-lg fixed_width" style="width:16%">用户</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">用户phone</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">创建日期</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">身份</button>
 		</div>
 		<div class="clear"></div>
 		<user-item ng-repeat="(key,user) in userItem"></user-item>
@@ -29,5 +30,5 @@
 			<button class="btn btn-default" ng-click="getLastPage()" >尾页</button>
 		</div>
 	</div>
-	<div class="thumbnail  userNumber"><button type="button" class="btn btn-success"><h1>{{number}}</h1></button></div>
+	
 </section>

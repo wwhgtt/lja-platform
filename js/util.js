@@ -1,3 +1,3 @@
-;(function(alertify){
+(function(alertify){
 	window.alert=alertify.error;
 }(alertify))
