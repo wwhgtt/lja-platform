@@ -108,7 +108,10 @@ angular.module("controllers.fuckQiniu",[])
 		}
 		//获取用户更多信息
 		var role=user.role;
-		if(role == "coach"){
+		if(role == "student"){
+			$scope.roleStutent=true;
+			$scope.use.coach=user.coach;
+		}else{
 			$scope.roleCoach=true;
 			var driveSchool=user.driveSchool;
 			var name=user.site.name;
@@ -122,11 +125,6 @@ angular.module("controllers.fuckQiniu",[])
 			}
 			$scope.use.coachLisenceDate=user.coachLisenceDate;
 			$scope.use.studentNum=user.studentNum;
-		}else if(role == "student"){
-			$scope.roleStutent=true;
-			$scope.use.coach=user.coach;
-		}else{
-			alert("没有更多信息可待查询")
 		}
 	}
 })
