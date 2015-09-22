@@ -28,9 +28,15 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 			alert("sorry,访问出错");
 		}else{
 			if(result && result.success == true){
-				$scope.userItem=result.userList;
-				var userItem=$scope.userItem;
-				firstIncId = userItem[0].incId;
+				var userList=result.userList;
+				var userItemTemp=[];
+				for(index in userList){
+					var detaile=userList[index].role;
+					if( detaile == "coach"){
+						userItemTemp.push(userList[index]);
+					}
+				}
+				$scope.userItem=userItemTemp;
 			}else{
 				if(result && result.success == false){
 					var errorInfo=result.errorInfo;
@@ -39,6 +45,56 @@ angular.module("controllers.userItem",["controllers.fuckQiniu"])
 			}
 		}
 	})
+	$scope.getCoachDetaile=function(){
+		$getUserItem.getUserItem(index,top,function(err,result){ 
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					var userList=result.userList;
+					var userItemTemp=[];
+					for(index in userList){
+						var detaile=userList[index].role;
+						if( detaile == "coach"){
+							userItemTemp.push(userList[index]);
+						}
+					}
+					$scope.userItem=userItemTemp;
+				}else{
+					if(result && result.success == false){
+						var errorInfo=result.errorInfo;
+						alert(errorInfo);
+					}
+				}
+			}
+		})
+	}
+	$scope.getStudentDetaile=function(){
+		var index=0,
+			top=100; 
+		$getUserItem.getUserItem(index,top,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					var userList=result.userList;
+					var userItemTemp=[];
+					for(index in userList){
+						var detaile=userList[index].role;
+						if( detaile == "student"){
+							userItemTemp.push(userList[index]);
+						}
+					}
+					$scope.userItem=userItemTemp;
+				}else{
+					if(result && result.success == false){
+						var errorInfo=result.errorInfo;
+						alert(errorInfo);
+					}
+				}
+			}
+		})
+	}
 	$scope.getFirstPage=function(){
 		var index=0;
 		$getUserItem.getUserItem(index,top,function(err,result){ 

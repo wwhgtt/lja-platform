@@ -10,8 +10,12 @@
 		<h2  class="phone_user" >该手机对应的用户为:</h2>
 		<user-item></user-item>
 	</div>
-	
 	<div class="getUsers" ng-controller="userItem">
+		<div class="getDiff">
+			<button type="button"  class="btn btn-success" ng-click="getCoachDetaile()">查看教练</button>
+			<button type="button"  class="btn btn-success" ng-click="getStudentDetaile()">查看学员</button>
+			<button type="button"  class="btn btn-success">未验证身份用户</button>
+		</div>
 		<div class="clear"></div>
 		<div class="compline">
 			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">用户id</button>
