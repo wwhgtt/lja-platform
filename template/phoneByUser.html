@@ -14,7 +14,7 @@
 		<div class="getDiff">
 			<button type="button"  class="btn btn-success" ng-click="getCoachDetaile()">查看教练</button>
 			<button type="button"  class="btn btn-success" ng-click="getStudentDetaile()">查看学员</button>
-			<button type="button"  class="btn btn-success">未验证身份用户</button>
+			<button type="button"  class="btn btn-success" ng-click="getNoIdentify()">未验证身份用户</button>
 		</div>
 		<div class="clear"></div>
 		<div class="compline">
@@ -22,7 +22,9 @@
 			<button  type="button" class="btn btn-default btn-lg fixed_width" style="width:16%">用户</button>
 			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">用户phone</button>
 			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">创建日期</button>
-			<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">身份</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:12%">身份</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:8%" ng-show="haveCoach">教练</button>
+			<button  type="button" class="btn btn-default btn-lg margin" style="width:12%" ng-show="haveCoach">教练手机</button>
 		</div>
 		<div class="clear"></div>
 		<user-item ng-repeat="(key,user) in userItem"></user-item>

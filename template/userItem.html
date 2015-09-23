@@ -5,9 +5,11 @@
 	<input type="text" class="btn btn-default fixed_width" style="width:16%" ng-model="user.name" ></input>
 	<input type="text" class="btn btn-default fixed_width" style="width:16%" ng-model="user.phone" ></input>
 	<input type="text" class="btn btn-default fixed_width" style="width:16%" ng-model="user.createDate"></input>
-	<input type="text" class="btn btn-default fixed_width colorMust"  style="width:16%" ng-model="user.role" ng-class="{backGroung:user.role=='coach'}"></input>
+	<input type="text" class="btn btn-default fixed_width colorMust"  style="width:12%" ng-model="user.role" ></input>
+	<input type="text" class="btn btn-default fixed_width colorMust"  style="width:8%" ng-model="user.coach.name" ng-show="user.role == 'student'"></input>
+	<input type="text" class="btn btn-default fixed_width colorMust"  style="width:12%" ng-model="user.coach.phone" ng-show="user.role == 'student'"></input>
 </div>
-<div ng-controller="fuckQiniu">
+<div ng-controller="fuckQiniu" ng-show="user.role == 'coach'">
 	<button type="submit" ng-click="postIdCardF(user)" class="btn btn-success" data-toggle="modal" data-target="{{'.bs-example-modal-lg-' + user.id}}" >查看详情</button>
 	<div class="clear"></div>
 	<div class="{{'modal fade bs-example-modal-lg-'+user.id}}" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -31,6 +33,18 @@
 					<input type="text" class="btn btn-default fixed_width" style="width:18%" ng-model="use.photo"></input>
 				</div>
 				<div class="clear"></div>
+				<p style="font-size:20px;padding:1em 1em 1em 1em">学员列表</p>
+				<div class="compline">
+					<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">用户id</button>
+					<button  type="button" class="btn btn-default btn-lg fixed_width" style="width:20%">用户</button>
+					<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">用户phone</button>
+					<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">创建日期</button>
+					<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">身份</button>
+				</div>
+				<student-list ng-repeat="(key,student)  in studentList"></student-list>
+				<div class="clear"></div>
+				<!-- 显示活跃度的div -->
+				<!-- do something -->
 				<div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right">Close</button>
 			    </div>

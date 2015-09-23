@@ -5,13 +5,26 @@ angular.module("controllers.fuckQiniu",[])
 	Upload,
 	$postLisence,
 	$getDown,
-	$examine
+	$examine,
+	$getCoachStudent
 ){
 	$scope.Download={coachUrl:"",driveUrl:"",identityUrl:""};
 	$scope.use={Dname:"",Dsite:"",teachType:"",coachLisenceDate:"",studentNum:"",coach:"",photo:""};
 	$scope.photoShow = false;
 	var coachPhoto="";
 	$scope.postIdCardF=function(user){
+		var coachId=user.id;
+		$getCoachStudent.getCoachStudent(coachId,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					$scope.studentList=result.studentList;
+				}else{
+					alert("出错了");
+				}
+			}
+		})
 		coachPhoto = "";
 		$scope.photoShow = !$scope.photoShow;
 	 	userId=user.id;

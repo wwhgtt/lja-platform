@@ -29,6 +29,7 @@ angular.module("ljaWebPlatform",[
 	"directives.basicItem",
 	"directives.largeImg",
 	"directives.login",
+	"directives.studentList",
 	"directives.testView",
 	"directives.upLoad",
 	"directives.pwCheck",

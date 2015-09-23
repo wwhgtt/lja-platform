@@ -128,7 +128,26 @@ angular.module("services.common",[])
 		}
 	}
 })
-
+//根据教练ID获取所属学员
+.service("$getCoachStudent",function(
+	$http
+){
+	return {
+		getCoachStudent:function(coachId,callback){
+			$http.get(BASE_URL + "/platform/operate/user/studentList/byCoachId",{
+				params:{
+					coachId:coachId
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 //平台端重置密码
 .service("$RePwd",function(
 	$http
@@ -360,11 +379,12 @@ angular.module("services.common",[])
 	$http
 ){
 	return {
-		getUserItem:function(index,top,callback){
+		getUserItem:function(index,top,type,callback){
 			$http.get(BASE_URL + "/platform/operate/user/",
 				{params:{
 					index:index,
-					top:top
+					top:top,
+					type:type
 				}		
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
