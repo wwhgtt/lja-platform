@@ -68,7 +68,27 @@ angular.module("services.common",[])
 		}
 	}
 })
-
+//绘图
+.service("$getCancle",function(
+	$http
+){
+	return {
+		getCancle:function(coachId,time,callback){
+			$http.get(BASE_URL + '/platform/statistics/coach/subject',{
+				params:{
+					coachId:coachId,
+					date:time
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 //管理员登录
 .service("$login",function(
 	$http
