@@ -1,0 +1,19 @@
+<section class="container">
+	<h2 style="width:100%;text-align:center;padding-top:1em;padding-bottom:2em">拥有1个及以上学员的教练进行排序</h2>
+	<div class="compline">
+		<button  type="button" class="btn btn-default btn-lg margin" style="width:12%">用户id</button>
+		<button  type="button" class="btn btn-default btn-lg fixed_width" style="width:16%">用户</button>
+		<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">用户phone</button>
+		<button  type="button" class="btn btn-default btn-lg margin" style="width:16%">所属驾校</button>
+		<button  type="button" class="btn btn-default btn-lg margin" style="width:20%">训练场地</button>
+		<button  type="button" class="btn btn-default btn-lg margin" style="width:16%" >学员数量</button>
+	</div>
+	<number-list ng-repeat="(key,user) in userList"></number-list>
+	<div class="clear"></div>
+	<div class="getMore">
+		<button class="btn btn-default" ng-click="getFirstPage()" ng-disable="firstPage">首页</button>
+		<button class="btn btn-default" ng-click="getMoreUser('pre')" ng-disable="firstPage" >上一页</button>
+		<button class="btn btn-default" ng-click="getMoreUser('next')" >下一页</button>
+		<button class="btn btn-default" ng-click="getLastPage()" >尾页</button>
+	</div>
+</section>

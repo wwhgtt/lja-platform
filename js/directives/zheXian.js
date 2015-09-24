@@ -72,9 +72,7 @@ angular.module("directives.zheXian",[])
 			$scope.$on("mapData",function(){
 				// console.log($scope.mapData)数据已经过来了
 				mapData=$scope.mapData;
-				console.log("mapData",mapData);
 				var diffDays = moment(mapData.nextDate).diff(mapData.preDate,'day');
-				console.log("diffDays",diffDays);
 				var xAxisArr = [];
 				var subject2 = [];
 				var subject3 = [];

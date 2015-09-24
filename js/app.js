@@ -14,6 +14,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.platform",
 	"controllers.addManager",
 	"controllers.userItem",
+	"controllers.liveness",
 	"controllers.loginOut",
 	"controllers.getImUsers",
 	"directives.userItem",
@@ -29,6 +30,7 @@ angular.module("ljaWebPlatform",[
 	"directives.basicItem",
 	"directives.zheXian",
 	"directives.largeImg",
+	"directives.numberList",
 	"directives.login",
 	"directives.studentList",
 	"directives.testView",
@@ -190,6 +192,15 @@ angular.module("ljaWebPlatform",[
 				'menuContent':{
 					templateUrl:"template/getImUsers.html",
 					controller:"getImUsers"
+				}
+			}
+		})
+		.state('platform.liveness',{
+			url:"/liveness",
+			views:{
+				'menuContent':{
+					templateUrl:"template/liveness.html",
+					controller:"liveness"
 				}
 			}
 		})

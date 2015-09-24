@@ -638,3 +638,45 @@ angular.module("services.common",[])
 		}
 	}
 })
+//教练排序
+.service("$getLiveNess",function(
+	$http
+){
+	return {
+		getLiveNess:function(index,top,studentNum,callback){
+			$http.get(BASE_URL + "/platform/rank/coach/byStudentNum",{
+				params:{
+					index:index,
+					top:top,
+					studentNum:studentNum
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//排序教练的数量
+.service("$getLive",function(
+	$http
+){
+	return {
+		getLive:function(studentNum,callback){
+			$http.get(BASE_URL + "/platform/rank/coach/count",{
+				params:{
+					studentNum:studentNum
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
