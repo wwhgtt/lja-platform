@@ -89,6 +89,27 @@ angular.module("services.common",[])
 		}
 	}
 })
+//绘图
+.service("$getCancleNum",function(
+	$http
+){
+	return {
+		getCancleNum:function(coachId,time,callback){
+			$http.get(BASE_URL + '/platform/statistics/coach/student',{
+				params:{
+					coachId:coachId,
+					date:time
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
 //管理员登录
 .service("$login",function(
 	$http
@@ -673,6 +694,153 @@ angular.module("services.common",[])
 			})
 			.success(function(data){
 				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//按周获取教练活跃度
+.service("$getWeekOrder",function(
+	$http
+){
+	return {
+		getWeekOrder:function(coachId,year,week,callback){
+			$http.get(BASE_URL + "/platform/statistics/coach/subject",{
+				params:{
+					coachId:coachId,
+					year:year,
+					date:week
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//按周获取教练活跃度
+.service("$getWeekOrderNum",function(
+	$http
+){
+	return {
+		getWeekOrderNum:function(coachId,year,week,callback){
+			$http.get(BASE_URL + "/platform/statistics/coach/student",{
+				params:{
+					coachId:coachId,
+					year:year,
+					date:week
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//按年获取教练活跃度
+.service("$getYearOrder",function(
+	$http
+){
+	return {
+		getYearOrder:function(coachId,year,callback){
+			$http.get(BASE_URL + "/platform/statistics/coach/subject",{
+				params:{
+					coachId:coachId,
+					year:year
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//按年获取教练活跃度
+.service("$getYearOrderNum",function(
+	$http
+){
+	return {
+		getYearOrderNum:function(coachId,year,callback){
+			$http.get(BASE_URL + "/platform/statistics/coach/student",{
+				params:{
+					coachId:coachId,
+					year:year
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//获取用户注册情况
+.service("$getYearOrderYY",function(
+	$http
+){
+	return {
+		getYearOrderYY:function(year,callback){
+			$http.get(BASE_URL + "/platform/statistics/user/register",{
+				params:{
+					year:year
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//获取用户注册情况
+.service("$getWeekOrderYY",function(
+	$http
+){
+	return {
+		getWeekOrderYY:function(year,week,callback){
+			$http.get(BASE_URL + "/platform/statistics/user/register",{
+				params:{
+					year:year,
+					date:week
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data);
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//绘图
+.service("$getCancleYY",function(
+	$http
+){
+	return {
+		getCancleYY:function(time,callback){
+			$http.get(BASE_URL + '/platform/statistics/user/register',{
+				params:{
+					date:time
+				}
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
 			})
 			.error(function(err){
 				if(callback)callback(err);

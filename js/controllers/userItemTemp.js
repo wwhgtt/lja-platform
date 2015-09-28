@@ -26,6 +26,9 @@ angular.module("controllers.userItemTemp",[])
 				}
 			}
 		})
+		var week=moment().week();
+		var year=moment.year();
+		
 		$getCoachStudent.getCoachStudent(coachId,function(err,result){
 			if(err){
 				alert("sorry,访问出错");

@@ -1,12 +1,11 @@
-angular.module("directives.zheXian",[])
-.directive("zheXian",function(
+angular.module("directives.anoZhe",[])
+.directive("anoZhe",function(
 
 ){
-	return {
+	return{
 		restrict:"A",
 		link:function($scope,element,attr){
-			//新建echarts
-	        var myChart = echarts.init(element.find("#main")[0]);
+			var myChart = echarts.init(element.find("#mainStu")[0]);
 	        var option = {
 			    tooltip : {
 			        trigger: 'axis'
@@ -59,38 +58,24 @@ angular.module("directives.zheXian",[])
 					var currentDateStr = currentDate.format("MM-DD");
 					var currentComplateStr = currentDate.format("YYYY-MM-DD");
 					xAxisArr.push(currentDateStr);
-					var subjectOrder = mapData.order;
+					var subjectOrder = mapData.studentOrder;
 					var orderCount = 0;
 					for(var k in subjectOrder){
-						var order = subjectOrder[k];
-						if(order.date == currentComplateStr){
-							orderCount = order.count;
+						var studentOrder = subjectOrder[k];
+						if(studentOrder.date == currentComplateStr){
+							orderCount = studentOrder.count;
 							break;
 						}
 					}
 					subject.push(orderCount);
-					var subjectDeleteOrder = mapData.orderDelete;
-					var deleteOrderCount = 0;
-					for(var k in subjectDeleteOrder){
-						var deleteOrder = subjectDeleteOrder[k];
-						if(deleteOrder.date == currentComplateStr){
-							deleteOrderCount = deleteOrder.count;
-							break;
-						}
-					}
-					subjectCancle.push(deleteOrderCount);
 				}
 				option.xAxis[0].data = xAxisArr;
-				var orderSum=[];
 				// var orderNumber=[];
-				for(var index in subjectCancle){
-					orderSum[index]=subject[index]+subjectCancle[index];
-				}
-				option.series[0].data = orderSum;
+				option.series[0].data = subject;
 				myChart.setOption(option);
 			})
 			//周活动情况
-			var myCharts = echarts.init(element.find("#mainWeek")[0]);
+			var myCharts = echarts.init(element.find("#mainWeekStu")[0]);
 	        var options = {
 			    tooltip : {
 			        trigger: 'axis'
@@ -141,38 +126,23 @@ angular.module("directives.zheXian",[])
 					var momentData=moment().week(currentDate).format("MM/DD");
 					var weekData=momentData+"--"+moment(momentData).add('6','days').format("MM/DD");
 					xAxisArr.push(weekData);
-					var subjectOrder = mapDataWeek.order;
+					var subjectOrder = mapDataWeek.studentOrder;
 					var orderCount = 0;
 					for(var k in subjectOrder){
-						var order = subjectOrder[k];
-						if(order.week == currentDate){
-							orderCount = order.count;
+						var studentOrder = subjectOrder[k];
+						if(studentOrder.week == currentDate){
+							orderCount = studentOrder.count;
 							break;
 						}
 					}
 					subject.push(orderCount);
-					var subjectDeleteOrder = mapDataWeek.orderDelete;
-					var deleteOrderCount = 0;
-					for(var k in subjectDeleteOrder){
-						var deleteOrder = subjectDeleteOrder[k];
-						if(deleteOrder.week == currentDate){
-							deleteOrderCount = deleteOrder.count;
-							break;
-						}
-					}
-					subjectCancle.push(deleteOrderCount);
 				}
 				options.xAxis[0].data = xAxisArr;
-				var orderSum=[];
-				// var orderNumber=[];
-				for(var index in subjectCancle){
-					orderSum[index]=subject[index]+subjectCancle[index];
-				}
-				options.series[0].data = orderSum;
+				options.series[0].data = subject;
 				myCharts.setOption(options);
 			})
 //年活动情况
-			var myChartYear = echarts.init(element.find("#mainYear")[0]);
+			var myChartYear = echarts.init(element.find("#mainYearStu")[0]);
 	        var optionYear = {
 			    tooltip : {
 			        trigger: 'axis'
@@ -224,38 +194,21 @@ angular.module("directives.zheXian",[])
 						return a<10?"0"+a:a;
 					}
 					xAxisArr.push(t(currentDate));
-					var subjectOrder = mapDataYear.order;
+					var subjectOrder = mapDataYear.studentOrder;
 					var orderCount = 0;
 					for(var k in subjectOrder){
-						var order = subjectOrder[k];
-						var date=order.date;
+						var studentOrder = subjectOrder[k];
+						var date=studentOrder.date;
 						var orderYear=date.substr(5,2);
 						if(orderYear == currentDate){
-							orderCount = order.count;
+							orderCount = studentOrder.count;
 							break;
 						}
 					}
 					subject.push(orderCount);
-					var subjectDeleteOrder = mapDataYear.orderDelete;
-					var deleteOrderCount = 0;
-					for(var k in subjectDeleteOrder){
-						var deleteOrder = subjectDeleteOrder[k];
-						var date=deleteOrder.date;
-						var orderYear=date.substr(5,2);
-						if(orderYear == currentDate){
-							deleteOrderCount = deleteOrder.count;
-							break;
-						}
-					}
-					subjectCancle.push(deleteOrderCount);
 				}
 				optionYear.xAxis[0].data = xAxisArr;
-				var orderSum=[];
-				// var orderNumber=[];
-				for(var index in subjectCancle){
-					orderSum[index]=subject[index]+subjectCancle[index];
-				}
-				optionYear.series[0].data = orderSum;
+				optionYear.series[0].data = subject;
 				myChartYear.setOption(optionYear);
 			})
 		}

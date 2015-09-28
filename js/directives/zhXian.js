@@ -1,5 +1,5 @@
-angular.module("directives.zheXian",[])
-.directive("zheXian",function(
+angular.module("directives.zhXian",[])
+.directive("zhXian",function(
 
 ){
 	return {
@@ -59,34 +59,19 @@ angular.module("directives.zheXian",[])
 					var currentDateStr = currentDate.format("MM-DD");
 					var currentComplateStr = currentDate.format("YYYY-MM-DD");
 					xAxisArr.push(currentDateStr);
-					var subjectOrder = mapData.order;
+					var subjectOrder = mapData.register;
 					var orderCount = 0;
 					for(var k in subjectOrder){
-						var order = subjectOrder[k];
-						if(order.date == currentComplateStr){
-							orderCount = order.count;
+						var register = subjectOrder[k];
+						if(register.date == currentComplateStr){
+							orderCount = register.count;
 							break;
 						}
 					}
 					subject.push(orderCount);
-					var subjectDeleteOrder = mapData.orderDelete;
-					var deleteOrderCount = 0;
-					for(var k in subjectDeleteOrder){
-						var deleteOrder = subjectDeleteOrder[k];
-						if(deleteOrder.date == currentComplateStr){
-							deleteOrderCount = deleteOrder.count;
-							break;
-						}
-					}
-					subjectCancle.push(deleteOrderCount);
 				}
 				option.xAxis[0].data = xAxisArr;
-				var orderSum=[];
-				// var orderNumber=[];
-				for(var index in subjectCancle){
-					orderSum[index]=subject[index]+subjectCancle[index];
-				}
-				option.series[0].data = orderSum;
+				option.series[0].data = subject;
 				myChart.setOption(option);
 			})
 			//周活动情况
@@ -141,34 +126,19 @@ angular.module("directives.zheXian",[])
 					var momentData=moment().week(currentDate).format("MM/DD");
 					var weekData=momentData+"--"+moment(momentData).add('6','days').format("MM/DD");
 					xAxisArr.push(weekData);
-					var subjectOrder = mapDataWeek.order;
+					var subjectOrder = mapDataWeek.register;
 					var orderCount = 0;
 					for(var k in subjectOrder){
-						var order = subjectOrder[k];
-						if(order.week == currentDate){
-							orderCount = order.count;
+						var register = subjectOrder[k];
+						if(register.week == currentDate){
+							orderCount = register.count;
 							break;
 						}
 					}
 					subject.push(orderCount);
-					var subjectDeleteOrder = mapDataWeek.orderDelete;
-					var deleteOrderCount = 0;
-					for(var k in subjectDeleteOrder){
-						var deleteOrder = subjectDeleteOrder[k];
-						if(deleteOrder.week == currentDate){
-							deleteOrderCount = deleteOrder.count;
-							break;
-						}
-					}
-					subjectCancle.push(deleteOrderCount);
 				}
 				options.xAxis[0].data = xAxisArr;
-				var orderSum=[];
-				// var orderNumber=[];
-				for(var index in subjectCancle){
-					orderSum[index]=subject[index]+subjectCancle[index];
-				}
-				options.series[0].data = orderSum;
+				options.series[0].data = subject;
 				myCharts.setOption(options);
 			})
 //年活动情况
@@ -224,38 +194,21 @@ angular.module("directives.zheXian",[])
 						return a<10?"0"+a:a;
 					}
 					xAxisArr.push(t(currentDate));
-					var subjectOrder = mapDataYear.order;
+					var subjectOrder = mapDataYear.register;
 					var orderCount = 0;
 					for(var k in subjectOrder){
-						var order = subjectOrder[k];
-						var date=order.date;
+						var register = subjectOrder[k];
+						var date=register.date;
 						var orderYear=date.substr(5,2);
-						if(orderYear == currentDate){
-							orderCount = order.count;
+						if(orderYear == t(currentDate)){
+							orderCount = register.count;
 							break;
 						}
 					}
 					subject.push(orderCount);
-					var subjectDeleteOrder = mapDataYear.orderDelete;
-					var deleteOrderCount = 0;
-					for(var k in subjectDeleteOrder){
-						var deleteOrder = subjectDeleteOrder[k];
-						var date=deleteOrder.date;
-						var orderYear=date.substr(5,2);
-						if(orderYear == currentDate){
-							deleteOrderCount = deleteOrder.count;
-							break;
-						}
-					}
-					subjectCancle.push(deleteOrderCount);
 				}
 				optionYear.xAxis[0].data = xAxisArr;
-				var orderSum=[];
-				// var orderNumber=[];
-				for(var index in subjectCancle){
-					orderSum[index]=subject[index]+subjectCancle[index];
-				}
-				optionYear.series[0].data = orderSum;
+				optionYear.series[0].data = subject;
 				myChartYear.setOption(optionYear);
 			})
 		}

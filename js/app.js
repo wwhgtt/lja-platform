@@ -16,6 +16,7 @@ angular.module("ljaWebPlatform",[
 	"controllers.userItem",
 	"controllers.liveness",
 	"controllers.loginOut",
+	"controllers.sumUsers",
 	"controllers.getImUsers",
 	"directives.userItem",
 	"controllers.testView",
@@ -26,10 +27,12 @@ angular.module("ljaWebPlatform",[
 	"controllers.jobsList",
 	"controllers.getUser",
 	"directives.jobList",
+	"directives.zhXian",
 	"directives.nextXian",
 	"directives.jobsList",
 	"directives.imuserList",
 	"directives.basicItem",
+	"directives.anoZhe",
 	"directives.zheXian",
 	"directives.largeImg",
 	"directives.numberList",
@@ -204,6 +207,15 @@ angular.module("ljaWebPlatform",[
 				'menuContent':{
 					templateUrl:"template/liveness.html",
 					controller:"liveness"
+				}
+			}
+		})
+		.state('platform.sumUsers',{
+			url:"/sumUsers",
+			views:{
+				'menuContent':{
+					templateUrl:"template/sumUsers.html",
+					controller:"sumUsers"
 				}
 			}
 		})

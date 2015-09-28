@@ -35,7 +35,29 @@
 				<div class="clear"></div>
 				<!-- 显示活跃度的div -->
 				<!-- do something -->
-				<div id="main" style="height:400px;width:100%;"  zhe-xian></div>
+				<div class="diffDpartment">
+					<button class="btn btn-success  first" title="1" ng-click="diff('lesson',user)">查看预约科目数量</button>
+					<button class="btn btn-success next" title="1" ng-click="diff('student',user)">查看预约学员数量</button>
+				</div>
+				<div class="clear"></div>
+				<div class="zhexiantu" zhe-xian ng-show="zhexiantu">
+					<p style="width:100%;font-size:24px;text-align:center;padding-top:12px;padding-bottom:12px">日活动情况概览</p>
+					<div id="main" style="height:400px;width:100%;"></div>
+					<p style="width:100%;font-size:24px;text-align:center;padding-top:12px;padding-bottom:12px">周活动情况概览</p>
+					<div id="mainWeek" style="height:400px;width:100%;"></div>
+					<p style="width:100%;font-size:24px;text-align:center;padding-top:12px;padding-bottom:12px">月活动情况概览</p>
+					<div id="mainYear" style="height:400px;width:100%;"></div>
+				</div>
+				<div class="clear"></div>
+				<div class="anoZheXian"  ng-show="anoZheXian" ano-zhe>
+					<p style="width:100%;font-size:24px;text-align:center;padding-top:12px;padding-bottom:12px">日活动情况概览</p>
+					<div id="mainStu" style="height:400px;width:100%;"></div>
+					<p style="width:100%;font-size:24px;text-align:center;padding-top:12px;padding-bottom:12px">周活动情况概览</p>
+					<div id="mainWeekStu" style="height:400px;width:100%;"></div>
+					<p style="width:100%;font-size:24px;text-align:center;padding-top:12px;padding-bottom:12px">月活动情况概览</p>
+					<div id="mainYearStu" style="height:400px;width:100%;"></div>
+				</div>
+				
 				<div class="clear"></div>
 				<p style="font-size:20px;padding:1em 1em 1em 1em">学员列表</p>
 				<div class="compline">
@@ -91,4 +113,14 @@
 		<p class="should">Upload Log:</p>
 		<pre class="should">{{log}}</pre>
 	</div> -->
+<script type="text/javascript">
+	$(".first").on("click",function(){
+		$(this).css("background-color","#FF7F50");
+		$(".next").css("background-color","#449d44")
+	})
+	$(".next").on("click",function(){
+		$(this).css("background-color","#FF7F50");
+		$(".first").css("background-color","#449d44")
+	})
+</script>
 

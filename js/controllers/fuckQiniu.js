@@ -7,12 +7,117 @@ angular.module("controllers.fuckQiniu",[])
 	$getDown,
 	$examine,
 	$getCoachStudent,
-	$getCancle
+	$getCancle,
+	$getWeekOrder,
+	$getYearOrder,
+	$getCancleNum,
+	$getWeekOrderNum,
+	$getYearOrderNum
 ){
 	$scope.Download={coachUrl:"",driveUrl:"",identityUrl:""};
 	$scope.use={Dname:"",Dsite:"",teachType:"",coachLisenceDate:"",studentNum:"",coach:"",photo:""};
 	$scope.photoShow = false;
+	$scope.zhexiantu= true;
 	var coachPhoto="";
+	$scope.diff=function(type,user){
+		if(type=='lesson'){
+			$scope.zhexiantu = true;
+			$scope.anoZheXian = false;
+			var start=new Date();
+			var t=function(a){
+				return a<10?"0"+a:a;
+			}
+			var time=start.getFullYear()+"-"+t(start.getMonth()+1)+"-"+t(start.getDate());
+			var coachId=user.id;
+			$scope.mapData=[];
+			$getCancle.getCancle(coachId,time,function(err,result){
+				if(err){
+					alert("sorry,访问出错");
+				}else{
+					if(result && result.success == true){
+						$scope.mapData=result.statistics;
+						$scope.$broadcast("mapData",$scope.mapData)
+					}else{
+						alert("出错了");
+					}
+				}
+			})
+			var week=moment().week();
+			var year=moment().year();
+			$getWeekOrder.getWeekOrder(coachId,year,week,function(err,result){
+				if(err){
+					alert("sorry,访问出错");
+				}else{
+					if(result && result.success == true){
+						$scope.mapDataWeek=result.statistics;
+						$scope.$broadcast("mapDataWeek",$scope.mapDataWeek)
+					}else{
+						alert("出错了");
+					}
+				}
+			})
+			$getYearOrder.getYearOrder(coachId,year,function(err,result){
+				if(err){
+					alert("sorry,访问出错");
+				}else{
+					if(result && result.success == true){
+						$scope.mapDataYear=result.statistics;
+						$scope.$broadcast("mapDataYear",$scope.mapDataYear)
+					}else{
+						alert("出错了");
+					}
+				}
+			})
+		}else{
+			$scope.zhexiantu = false;
+			$scope.anoZheXian = true;
+			var start=new Date();
+			var t=function(a){
+				return a<10?"0"+a:a;
+			}
+			var time=start.getFullYear()+"-"+t(start.getMonth()+1)+"-"+t(start.getDate());
+			var coachId=user.id;
+			$scope.mapData=[];
+			$getCancleNum.getCancleNum(coachId,time,function(err,result){
+				if(err){
+					alert("sorry,访问出错");
+				}else{
+					if(result && result.success == true){
+						$scope.mapData=result.statistics;
+						$scope.$broadcast("mapData",$scope.mapData)
+					}else{
+						alert("出错了");
+					}
+				}
+			})
+			var week=moment().week();
+			var year=moment().year();
+			$getWeekOrderNum.getWeekOrderNum(coachId,year,week,function(err,result){
+				if(err){
+					alert("sorry,访问出错");
+				}else{
+					if(result && result.success == true){
+						$scope.mapDataWeek=result.statistics;
+						$scope.$broadcast("mapDataWeek",$scope.mapDataWeek)
+					}else{
+						alert("出错了");
+					}
+				}
+			})
+			$getYearOrderNum.getYearOrderNum(coachId,year,function(err,result){
+				if(err){
+					alert("sorry,访问出错");
+				}else{
+					if(result && result.success == true){
+						$scope.mapDataYear=result.statistics;
+						$scope.$broadcast("mapDataYear",$scope.mapDataYear)
+					}else{
+						alert("出错了");
+					}
+				}
+			})
+		}
+	}
 	$scope.postIdCardF=function(user){
 		var start=new Date();
 		var t=function(a){
@@ -28,6 +133,32 @@ angular.module("controllers.fuckQiniu",[])
 				if(result && result.success == true){
 					$scope.mapData=result.statistics;
 					$scope.$broadcast("mapData",$scope.mapData)
+				}else{
+					alert("出错了");
+				}
+			}
+		})
+		var week=moment().week();
+		var year=moment().year();
+		$getWeekOrder.getWeekOrder(coachId,year,week,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					$scope.mapDataWeek=result.statistics;
+					$scope.$broadcast("mapDataWeek",$scope.mapDataWeek)
+				}else{
+					alert("出错了");
+				}
+			}
+		})
+		$getYearOrder.getYearOrder(coachId,year,function(err,result){
+			if(err){
+				alert("sorry,访问出错");
+			}else{
+				if(result && result.success == true){
+					$scope.mapDataYear=result.statistics;
+					$scope.$broadcast("mapDataYear",$scope.mapDataYear)
 				}else{
 					alert("出错了");
 				}
