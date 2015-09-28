@@ -12,7 +12,7 @@ angular.module("directives.zhXian",[])
 			        trigger: 'axis'
 			    },
 			    legend: {
-			        data:['日预约情况']
+			        data:['日注册情况']
 			    },
 			    toolbox: {
 			        show : true,
@@ -39,7 +39,7 @@ angular.module("directives.zhXian",[])
 			    ],
 			    series : [
 			        {
-			            name:'日预约情况',
+			            name:'日注册情况',
 			            type:'line',
 			            // stack: '总量',
 			            data:[]
@@ -81,7 +81,7 @@ angular.module("directives.zhXian",[])
 			        trigger: 'axis'
 			    },
 			    legend: {
-			        data:['周预约情况']
+			        data:['周注册情况']
 			    },
 			    toolbox: {
 			        show : true,
@@ -108,7 +108,7 @@ angular.module("directives.zhXian",[])
 			    ],
 			    series : [
 			        {
-			            name:'周预约情况',
+			            name:'周注册情况',
 			            type:'line',
 			            // stack: '总量',
 			            data:[]
@@ -148,7 +148,7 @@ angular.module("directives.zhXian",[])
 			        trigger: 'axis'
 			    },
 			    legend: {
-			        data:['月预约情况']
+			        data:['月注册情况']
 			    },
 			    toolbox: {
 			        show : true,
@@ -175,7 +175,7 @@ angular.module("directives.zhXian",[])
 			    ],
 			    series : [
 			        {
-			            name:'月预约情况',
+			            name:'月注册情况',
 			            type:'line',
 			            // stack: '总量',
 			            data:[]
