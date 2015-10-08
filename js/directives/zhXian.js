@@ -50,7 +50,6 @@ angular.module("directives.zhXian",[])
 				// console.log($scope.mapData)数据已经过来了
 				mapData=$scope.mapData;
 				var diffDays = moment(mapData.next.date).diff(mapData.pre.date,'day');
-				console.log(diffDays)
 				var xAxisArr = [];
 				var subject = [];
 				var subjectCancle = [];
@@ -123,7 +122,7 @@ angular.module("directives.zhXian",[])
 				var subjectCancle = [];
 				for(var index=0 ;index <= diffDays; index++){
 					var currentDate = mapDataWeek.pre.date+index;
-					var momentData=moment().week(currentDate).format("MM/DD");
+					var momentData=moment().isoWeek(currentDate).startOf('week').add('1','day').format("MM/DD");
 					var weekData=momentData+"--"+moment(momentData).add('6','days').format("MM/DD");
 					xAxisArr.push(weekData);
 					var subjectOrder = mapDataWeek.register;
