@@ -1,23 +1,25 @@
 <div ng-controller="examineNews">
-	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.userId" ></input>
-	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.name" ></input>
-	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.phone" ></input>
-	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.createDate"></input>
+	<button  class="btn btn-default fixed_width" style="width:20%">教练证,身份证正反面</button>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.Id" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.Phone" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:20%" ng-model="imuser.Cstatus"></input>
 	<div class="container" >
-		<button ng-click="examines(imuser)" class="btn btn-warning" data-toggle="modal" data-target="{{'.as-example-modal-lg-' + imuser.userId}}" >审核教练</button>
-		<button ng-click="examineRefuseCoach(imuser)" class="btn btn-warning" data-toggle="modal" data-target="{{'.bs-example-modal-lg-'+imuser.userId}}" >拒绝审核教练</button>
+		<button ng-click="examines(imuser)" ng-show=" imuser.Cstatus == '待审核'" class="btn btn-warning" data-toggle="modal" data-target="{{'.as-example-modal-lg-' + imuser.Id}}" >审核教练</button>
+		<button ng-click="examineRefuseCoach(imuser)" ng-show= "imuser.Cstatus == '待审核'" class="btn btn-warning" data-toggle="modal" data-target="{{'.bs-example-modal-lg-'+imuser.Id}}" >拒绝审核</button>
+		<button ng-show= "imuser.Cstatus == '已审核'" class="btn btn-warning" data-toggle="modal" data-target="{{'.cs-example-modal-lg-'+imuser.Id}}" >查看详情</button>
+		<button ng-show= "imuser.Cstatus == '已拒绝'" class="btn btn-warning" data-toggle="modal" data-target="{{'.ds-example-modal-lg-'+imuser.Id}}" >查看详情</button>
 		<div class="clear"></div>
-		<div class="{{'modal fade bs-example-modal-lg-'+imuser.userId}}" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="{{'modal fade bs-example-modal-lg-'+imuser.Id}}" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
 		    <div class="modal-content">
-		    	<img ng-src="{{examine.urlCoach}}" width="33%"  ng-click="showLarge(examine.urlCoach)" >
-		    	<img ng-src="{{examine.urlID}}" width="33%" ng-click="showLarge(examine.urlID)"  >
-		    	<img ng-src="{{examine.urlOther}}" width="33%"  ng-click="showLarge(examine.urlOther)"  >
+		    	<img ng-src="{{'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity}}" width="33%"  ng-click="showLarge('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity)" >
+		    	<img ng-src="{{ 'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa}}" width="33%" ng-click="showLarge('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa)"  >
+		    	<img ng-src="{{ 'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb}}" width="33%"  ng-click="showLarge('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb)"  >
 		      	<form name="reason_form" novalidate  style="margin-top:20px">
 		      		<label>拒绝原因</label>
 		      		<br>
 					<input  class="form-control"  ng-model="examine.resaon" style="float:left" class="form-control" />
-					<button type="submit" class="btn btn-success" ng-click="examineResaon()" style="float:left" >提交</button>
+					<button type="submit" class="btn btn-success" ng-click="examineResaon(imuser.Id)" style="float:left" >提交</button>
 				</form>
 				<div class="clear"></div>
 				<div  ng-show="largeImg" style="margin-top:50px">
@@ -31,27 +33,56 @@
 		  </div>
 		</div>
 		<div class="clear"></div>
-		<div class="{{'modal fade as-example-modal-lg-'+ imuser.userId}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="{{'modal fade as-example-modal-lg-'+ imuser.Id}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
 		    <div class="modal-content">
-		    	<img ng-src="{{examine.urlCoacha}}" width="33%"  ng-click="showLarger(examine.urlCoacha)">
-		    	<img ng-src="{{examine.urlIDa}}" width="33%" ng-click="showLarger(examine.urlIDa)"  >
-		    	<img ng-src="{{examine.urlOthera}}" width="33%" ng-click="showLarger(examine.urlOthera)">
+		    	<img ng-src="{{ 'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity}}" width="33%"  ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity)">
+		    	<img ng-src="{{'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa}}" width="33%" ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa)"  >
+		    	<img ng-src="{{'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb}}" width="33%" ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb)">
 		      	<form name="examine_form" novalidate style="margin-top:20px;margin-left:30px">
 					<lable>输入名字</lable>
 					<input type="text" ng-model="examine.name" required class="form-control" />
-					<lable>输入身份证</lable>
-					<input type="text" ng-model="examine.id" required class="form-control"   />
-					<lable>输入teachType</lable> 
-					<select  class="form-control" ng-model="examine.teachType">
-						<option class="form-control" value="0" >0(表示一对一)</option>
-						<option class="form-control" value="1" >1(表示一对多)</option>
-					</select>
-					<lable>用户手机号</lable>
-					<input type="text" ng-model="examine.phone" required class="form-control"   />
 					<br>
-					<button type="submit" ng-click="examineCoach()" class="btn btn-success" >提交</button>
+					<button type="submit" ng-click="examineCoach(imuser.Id)" class="btn btn-success" >提交</button>
 				</form>
+				<div class="clear"></div>
+				<div  ng-show="largeImage" style="margin-top:30px">
+					<img  ng-src="{{myHref}}"  class="largeImg" large-img />
+					<small>点击旋转图片</small>
+				</div>
+				<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right">Close</button>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+		<div class="clear"></div>
+		<div class="{{'modal fade cs-example-modal-lg-'+ imuser.Id}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<img ng-src="{{ 'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity}}" width="33%"  ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity)">
+		    	<img ng-src="{{'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa}}" width="33%" ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa)"  >
+		    	<img ng-src="{{'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb}}" width="33%" ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb)">
+				<p  class="form-control" style="margin:20px 0px 20px 20px;border:none">姓名：{{imuser.Nameremark}}</p>
+				<div class="clear"></div>
+				<div  ng-show="largeImage" style="margin-top:30px">
+					<img  ng-src="{{myHref}}"  class="largeImg" large-img />
+					<small>点击旋转图片</small>
+				</div>
+				<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right">Close</button>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+		<div class="clear"></div>
+		<div class="{{'modal fade ds-example-modal-lg-'+ imuser.Id}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<img ng-src="{{ 'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity}}" width="33%"  ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Coachidentity)">
+		    	<img ng-src="{{'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa}}" width="33%" ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationa)"  >
+		    	<img ng-src="{{'http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb}}" width="33%" ng-click="showLarger('http://7xjjmt.com2.z0.glb.qiniucdn.com/'+imuser.Identificationb)">
+				<p  class="form-control" style="margin:20px 0px 20px 20px;border:none">拒绝原因：{{imuser.Rejectreason}}</p>
 				<div class="clear"></div>
 				<div  ng-show="largeImage" style="margin-top:30px">
 					<img  ng-src="{{myHref}}"  class="largeImg" large-img />

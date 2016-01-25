@@ -1,0 +1,40 @@
+<div ng-controller="cashList">
+	<input type="text" class="btn btn-default fixed_width" style="width:10%" ng-model="cash.Id" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:10%" ng-model="cash.Name" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:10%" ng-model="cash.Username" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:10%" ng-model="cash.Phone" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:15%" ng-model="cash.Createtime" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:10%" ng-model="cash.Sum" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:10%" ng-model="cash.Status" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:15%" ng-model="cash.Updatetime" ></input>
+	<button  class="btn btn-warning" style="width:6%"  data-toggle="modal" data-target="{{'.as-example-modal-lg-' + cash.Id}}" >操作</button>
+	<div class="container">
+		<div class="clear"></div>
+		<div class="{{'modal fade as-example-modal-lg-'+ cash.Id}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<div class="money" style="width:80%;margin:0 auto;margin-top:20px;border:1px solid #dcdcdc;margin-bottom:100px">
+		    		<p style="width:100%;text-align:center;margin-top:30px;margin-bottom:50px;">更改状态</p>
+		    		<p>
+		    			<span>当前状态:</span>
+		    			<span>{{cash.Status}}</span>
+		    		</p>
+		    		更改为:
+		    		<select style="height:40px;width:180px;" ng-model="cash.status">
+		    			<!-- <option value="0" name="status">待处理</option> -->
+		    			<option value="1" name="status">提现成功</option>
+		    			<option value="2" name="status">提现失败</option>
+		    		</select>
+		    		<br>
+		    		<br>
+		    		失败原因:<input type="text" class="cancelReason" style="width:90%;height:50px;" ng-model="cash.remark">
+		    		<button ng-click="update(cash)" class="btn btn-warning" style="width:16%">保存</button>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+
+
+

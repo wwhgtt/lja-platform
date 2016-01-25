@@ -1,18 +1,13 @@
-<div class="container">
-	<button class="btn btn-success" ng-click="addSchoolRepeat()">添加驾校</button>
-	<button class="btn btn-success" ng-click="getSchoolRepeat()">获取驾校</button>
+<div class="container" style="width:90%">
+	<button type="button" class="btn btn-default fixed_width" style="width:6.5%" >订单ID</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:12.5%">下单时间</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:12.5%">更新时间</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:6.5%">下单人</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:12.5%">联系方式</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:10.5%">商品名</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:6.5%">商品ID</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:12.5%">所属教练</button>
+	<button type="button" class="btn btn-default fixed_width" style="width:12.5%">订单状态</button>
 	<div class="clear"></div>
-	<form  name="addDrive_form" novalidate ng-submit="addDriveForm()" ng-show="addSchool" class="getSchool">
-		<label>请输入驾校名字</label>
-		<div class="clear"></div>
-		<input type="text" placeholder="驾校名字" class="form-control driveName" ng-model="opt.name" />
-		<button class="btn btn-warning" ng-click="addDriveSchool()" class="driveName">确认提交</button>
-	</form>
-	<div class="clear"></div>
-	<div class="schoolList getSchool" ng-show="getSchool">
-		schoolList
-		<school-list ng-repeat="(key,school) in schoolList"></school-list>
-		<!-- <button class="btn btn-success" ng-click="getSchool('pre')">添加驾校</button>
-		<button class="btn btn-success" ng-click="getSchool('next')">获取驾校</button> -->
-	</div>
+	<order-list ng-repeat="(key,order) in orderList"></order-list>
 </div>

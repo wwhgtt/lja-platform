@@ -19,7 +19,7 @@ angular.module("controllers.platform",[])
 		if(err){
 			alert("sorry,访问出错");
 		}else{
-			if(result && result.state ==true){
+			if(result && result.result ==true){
 				$scope.loginDetile=true; 
 				$scope.login = "退出";
 				$scope.myhref="/platform/loginOut";

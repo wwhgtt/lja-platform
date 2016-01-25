@@ -16,12 +16,52 @@ angular.module("services.common",[])
 		}
 	}
 })
-.service("$getSchool",function(
+.service("$getOrder",function(
 	$http
 ){
 	return {
-		getSchool:function(callback){
-			$http.get(BASE_URL + '/platform/operate/driveSchool',{
+		getOrder:function(callback){
+			$http.post(BASE_URL + '/zhujbwx/getgoodorders',{
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//修改订单价格
+.service("$fixPrice",function(
+	$http
+){
+	return {
+		fixPrice:function(orderid,price,commision,callback){
+			$http.post(BASE_URL + '/zhujbwx/chgorderprice',{
+				orderid:orderid,
+				price:price,
+				commision:commision
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//修改状态
+.service("$fixstatus",function(
+	$http
+){
+	return {
+		fixstatus:function(orderid,status,cancelreason,callback){
+			$http.post(BASE_URL + '/zhujbwx/chgorderstatus',{
+				orderid:orderid,
+				status:status,
+				cancelreason:cancelreason
 			})
 			.success(function(data){
 				if(callback)callback(null,data); 
@@ -37,7 +77,45 @@ angular.module("services.common",[])
 ){
 	return {
 		getMaker:function(callback){
-			$http.get(BASE_URL + '/platform/operate/manager',{
+			$http.post(BASE_URL + '/zhujbwx/getcashlist',{
+				
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//提现成功
+.service("$success",function(
+	$http
+){
+	return {
+		success:function(cashid,callback){
+			$http.post(BASE_URL + '/zhujbwx/getcashsucc',{
+				cashid:cashid
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//提现失败
+.service("$faile",function(
+	$http
+){
+	return {
+		faile:function(cashid,cancelreason,callback){
+			$http.post(BASE_URL + '/zhujbwx/getcashfail',{
+				cashid:cashid,
+				remark:cancelreason
 			})
 			.success(function(data){
 				if(callback)callback(null,data); 
@@ -116,9 +194,9 @@ angular.module("services.common",[])
 ){
 	return {
 		login:function(userName,password,callback){
-			$http.post(BASE_URL + "/platform/login",{
-				userName:userName,
-				password:password
+			$http.post(BASE_URL+"/zhujbwx/login",{
+				mname:userName,
+				passwd:password
 			})
 			//下面的内容是必须的   表示执行一个回调   如果没有这个回调的话controllerjs里面也就无法执行页面的跳转
 			.success(function(data){
@@ -136,8 +214,66 @@ angular.module("services.common",[])
 ){
 	return {
 		loginOut:function(callback){
-			$http.get(BASE_URL + "/platform/loginOut",{
+			$http.post(BASE_URL + "/zhujbwx/loginout",{
 				
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+
+//添加备注名
+.service("$addnameremark",function(
+	$http
+){
+	return {
+		addnameremark:function(id,nameremark,callback){
+			$http.post(BASE_URL + "/zhujbwx/addnameremark",{
+				contractid:id,
+				nameremark:nameremark
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+//审核通过
+.service("$agreecontract",function(
+	$http
+){
+	return {
+		agreecontract:function(id,callback){
+			$http.post(BASE_URL + "/zhujbwx/agreecontract",{
+				contractid:id
+			})
+			.success(function(data){
+				if(callback)callback(null,data); 
+			})
+			.error(function(err){
+				if(callback)callback(err);
+			})
+		}
+	}
+})
+
+//拒绝审核
+.service("$rejectcontract",function(
+	$http
+){
+	return {
+		rejectcontract:function(id,reason,callback){
+			$http.post(BASE_URL + "/zhujbwx/rejectcontract",{
+				contractid:id,
+				rejectreason:reason
 			})
 			.success(function(data){
 				if(callback)callback(null,data); 
@@ -574,7 +710,7 @@ angular.module("services.common",[])
 ){
 	return {
 		getExamineUser:function(callback){
-			$http.get(BASE_URL + "/platform/operate/coach/applyList",{})
+			$http.post(BASE_URL + "/zhujbwx/getcontracts",{})
 			.success(function(data){
 				if(callback)callback(null,data);
 			})
@@ -627,9 +763,7 @@ angular.module("services.common",[])
 ){
 	return {
 		loginState:function(callback){
-			$http.get(BASE_URL + "/platform/loginState",{
-				
-			})
+			$http.post(BASE_URL+"/zhujbwx/trylogin")
 			.success(function(data){
 				if(callback)callback(null,data);
 			})

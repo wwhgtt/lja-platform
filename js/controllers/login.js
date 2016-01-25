@@ -12,7 +12,7 @@ angular.module("controllers.login",[])
 			if(err){
 				alert("sorry,访问出错");
 			}else{
-				if(result && result.role == "admin"){ 
+				if(result && result.result == true){ 
 					$location.path("/platform");
 					$scope.$emit("userLogin");
 				}else{

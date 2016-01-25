@@ -1,0 +1,51 @@
+<div ng-controller="orderList">
+	<input type="text" class="btn btn-default fixed_width" style="width:6.5%" ng-model="order.Id" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:12.5%" ng-model="order.Ordercreated" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:12.5%" ng-model="order.Orderupdated" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:6.5%" ng-model="order.CustomerName" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:12.5%" ng-model="order.CustomerPhone" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:10.5%" ng-model="order.Goodsname" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:6.5%" ng-model="order.Goodsid" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:12.5%" ng-model="order.Nickname" ></input>
+	<input type="text" class="btn btn-default fixed_width" style="width:12.5%" ng-model="order.Status"></input>
+	<button  class="btn btn-warning" style="width:6%"  data-toggle="modal" data-target="{{'.as-example-modal-lg-' + order.Id}}" >操作</button>
+	<div class="container" >
+		<div class="clear"></div>
+		<div class="{{'modal fade as-example-modal-lg-'+ order.Id}}"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<div class="money" style="width:80%;margin:0 auto;margin-top:20px;border:1px solid #dcdcdc">
+		    		<p style="width:100%;text-align:center;margin-top:30px;margin-bottom:50px;">备注价格及佣金</p>
+		    		<form style="margin-left:10%;margin-bottom:30px">
+		    			<label>价格</label><input type="text" ng-model="order.OrderPrice">
+			    		<label>佣金</label><input type="text" ng-model="order.OrderCommission">
+			    		<div class="clear"></div>
+			    		<button ng-click="examines(order)" class="btn btn-warning" style="width:16%">保存</button>
+		    		</form>
+		    	</div>
+		    	<div class="money" style="width:80%;margin:0 auto;margin-top:20px;border:1px solid #dcdcdc;margin-bottom:100px">
+		    		<p style="width:100%;text-align:center;margin-top:30px;margin-bottom:50px;">更改状态</p>
+		    		<p>
+		    			<span>当前状态:</span>
+		    			<span>{{order.Status}}</span>
+		    		</p>
+		    		更改为:
+		    		<select style="height:40px;width:180px;" ng-model="order.status">
+		    			<option value="3" name="status">跟进中</option>
+		    			<option value="1" name="status">完成</option>
+		    			<option value="2" name="status">取消</option>
+		    		</select>
+		    		<br>
+		    		<br>
+		    		取消原因:<input type="text" class="cancelReason" style="width:90%;height:50px;" ng-model="order.Cancelreason">
+
+		    		<button ng-click="update(order)" class="btn btn-warning" style="width:16%">保存</button>
+		    	</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+
+
+
